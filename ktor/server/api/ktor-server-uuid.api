@@ -1,0 +1,10 @@
+public final class kotlinx/uuid/ktor/ConfigureKt {
+	public static final fun uuid (Lio/ktor/features/DataConversion$Configuration;)V
+}
+
+public final class kotlinx/uuid/ktor/UUIDConversionService : io/ktor/util/ConversionService {
+	public static final field INSTANCE Lkotlinx/uuid/ktor/UUIDConversionService;
+	public fun fromValues (Ljava/util/List;Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	public fun toValues (Ljava/lang/Object;)Ljava/util/List;
+}
+
