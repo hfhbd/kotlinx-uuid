@@ -5,8 +5,7 @@
 package kotlinx.uuid.tests
 
 import kotlinx.uuid.*
-import kotlin.test.Test
-import kotlin.test.assertEquals
+import kotlin.test.*
 
 class JavaConvertingTest {
 
