@@ -7,6 +7,11 @@ public final class kotlinx/uuid/BinarySerializer : kotlinx/serialization/KSerial
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlinx/uuid/UUID;)V
 }
 
+public final class kotlinx/uuid/ConvertingKt {
+	public static final fun toJavaUUID (Lkotlinx/uuid/UUID;)Ljava/util/UUID;
+	public static final fun toKotlinUUID (Ljava/util/UUID;)Lkotlinx/uuid/UUID;
+}
+
 public abstract interface annotation class kotlinx/uuid/InternalAPI : java/lang/annotation/Annotation {
 }
 
