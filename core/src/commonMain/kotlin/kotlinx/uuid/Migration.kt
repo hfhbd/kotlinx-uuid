@@ -24,7 +24,7 @@ public fun UUID.clockSequence(): Int = clockSequence
 @Deprecated("Use node property instead", ReplaceWith("node"))
 public fun UUID.node(): Long = node
 
-@Deprecated("Use UUID constructor instead", ReplaceWith("UUID(name)", "cy.uuid.UUID"))
+@Deprecated("Use UUID constructor instead", ReplaceWith("UUID(name)"))
 public fun UUID.Companion.fromString(name: String): UUID = UUID(name)
 
 @Deprecated(
