@@ -68,7 +68,12 @@ allprojects {
 
             repositories {
                 maven {
-                    url = uri("${rootProject.buildDir}/repo")
+                    name = "GitHubPackages"
+                    url = uri("https://maven.pkg.github.com/cy6erGn0m/kotlinx-uuid")
+                    credentials {
+                        username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                        password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+                    }
                 }
             }
         }
