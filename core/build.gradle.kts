@@ -19,7 +19,13 @@ kotlin {
     linuxArm64()
     js(BOTH) {
         nodejs()
-        browser()
+        browser {
+            testTask {
+                useKarma {
+                    useChromeHeadless()
+                }
+            }
+        }
     }
 
     explicitApi()
@@ -56,6 +62,7 @@ kotlin {
         val jsTest by getting {
             dependencies {
                 api(kotlin("test-js"))
+                api(npm("puppeteer", "*"))
             }
         }
     }
