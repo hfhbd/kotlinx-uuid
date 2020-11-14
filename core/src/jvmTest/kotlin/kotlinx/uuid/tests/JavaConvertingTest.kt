@@ -5,7 +5,6 @@
 package kotlinx.uuid.tests
 
 import kotlinx.uuid.*
-import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
