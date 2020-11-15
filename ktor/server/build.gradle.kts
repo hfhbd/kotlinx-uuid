@@ -12,6 +12,12 @@ kotlin {
     explicitApi()
 
     sourceSets {
+        all {
+            languageSettings.progressiveMode = true
+            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
+            languageSettings.useExperimentalAnnotation("kotlinx.uuid.InternalAPI")
+        }
+
         getByName("jvmMain") {
             dependencies {
                 api(project(":kotlinx-uuid-core"))
