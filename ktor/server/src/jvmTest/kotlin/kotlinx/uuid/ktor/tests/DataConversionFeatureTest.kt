@@ -6,7 +6,11 @@ package kotlinx.uuid.ktor.tests
 
 import io.ktor.application.*
 import io.ktor.features.*
+import io.ktor.http.*
+import io.ktor.response.*
+import io.ktor.routing.*
 import io.ktor.server.testing.*
+import io.ktor.util.*
 import kotlinx.uuid.*
 import kotlinx.uuid.ktor.*
 import kotlin.test.*
@@ -21,5 +25,26 @@ class DataConversionFeatureTest {
         val feature = application.feature(DataConversion)
         assertEquals(UUID(SOME_UUID_STRING), feature.fromValues(listOf(SOME_UUID_STRING), UUID::class.java))
         assertEquals(listOf(SOME_UUID_STRING), feature.toValues(UUID(SOME_UUID_STRING)))
+    }
+
+    @Test
+    @Ignore
+    @OptIn(KtorExperimentalAPI::class)
+    // this is still not working: ktor doesn't pick up conversion services in delegation
+    fun testCallParameterDecoding(): Unit = withTestApplication {
+        application.install(DataConversion) {
+            uuid()
+        }
+
+        application.routing {
+            get("/{uuid}") {
+                val uuid: UUID by call.parameters
+                call.respondText(uuid.toString())
+            }
+        }
+
+        handleRequest(HttpMethod.Get, "/$SOME_UUID_STRING").let { call ->
+            assertEquals(SOME_UUID_STRING, call.response.content)
+        }
     }
 }
