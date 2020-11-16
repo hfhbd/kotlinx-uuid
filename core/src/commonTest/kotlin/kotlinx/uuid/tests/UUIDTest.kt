@@ -229,4 +229,17 @@ class UUIDTest {
             assertEquals(clockSequenceVariantAndNodeRaw, getLeastSignificantBits())
         }
     }
+
+    @Test
+    @OptIn(UUIDExperimentalAPI::class)
+    fun testIsValidString() {
+        assertTrue(UUID.isValidUUIDString(SOME_UUID_STRING))
+        assertTrue(UUID.isValidUUIDString("{$SOME_UUID_STRING}"))
+        assertTrue(UUID.isValidUUIDString(" {$SOME_UUID_STRING}"))
+        assertTrue(UUID.isValidUUIDString(" {$SOME_UUID_STRING} "))
+
+        assertFalse(UUID.isValidUUIDString(SOME_UUID_STRING.drop(1)))
+        assertFalse(UUID.isValidUUIDString(SOME_UUID_STRING.dropLast(1)))
+        assertFalse(UUID.isValidUUIDString(SOME_UUID_STRING.replace('b', 'X')))
+    }
 }

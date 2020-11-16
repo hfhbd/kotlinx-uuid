@@ -76,6 +76,7 @@ public final class kotlinx/uuid/UUID : java/lang/Comparable {
 
 public final class kotlinx/uuid/UUID$Companion {
 	public final fun getNIL ()Lkotlinx/uuid/UUID;
+	public final fun isValidUUIDString (Ljava/lang/String;)Z
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 

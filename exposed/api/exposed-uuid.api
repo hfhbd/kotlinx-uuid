@@ -1,0 +1,23 @@
+public final class kotlinx/uuid/exposed/DslKt {
+	public static final fun autoGenerate (Lorg/jetbrains/exposed/sql/Column;Lkotlin/random/Random;)Lorg/jetbrains/exposed/sql/Column;
+	public static synthetic fun autoGenerate$default (Lorg/jetbrains/exposed/sql/Column;Lkotlin/random/Random;ILjava/lang/Object;)Lorg/jetbrains/exposed/sql/Column;
+	public static final fun kotlinxUUID (Lorg/jetbrains/exposed/sql/Table;Ljava/lang/String;)Lorg/jetbrains/exposed/sql/Column;
+}
+
+public class kotlinx/uuid/exposed/KotlinxUUIDTable : org/jetbrains/exposed/dao/id/IdTable {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/random/Random;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/random/Random;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getId ()Lorg/jetbrains/exposed/sql/Column;
+	public fun getPrimaryKey ()Lorg/jetbrains/exposed/sql/Table$PrimaryKey;
+}
+
+public final class kotlinx/uuid/exposed/UUIDColumnType : org/jetbrains/exposed/sql/ColumnType {
+	public fun <init> ()V
+	public fun nonNullValueToString (Ljava/lang/Object;)Ljava/lang/String;
+	public fun notNullValueToDB (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun sqlType ()Ljava/lang/String;
+	public synthetic fun valueFromDB (Ljava/lang/Object;)Ljava/lang/Object;
+	public fun valueFromDB (Ljava/lang/Object;)Lkotlinx/uuid/UUID;
+}
+

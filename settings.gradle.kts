@@ -40,3 +40,6 @@ project(":core").name = "kotlinx-uuid-core"
 
 include("ktor-server-uuid")
 project(":ktor-server-uuid").projectDir = file("${rootProject.projectDir}/ktor/server")
+
+include("exposed-uuid")
+project(":exposed-uuid").projectDir = file("${rootProject.projectDir}/exposed")

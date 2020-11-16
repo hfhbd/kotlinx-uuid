@@ -180,6 +180,18 @@ public class UUID private constructor(
          */
         public val NIL: UUID = create(0L, 0L)
 
+        /**
+         * Check the [spec] string to conform to UUID
+         * @return `true` if the [spec] string is a UUID string
+         */
+        @UUIDExperimentalAPI
+        public fun isValidUUIDString(spec: String): Boolean = try {
+            parseUUID(spec)
+            true
+        } catch (cause: UUIDFormatException) {
+            false
+        }
+
         internal fun create(
             timeStampAndVersionRaw: Long,
             clockSequenceVariantAndNodeRaw: Long
