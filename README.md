@@ -9,6 +9,14 @@
 
 > ##### This library is experimental, and it's not recommended for production at the moment.
 
+##### Table of Contents  
+- [Including](#including)
+- [Usage](#usage): [from string](#creating-from-a-uuid-string), [generating](#generating-uuid4-using-random)
+- [Serialization](#serializing-kotlinxserialization)
+- [Using with ktor](#using-with-ktor)
+- [Migrating from `java.util.UUID`](#migrating-from-javautiluuid)
+- [Using with Exposed](#using-with-exposed)
+
 kotlinx-uuid is a multiplatform (MPP) [Kotlin](https://kotlinlang.org) library 
 introducing support for [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
