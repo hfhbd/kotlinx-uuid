@@ -43,3 +43,6 @@ project(":ktor-server-uuid").projectDir = file("${rootProject.projectDir}/ktor/s
 
 include("exposed-uuid")
 project(":exposed-uuid").projectDir = file("${rootProject.projectDir}/exposed")
+
+include("gson-uuid")
+project(":gson-uuid").projectDir = file("${rootProject.projectDir}/gson")

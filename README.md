@@ -16,6 +16,7 @@
 - [Using with ktor](#using-with-ktor)
 - [Migrating from `java.util.UUID`](#migrating-from-javautiluuid)
 - [Using with Exposed](#using-with-exposed)
+- [Using with Gson](#using-with-gson)
 
 kotlinx-uuid is a multiplatform (MPP) [Kotlin](https://kotlinlang.org) library 
 introducing support for [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
@@ -172,3 +173,20 @@ object MyTable : Table() {
     val column2 = uuid("C2") // java.util.UUID
 }
 ```
+
+## Using with Gson
+
+To use [UUID] with [Gson](https://github.com/google/gson)
+you need to register the serializer:
+
+```kotlin
+dependencies {
+    implementation("org.jetbrains.kotlinx.experimental:gson-uuid:$version")
+}
+```
+
+```kotlin
+val gson = GsonBuilder().registerUUID().create()
+```
+
+After that [UUID] will be serialized to JSON string primitives.
