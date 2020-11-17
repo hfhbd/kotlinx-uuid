@@ -45,7 +45,7 @@ public fun UUID.Companion.nameUUIDFromBytes(bytes: ByteArray): UUID {
 @Suppress("DeprecatedCallableAddReplaceWith")
 @Deprecated(
     "This is internal details that shouldn't be used. " +
-            "Please suppress and file a ticket if it is actually required.",
+        "Please suppress and file a ticket if it is actually required.",
     level = DeprecationLevel.ERROR
 )
 public fun UUID.getLeastSignificantBits(): Long = clockSequenceVariantAndNodeRaw
@@ -53,7 +53,7 @@ public fun UUID.getLeastSignificantBits(): Long = clockSequenceVariantAndNodeRaw
 @Suppress("DeprecatedCallableAddReplaceWith")
 @Deprecated(
     "This is internal details that shouldn't be used. " +
-            "Please suppress and file a ticket if it is actually required.",
+        "Please suppress and file a ticket if it is actually required.",
     level = DeprecationLevel.ERROR
 )
 public fun UUID.getMostSignificantBits(): Long = timeStampAndVersionRaw

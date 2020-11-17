@@ -33,7 +33,7 @@ public object BinarySerializer : KSerializer<UUID> {
 
     override fun deserialize(decoder: Decoder): UUID {
         return decoder.decodeSerializableValue(serializer).let { array ->
-            if(array.size != 2) {
+            if (array.size != 2) {
                 throw SerializationException("UUID array should consist of 2 elements")
             }
 

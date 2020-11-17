@@ -45,6 +45,5 @@ class UUIDTableTest {
         }
     }
 
-    object TestTable : KotlinxUUIDTable() {
-    }
+    object TestTable : KotlinxUUIDTable()
 }

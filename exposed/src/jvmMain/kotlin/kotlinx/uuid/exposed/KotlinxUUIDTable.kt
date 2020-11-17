@@ -19,7 +19,8 @@ import kotlin.random.*
  * @param random is used to generate unique UUIDs.
  */
 public open class KotlinxUUIDTable(
-    name: String = "", columnName: String = "id",
+    name: String = "",
+    columnName: String = "id",
     random: kotlin.random.Random = SecureRandom().asKotlinRandom()
 ) : IdTable<UUID>(name) {
     override val id: Column<EntityID<UUID>> = kotlinxUUID(columnName)

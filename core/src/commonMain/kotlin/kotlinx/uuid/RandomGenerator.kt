@@ -19,7 +19,7 @@ public fun UUID.Companion.generateUUID(random: Random = Random.Default): UUID {
     // set variant to 4 or 5
     // we keep the lower variant bit random as it is defined as "don't care"
     val clockSequenceVariantAndNodeRaw: Long = random.nextLong() and
-            0x3fffffffffffffffL or (0x80L shl 0x38)
+        0x3fffffffffffffffL or (0x80L shl 0x38)
 
     return create(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw)
 }
@@ -28,4 +28,3 @@ public fun UUID.Companion.generateUUID(random: Random = Random.Default): UUID {
  * Generates a random UUID v4 using this [Random] instance.
  */
 public fun Random.nextUUID(): UUID = UUID.generateUUID(this)
-

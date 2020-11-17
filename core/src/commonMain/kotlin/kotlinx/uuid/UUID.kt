@@ -48,9 +48,9 @@ public class UUID private constructor(
         variant: Int = 5
     ) : this(
         timeStampAndVersionRaw = (timeStamp shl 32) or (timeStamp and 0xffff00000000L shr 16) or
-                (timeStamp shr 48) or (versionNumber.toLong() shl 12),
+            (timeStamp shr 48) or (versionNumber.toLong() shl 12),
         clockSequenceVariantAndNodeRaw = (clockSequence.toLong() shl 48) or
-                (variant.toLong() shl 61) or node
+            (variant.toLong() shl 61) or node
     ) {
         require(versionNumber in 0..15)
         require(variant in 0..7)
@@ -78,8 +78,8 @@ public class UUID private constructor(
      */
     public val timeStamp: Long
         get() = (timeStampAndVersionRaw ushr 32) or
-                (timeStampAndVersionRaw and 0xffff0000L shl 16) or
-                (timeStampAndVersionRaw and 0x0fffL shl 48)
+            (timeStampAndVersionRaw and 0xffff0000L shl 16) or
+            (timeStampAndVersionRaw and 0x0fffL shl 48)
 
     /**
      * 13-bits non-negative number representing a sequence number
@@ -149,8 +149,8 @@ public class UUID private constructor(
 
     override fun equals(other: Any?): Boolean {
         return other is UUID &&
-                other.clockSequenceVariantAndNodeRaw == clockSequenceVariantAndNodeRaw &&
-                other.timeStampAndVersionRaw == timeStampAndVersionRaw
+            other.clockSequenceVariantAndNodeRaw == clockSequenceVariantAndNodeRaw &&
+            other.timeStampAndVersionRaw == timeStampAndVersionRaw
     }
 
     override fun compareTo(other: UUID): Int {

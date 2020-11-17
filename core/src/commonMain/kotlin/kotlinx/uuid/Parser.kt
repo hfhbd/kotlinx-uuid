@@ -15,12 +15,12 @@ internal fun parseUUID(text: String): UUID {
 
     // time mid
     timeStampAndVersionRaw = timeStampAndVersionRaw or
-            parseOctetStride(text, textIndex, 2, 16)
+        parseOctetStride(text, textIndex, 2, 16)
     textIndex = skipCharacters(text, textIndex + 4, '-')
 
     // time high and version
     timeStampAndVersionRaw = timeStampAndVersionRaw or
-            parseOctetStride(text, textIndex, 2, 0)
+        parseOctetStride(text, textIndex, 2, 0)
     textIndex = skipCharacters(text, textIndex + 4, '-')
 
     // variant + clock
@@ -29,7 +29,7 @@ internal fun parseUUID(text: String): UUID {
 
     // node
     clockSequenceVariantAndNodeRaw = clockSequenceVariantAndNodeRaw or
-            parseOctetStride(text, textIndex, 6, 0)
+        parseOctetStride(text, textIndex, 6, 0)
 
     textIndex = skipCharacters(text, textIndex + 12, '}')
 
@@ -41,7 +41,8 @@ internal fun parseUUID(text: String): UUID {
 }
 
 private fun parseOctetStride(
-    text: String, textIndex: Int,
+    text: String,
+    textIndex: Int,
     numberOfOctets: Int,
     shift: Int
 ): Long {
