@@ -3,12 +3,15 @@
  */
 
 import org.jetbrains.kotlin.gradle.dsl.*
+import org.jetbrains.kotlin.utils.addToStdlib.*
+import org.jmailen.gradle.kotlinter.*
 
 plugins {
     kotlin("multiplatform") apply false
     kotlin("plugin.serialization") apply false
     id("binary-compatibility-validator")
     `maven-publish`
+    id("org.jmailen.kotlinter") version "3.2.0" apply false
 }
 
 allprojects {
@@ -22,6 +25,12 @@ allprojects {
         apply {
             plugin("org.jetbrains.kotlin.multiplatform")
             plugin("maven-publish")
+            plugin("org.jmailen.kotlinter")
+        }
+
+        convention["kotlinter"].cast<KotlinterExtension>().apply {
+            disabledRules = arrayOf("no-wildcard-imports")
+            experimentalRules = true
         }
     }
 
