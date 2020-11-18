@@ -12,9 +12,7 @@ val kotlinxSerializationVersion: String by project.extra
 kotlin {
     jvm()
     macosX64()
-    iosArm32()
-    iosArm64()
-    iosX64()
+    ios()
     linuxX64()
     linuxArm64()
     js(BOTH) {
