@@ -22,7 +22,6 @@ class GenerationTest {
         assertNotEquals(UUID.generateUUID(Random(777)), UUID.generateUUID(Random(778)))
     }
 
-
     @Test
     fun testRandomExtension() {
         Random.nextUUID().assertRandomGenerated()
