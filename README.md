@@ -29,7 +29,7 @@ Supported platforms are:
 - JVM (Java 6+)
 - JavaScript (including the new IR backend)
 - Native:
-    - MacOS X64, _iOS ARM32 (untested)_, _iOS ARM64 (untested)_
+    - MacOS X64, _iOS ARM64 (untested)_
     - Linux X64, _ARM64 (untested)_
 
 > *untested means that on that platform we didn't run any 
