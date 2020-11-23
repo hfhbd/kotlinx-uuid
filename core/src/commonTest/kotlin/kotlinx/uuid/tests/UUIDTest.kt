@@ -219,9 +219,7 @@ class UUIDTest {
         UUID.randomUUID()
 
         @Suppress("DEPRECATION_ERROR")
-        assertFailsWith<NotImplementedError> {
-            UUID.nameUUIDFromBytes(byteArrayOf())
-        }
+        UUID.nameUUIDFromBytes(byteArrayOf())
 
         @Suppress("DEPRECATION_ERROR")
         with(UUID(SOME_UUID_STRING)) {

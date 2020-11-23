@@ -12,6 +12,13 @@ public final class kotlinx/uuid/ConvertingKt {
 	public static final fun toKotlinUUID (Ljava/util/UUID;)Lkotlinx/uuid/UUID;
 }
 
+public final class kotlinx/uuid/EncodingKt {
+	public static final fun UUID ([B)Lkotlinx/uuid/UUID;
+	public static final fun UUID ([J)Lkotlinx/uuid/UUID;
+	public static final fun encodeToByteArray (Lkotlinx/uuid/UUID;)[B
+	public static final fun encodeToLongArray (Lkotlinx/uuid/UUID;)[J
+}
+
 public abstract interface annotation class kotlinx/uuid/InternalAPI : java/lang/annotation/Annotation {
 }
 
@@ -26,6 +33,11 @@ public final class kotlinx/uuid/MigrationKt {
 	public static final fun timestamp (Lkotlinx/uuid/UUID;)J
 	public static final fun variant (Lkotlinx/uuid/UUID;)I
 	public static final fun version (Lkotlinx/uuid/UUID;)I
+}
+
+public final class kotlinx/uuid/NameBasedGeneratorKt {
+	public static final fun generateUUID (Lkotlinx/uuid/UUID$Companion;Lkotlinx/uuid/UUID;Ljava/lang/String;)Lkotlinx/uuid/UUID;
+	public static final fun generateUUID (Lkotlinx/uuid/UUID$Companion;[B)Lkotlinx/uuid/UUID;
 }
 
 public final class kotlinx/uuid/RandomGeneratorKt {

@@ -36,10 +36,15 @@ public fun UUID.Companion.randomUUID(): UUID {
     return generateUUID(Random.Default)
 }
 
-@Deprecated("This is not yet supported in kotlinx-uuid", level = DeprecationLevel.ERROR)
+@Deprecated(
+    "Use UUID.generateUUID instead that does SHA-1 instead of MD5. " +
+        "So for the same input bytes it will produce other UUID than java.util.UUID.",
+    level = DeprecationLevel.ERROR,
+    replaceWith = ReplaceWith("UUID.generateUUID(bytes)")
+)
 @Suppress("unused_parameter")
 public fun UUID.Companion.nameUUIDFromBytes(bytes: ByteArray): UUID {
-    TODO("Generating UUID by name bytes is not yet supported")
+    return UUID.generateUUID(bytes)
 }
 
 @Suppress("DeprecatedCallableAddReplaceWith")

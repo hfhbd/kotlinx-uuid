@@ -25,10 +25,7 @@ public object BinarySerializer : KSerializer<UUID> {
     override val descriptor: SerialDescriptor = serializer.descriptor
 
     override fun serialize(encoder: Encoder, value: UUID) {
-        encoder.encodeSerializableValue(
-            serializer,
-            longArrayOf(value.timeStampAndVersionRaw, value.clockSequenceVariantAndNodeRaw)
-        )
+        encoder.encodeSerializableValue(serializer, value.encodeToLongArray())
     }
 
     override fun deserialize(decoder: Decoder): UUID {
@@ -37,10 +34,7 @@ public object BinarySerializer : KSerializer<UUID> {
                 throw SerializationException("UUID array should consist of 2 elements")
             }
 
-            UUID.create(
-                array[0],
-                array[1]
-            )
+            UUID(array)
         }
     }
 }
