@@ -46,3 +46,6 @@ project(":exposed-uuid").projectDir = file("${rootProject.projectDir}/exposed")
 
 include("gson-uuid")
 project(":gson-uuid").projectDir = file("${rootProject.projectDir}/gson")
+
+include("jackson-module-uuid")
+project(":jackson-module-uuid").projectDir = file("${rootProject.projectDir}/jackson")

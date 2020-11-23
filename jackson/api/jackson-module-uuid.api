@@ -1,0 +1,5 @@
+public final class kotlinx/uuid/jackson/UUIDModule {
+	public static final fun getUuidModule ()Lcom/fasterxml/jackson/databind/Module;
+	public static final fun uuid (Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;
+}
+

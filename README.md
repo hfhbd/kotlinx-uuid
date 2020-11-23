@@ -17,6 +17,7 @@
 - [Migrating from `java.util.UUID`](#migrating-from-javautiluuid)
 - [Using with Exposed](#using-with-exposed)
 - [Using with Gson](#using-with-gson)
+- [Using with Jackson](#using-with-jackson)
 
 kotlinx-uuid is a multiplatform (MPP) [Kotlin](https://kotlinlang.org) library 
 introducing support for [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
@@ -190,3 +191,26 @@ val gson = GsonBuilder().registerUUID().create()
 ```
 
 After that [UUID] will be serialized to JSON string primitives.
+
+## Using with Jackson
+
+To use [UUID] with [Jackson](https://github.com/FasterXML/jackson-databind)
+you need to register the module:
+
+```kotlin
+dependencies {
+    implementation("org.jetbrains.kotlinx.experimental:jackson-module-uuid:$version")
+}
+```
+
+```kotlin
+val jackson = ObjectMapper().uuid()
+
+val json = jackson.writeValueAsString(
+    UUID.generateUUID()
+)
+```
+
+After that [UUID] will be serialized to JSON string primitives.
+
+Having jackson-module-kotlin is recommended but not required.
