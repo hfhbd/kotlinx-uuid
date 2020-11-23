@@ -11,7 +11,9 @@
 
 ##### Table of Contents  
 - [Including](#including)
-- [Usage](#usage): [from string](#creating-from-a-uuid-string), [generating](#generating-uuid4-using-random)
+- [Usage](#usage): [from string](#creating-from-a-uuid-string),
+  [generating](#generating-uuid4-using-random), 
+  [hashing](#generating-uuid5-using-hash)
 - [Serialization](#serializing-kotlinxserialization)
 - [Using with ktor](#using-with-ktor)
 - [Migrating from `java.util.UUID`](#migrating-from-javautiluuid)
@@ -67,6 +69,26 @@ val uuid = UUID.generateUUID()
 // use secure random (just like java.util.UUID does)
 val secure = UUID.generateUUID(SecureRandom().asKotlinRandom())
 ```
+#### Generating UUID5 using hash
+
+kotlinx-uuid provides the ability to generate
+uuids by hashing names (Only SHA-1 is supported at the moment).
+
+```kotlin
+val appNamespace = UUID("my-app-uuid")
+val agentId = UUID.generateUUID(appNamespace, "agentId")
+```
+
+The other alternative is to generate UUID by hashing 
+bytes (similar to `java.util.UUID.nameUUIDFromBytes`).
+
+```kotlin
+val uuid = UUID.generateUUID(bytes)
+```
+
+> Note that unlike `java.util.UUID`, kotlinx's generateUUID
+> doesn't support MD5, so the blind migration
+> from Java to kotlinx-uuid may lead to changing UUIDs.
 
 #### Serializing (kotlinx.serialization)
 
@@ -137,6 +159,12 @@ import kotlinx.uuid.UUID
 
 fun f(id: String) = UUID(id)
 ```
+
+> Note that unlike `java.util.UUID.nameUUIDFromBytes`, kotlinx's generateUUID
+> doesn't support MD5, so the blind migration
+> from Java to kotlinx-uuid may lead to changing UUIDs
+> This is why it is marked as error, so you need to think
+> first, if you can simply replace it or not.
 
 ## Using with Exposed
 
