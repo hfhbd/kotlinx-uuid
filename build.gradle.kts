@@ -78,10 +78,10 @@ allprojects {
             repositories {
                 maven {
                     name = "GitHubPackages"
-                    url = uri("https://maven.pkg.github.com/cy6erGn0m/kotlinx-uuid")
+                    url = uri("https://api.bintray.com/maven/cy6ergn0m/uuid/kotlinx-uuid/;publish=0;override=1")
                     credentials {
-                        username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                        password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+                        username = project.findProperty("bintray.user") as String? ?: System.getenv("BINTRAY_USERNAME")
+                        password = project.findProperty("bintray.key") as String? ?: System.getenv("BINTRAY_TOKEN")
                     }
                 }
             }
