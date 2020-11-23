@@ -55,7 +55,6 @@ class EncodingTest {
             UUID(LongArray(1))
         }
     }
-
 }
 
 internal fun String.explodeToBytes(): List<Byte> {
@@ -64,4 +63,3 @@ internal fun String.explodeToBytes(): List<Byte> {
             it.toString().toInt(radix = 16).toByte()
         }
 }
-

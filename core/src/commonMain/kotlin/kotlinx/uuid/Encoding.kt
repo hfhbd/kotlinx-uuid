@@ -29,7 +29,7 @@ public fun UUID.encodeToLongArray(): LongArray {
  */
 public fun UUID(bytes: ByteArray): UUID {
     require(bytes.size == UUID_BYTE_ARRAY_SIZE) {
-        "Input ByteArray should have size ${UUID_BYTE_ARRAY_SIZE}, but got array of ${bytes.size} bytes."
+        "Input ByteArray should have size $UUID_BYTE_ARRAY_SIZE, but got array of ${bytes.size} bytes."
     }
 
     return UUID.create(
