@@ -77,7 +77,7 @@ allprojects {
 
             repositories {
                 maven {
-                    name = "GitHubPackages"
+                    name = "Bintray"
                     url = uri("https://api.bintray.com/maven/cy6ergn0m/uuid/kotlinx-uuid/;publish=0;override=1")
                     credentials {
                         username = project.findProperty("bintray.user") as String? ?: System.getenv("BINTRAY_USERNAME")
@@ -94,6 +94,8 @@ allprojects {
                 kotlin.targets.forEach { target ->
                     publishing.publications.findByName(target.name)?.let { publication ->
                         with(publication as org.gradle.api.publish.maven.internal.publication.DefaultMavenPublication) {
+                            version = project.version.toString()
+
                             artifact(tasks.getByName("emptyJar")) {
                                 classifier = "javadoc"
                             }
