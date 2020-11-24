@@ -1,13 +1,10 @@
 [![JetBrains incubator project](https://jb.gg/badges/incubator.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub) 
-[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0) 
-
-> ## This library is not yet published 
-> and it's sources published for review purposes
-> you can't use it for now
+[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+[ ![Download](https://api.bintray.com/packages/cy6ergn0m/uuid/kotlinx-uuid/images/download.svg?version=0.0.1) ](https://bintray.com/cy6ergn0m/uuid/kotlinx-uuid/0.0.1/link)
 
 # kotlinx-uuid
 
-> ##### This library is experimental, and it's not recommended for production at the moment.
+> ##### This library is experimental, and it's future support is not guaranteed.
 
 ##### Table of Contents  
 - [Including](#including)
@@ -41,14 +38,18 @@ Supported platforms are:
 ## Including
 
 ```kotlin
+repositories {
+    maven("https://dl.bintray.com/cy6ergn0m/uuid")
+}
+
 val commonMain by getting {
     dependencies {
-        implementation("org.jetbrains.kotlinx.experimental:kotlinx-uuid-core:$version")
+        implementation("org.jetbrains.kotlinx.experimental:kotlinx-uuid-core:0.0.1")
     }
 }
 ```
 
-> In a regular (non-MPP) project you don't need the first line, 
+> In a regular (non-MPP) project you don't need the line with "commonMain", 
 > only the dependencies block.
 
 ## Usage
@@ -112,9 +113,13 @@ val bytes = Protobuf.encodeToByteArray(BinarySerializer, uuid)
 Include `ktor-server-uuid` artifact:
 
 ```kotlin
+repositories {
+    maven("https://dl.bintray.com/cy6ergn0m/uuid")
+}
+
 val jvmMain by getting {
     dependencies {
-        implementation("org.jetbrains.kotlinx.experimental:ktor-server-uuid:$version")
+        implementation("org.jetbrains.kotlinx.experimental:ktor-server-uuid:0.0.1")
     }
 }
 ```
@@ -173,8 +178,12 @@ It has support for `java.util.UUID`, but to get kotlinx-uuid supported you need
 to include the corresponding dependency and use DSL functions:
 
 ```kotlin
+repositories {
+    maven("https://dl.bintray.com/cy6ergn0m/uuid")
+}
+
 dependencies {
-    implementation("org.jetbrains.kotlinx.experimental:exposed-uuid:$version")
+    implementation("org.jetbrains.kotlinx.experimental:exposed-uuid:0.0.1")
 }
 ```
 
@@ -209,8 +218,12 @@ To use [UUID] with [Gson](https://github.com/google/gson)
 you need to register the serializer:
 
 ```kotlin
+repositories {
+    maven("https://dl.bintray.com/cy6ergn0m/uuid")
+}
+
 dependencies {
-    implementation("org.jetbrains.kotlinx.experimental:gson-uuid:$version")
+    implementation("org.jetbrains.kotlinx.experimental:gson-uuid:0.0.1")
 }
 ```
 
@@ -226,8 +239,12 @@ To use [UUID] with [Jackson](https://github.com/FasterXML/jackson-databind)
 you need to register the module:
 
 ```kotlin
+repositories {
+    maven("https://dl.bintray.com/cy6ergn0m/uuid")
+}
+
 dependencies {
-    implementation("org.jetbrains.kotlinx.experimental:jackson-module-uuid:$version")
+    implementation("org.jetbrains.kotlinx.experimental:jackson-module-uuid:0.0.1")
 }
 ```
 
