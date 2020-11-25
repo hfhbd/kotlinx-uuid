@@ -26,6 +26,7 @@ kotlin {
             dependencies {
                 api(project(":kotlinx-uuid-core"))
                 api("org.jetbrains.exposed:exposed-core:$exposedVersion")
+                api("org.jetbrains.exposed:exposed-dao:$exposedVersion")
             }
         }
         getByName("jvmTest") {

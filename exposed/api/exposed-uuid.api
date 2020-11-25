@@ -4,6 +4,15 @@ public final class kotlinx/uuid/exposed/DslKt {
 	public static final fun kotlinxUUID (Lorg/jetbrains/exposed/sql/Table;Ljava/lang/String;)Lorg/jetbrains/exposed/sql/Column;
 }
 
+public abstract class kotlinx/uuid/exposed/KotlinxUUIDEntity : org/jetbrains/exposed/dao/Entity {
+	public fun <init> (Lorg/jetbrains/exposed/dao/id/EntityID;)V
+}
+
+public abstract class kotlinx/uuid/exposed/KotlinxUUIDEntityClass : org/jetbrains/exposed/dao/EntityClass {
+	public fun <init> (Lorg/jetbrains/exposed/dao/id/IdTable;Ljava/lang/Class;)V
+	public synthetic fun <init> (Lorg/jetbrains/exposed/dao/id/IdTable;Ljava/lang/Class;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
 public class kotlinx/uuid/exposed/KotlinxUUIDTable : org/jetbrains/exposed/dao/id/IdTable {
 	public fun <init> ()V
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/random/Random;)V

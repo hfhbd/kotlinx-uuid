@@ -11,7 +11,7 @@ import java.security.*
 import kotlin.random.*
 
 /**
- * Identity table with a key column having type [UUID]. Unique identifiers are genreated before
+ * Identity table with a key column having type [UUID]. Unique identifiers are generated before
  * insertion by [UUID.Companion.generateUUID] with [SecureRandom] by default.
  *
  * @param name of the table.
