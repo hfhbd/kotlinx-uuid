@@ -167,7 +167,7 @@ fun f(id: String) = UUID(id)
 
 > Note that unlike `java.util.UUID.nameUUIDFromBytes`, kotlinx's generateUUID
 > doesn't support MD5, so the blind migration
-> from Java to kotlinx-uuid may lead to changing UUIDs
+> from Java to kotlinx-uuid may lead to changing UUIDs.
 > This is why it is marked as error, so you need to think
 > first, if you can simply replace it or not.
 
@@ -189,9 +189,16 @@ dependencies {
 
 When declaring a table having UUID as Primary Key:
 ```kotlin
+// SQL DSL
 object MyTable : KotlinxUUIDTable() {
     // there is "id" property with the kotlinx-uuid type
 }
+
+// DAO API
+class MyTableEntity(id: EntityID<UUID>): KotlinxUUIDEntity(id) {
+    companion object: KotlinxUUIDEntityClass<MyTableEntity>(MyTable)
+    
+} 
 ```
 
 To declare a regular column, use `kotlinxUUID` function:
