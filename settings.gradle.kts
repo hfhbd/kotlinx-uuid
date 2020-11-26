@@ -32,7 +32,6 @@ buildscript {
     }
 }
 
-enableFeaturePreview("GRADLE_METADATA")
 rootProject.name = "kotlinx-uuid"
 
 include("core")
