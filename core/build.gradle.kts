@@ -11,10 +11,16 @@ val kotlinxSerializationVersion: String by project.extra
 
 kotlin {
     jvm()
+
     macosX64()
     ios()
+
     linuxX64()
     linuxArm64()
+    linuxArm32Hfp()
+
+    mingwX64()
+
     js(BOTH) {
         nodejs()
         browser {
