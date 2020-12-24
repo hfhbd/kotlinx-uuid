@@ -12,6 +12,7 @@ import kotlin.test.*
 class UUIDColumnTypeTest {
     private val type = UUIDColumnType()
     private val uuid = UUID.generateUUID()
+
     @Suppress("DEPRECATION_ERROR")
     private val uuidBytes = ByteBuffer.allocate(16)!!.apply {
         putLong(uuid.getMostSignificantBits())
