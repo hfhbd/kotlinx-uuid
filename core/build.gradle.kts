@@ -83,6 +83,8 @@ task<JacocoReport>("jacocoTestReport") {
     jvmTest.finalizedBy(this)
 
     classDirectories.from(files("$buildDir/classes/kotlin/jvm/main"))
-    sourceDirectories.from(files("$projectDir/src/commonMain/kotlin", "$projectDir/src/commonTest/kotlin", "$projectDir/src/jvmTest/kotlin"))
+    sourceDirectories.from(files("$projectDir/src/commonMain/kotlin",
+                                 "$projectDir/src/commonTest/kotlin",
+                                 "$projectDir/src/jvmTest/kotlin"))
     executionData.from(files("${buildDir}/jacoco/jvmTest.exec"))
 }
