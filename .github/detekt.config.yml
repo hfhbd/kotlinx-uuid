@@ -2,4 +2,4 @@ style:
   WildcardImport:
     active: false
   MagicNumber:
-    ignoreNumbers: ['-1', '0', '1', '2', 7, 8, 255]
+    ignoreNumbers: ['-1', '0', '1', '2', '7', '8', '255', '0xff']
