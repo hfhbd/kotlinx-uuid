@@ -10,7 +10,7 @@ plugins {
     kotlin("plugin.serialization") apply false
     id("binary-compatibility-validator")
     `maven-publish`
-    id("org.jmailen.kotlinter") version "3.3.0" apply false
+    id("org.jmailen.kotlinter") version "3.4.3" apply false
 }
 
 allprojects {
