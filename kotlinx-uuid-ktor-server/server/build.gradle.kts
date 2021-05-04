@@ -7,8 +7,6 @@ description = "kotlinx-uuid integration for ktor-server"
 kotlin {
     jvm()
 
-    val ktorVersion: String by project.extra
-
     explicitApi()
 
     sourceSets {
@@ -17,6 +15,8 @@ kotlin {
             languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
             languageSettings.useExperimentalAnnotation("kotlinx.uuid.InternalAPI")
         }
+        
+        val ktorVersion = "1.5.4"
 
         getByName("jvmMain") {
             dependencies {
