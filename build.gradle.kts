@@ -16,20 +16,22 @@ repositories {
 
 group = "app.softwork"
 
-allprojects {
+subprojects {
+    apply(plugin = "org.gradle.maven-publish")
+
     repositories {
         mavenCentral()
     }
-}
 
-publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/hfhbd/kotlinx-uuid")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+    publishing {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/hfhbd/kotlinx-uuid")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
             }
         }
     }
