@@ -23,6 +23,8 @@ subprojects {
         mavenCentral()
     }
 
+    group = "app.softwork"
+    
     publishing {
         repositories {
             maven {
