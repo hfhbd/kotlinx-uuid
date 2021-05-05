@@ -15,13 +15,14 @@ private object SecureRandomJs : Random() {
     private inline val Window.crypto: Crypto
         get() = asDynamic().crypto.unsafeCast<Crypto>()
 
-    override fun nextBits(bitCount: Int): Int {
-        val bits = window.crypto.getRandomValues(Uint32Array(bitCount))
-        var result = 0
-        for (i in 0 until bitCount) {
-            val bit = bits[i]
-            result = (result or bit) shl 1
-        }
-        return result
-    }
+    override fun nextBits(bitCount: Int): Int =
+        nextInt().takeUpperBits(bitCount)
+
+    override fun nextInt(): Int = window.crypto.getRandomValues(Uint32Array(1))[0]
+
+    /**
+     * Copied from [stdLib][kotlin.random.takeUpperBits]
+     */
+    private fun Int.takeUpperBits(bitCount: Int): Int =
+        this.ushr(32 - bitCount) and (-bitCount).shr(31)
 }
