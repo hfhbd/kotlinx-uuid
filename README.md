@@ -47,7 +47,7 @@ repositories {
 }
 
 dependencies {
-    implementation("app.softwork:kotlinx-uuid:0.0.1")
+    implementation("app.softwork:kotlinx-uuid-core:0.0.5")
 }
 ````
 
