@@ -13,7 +13,7 @@ kotlin {
 
     ios()
 
-    js(IR) {
+    js(BOTH) {
         browser {
             testTask {
                 useKarma {
