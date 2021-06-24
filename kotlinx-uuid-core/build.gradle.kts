@@ -13,8 +13,9 @@ kotlin {
 
     ios()
 
-    js(BOTH) {
+    js(IR) {
         browser {
+            binaries.library()
             testTask {
                 useKarma {
                     useChromeHeadless()
