@@ -31,6 +31,7 @@ kotlin {
         }
         getByName("jvmTest") {
             dependencies {
+                implementation(kotlin("test-junit"))
                 implementation("io.ktor:ktor-server-test-host:$ktorVersion")
             }
         }
