@@ -33,10 +33,13 @@ Supported platforms are:
 ## Including
 
 This package is uploaded
-to [GitHub Packages](https://docs.github.com/en/packages/guides/configuring-gradle-for-use-with-github-packages).
+to `mavenCentral` and to [GitHub Packages](https://docs.github.com/en/packages/guides/configuring-gradle-for-use-with-github-packages).
 
 ````kotlin
 repositories {
+    mavenCentral()
+    
+    // or
     maven {
         url = uri("https://maven.pkg.github.com/hfhbd/*")
         credentials {
@@ -47,7 +50,7 @@ repositories {
 }
 
 dependencies {
-    implementation("app.softwork:kotlinx-uuid-core:0.0.5")
+    implementation("app.softwork:kotlinx-uuid-core:LATEST")
 }
 ````
 
