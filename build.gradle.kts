@@ -9,15 +9,25 @@ plugins {
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.6.0"
     `maven-publish`
     signing
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 }
 
 repositories {
     mavenCentral()
 }
 
-group = "app.softwork"
+nexusPublishing {
+    repositories {
+        sonatype {
+            username.set(System.getProperty("sonartype.apiKey") ?: System.getenv("SONARTYPE_APIKEY"))
+            password.set(System.getProperty("sonartype.apiToken") ?: System.getenv("SONARTYPE_APITOKEN"))
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+        }
+    }
+}
 
-subprojects {
+allprojects {
     apply(plugin = "org.gradle.maven-publish")
     apply(plugin = "org.gradle.signing")
 
@@ -26,6 +36,9 @@ subprojects {
     }
 
     group = "app.softwork"
+
+    task("emptyJar", Jar::class) {
+    }
 
     publishing {
         repositories {
@@ -36,37 +49,35 @@ subprojects {
                     password = System.getenv("GITHUB_TOKEN")
                 }
             }
-            maven(url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")) {
-                name = "OSSRH-Stage"
-                credentials {
-                    username = "hfhbd"
-                    password = System.getProperty("sonartype.password") ?: System.getenv("SONARTYPE_PASSWORD")
-                }
-            }
         }
 
-        publications.create<MavenPublication>("mavenPub") {
-            pom {
-                name.set("app.softwork UUID Library")
-                description.set("A multiplatform Kotlin UUID library, forked from https://github.com/cy6erGn0m/kotlinx-uuid")
-                url.set("https://github.com/hfhbd/kotlinx-uuid")
-                licenses {
-                    license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
-                    }
+        publications.all {
+            if (this is MavenPublication) {
+                artifact(tasks.getByName("emptyJar")) {
+                    classifier = "javadoc"
                 }
-                developers {
-                    developer {
-                        id.set("hfhbd")
-                        name.set("Philip Wedemann")
-                        email.set("mybztg+mavencentral@icloud.com")
-                    }
-                }
-                scm {
-                    connection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
-                    developerConnection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
+                pom {
+                    name.set("app.softwork UUID Library")
+                    description.set("A multiplatform Kotlin UUID library, forked from https://github.com/cy6erGn0m/kotlinx-uuid")
                     url.set("https://github.com/hfhbd/kotlinx-uuid")
+                    licenses {
+                        license {
+                            name.set("The Apache License, Version 2.0")
+                            url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("hfhbd")
+                            name.set("Philip Wedemann")
+                            email.set("mybztg+mavencentral@icloud.com")
+                        }
+                    }
+                    scm {
+                        connection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
+                        developerConnection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
+                        url.set("https://github.com/hfhbd/kotlinx-uuid")
+                    }
                 }
             }
         }
@@ -78,7 +89,7 @@ subprojects {
         signing {
             val signingPassword = System.getProperty("signing.password") ?: System.getenv("SIGNING_PASSWORD")
             useInMemoryPgpKeys(key, signingPassword)
-            sign(configurations.archives.get())
+            sign(publishing.publications)
         }
     }
 }
