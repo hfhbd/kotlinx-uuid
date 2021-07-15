@@ -38,7 +38,7 @@ public class UUID private constructor(
     public constructor(uuid: String) : this(parseUUID(uuid))
 
     /**
-     * Creates an new Version 4 Random based instance using a [SecureRandom] generator.
+     * Creates a new Version 4 Random based instance using a [SecureRandom] generator.
      */
     public constructor(): this(SecureRandom.nextUUID())
 
@@ -189,7 +189,6 @@ public class UUID private constructor(
          * Check the [spec] string to conform to UUID
          * @return `true` if the [spec] string is a UUID string
          */
-        @UUIDExperimentalAPI
         public fun isValidUUIDString(spec: String): Boolean = try {
             parseUUID(spec)
             true

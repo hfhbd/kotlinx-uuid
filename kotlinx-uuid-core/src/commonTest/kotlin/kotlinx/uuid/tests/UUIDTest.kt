@@ -232,7 +232,6 @@ class UUIDTest {
     }
 
     @Test
-    @OptIn(UUIDExperimentalAPI::class)
     fun testIsValidString() {
         assertTrue(UUID.isValidUUIDString(SOME_UUID_STRING))
         assertTrue(UUID.isValidUUIDString("{$SOME_UUID_STRING}"))

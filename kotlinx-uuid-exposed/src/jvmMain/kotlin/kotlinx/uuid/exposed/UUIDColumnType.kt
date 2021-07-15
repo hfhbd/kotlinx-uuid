@@ -16,7 +16,6 @@ import java.nio.*
 public class UUIDColumnType : ColumnType() {
     override fun sqlType(): String = currentDialect.dataTypeProvider.uuidType()
 
-    @OptIn(UUIDExperimentalAPI::class)
     override fun valueFromDB(value: Any): UUID = when {
         value is java.util.UUID -> value.toKotlinUUID()
         value is UUID -> value
