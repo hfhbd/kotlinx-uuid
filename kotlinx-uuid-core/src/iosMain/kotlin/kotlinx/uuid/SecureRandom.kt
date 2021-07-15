@@ -20,7 +20,7 @@ private object SecureRandomIos: Random() {
         require(status == errSecSuccess)
         var result = 0
         for (byte in bytes) {
-            result = (result or byte.toInt()) shl kotlin.Byte.SIZE_BITS
+            result = (result or byte.toInt()) shl Byte.SIZE_BITS
         }
         return result
     }
