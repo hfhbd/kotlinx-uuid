@@ -37,7 +37,7 @@ kotlin {
 
                 runtimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
                 runtimeOnly("com.h2database:h2:1.4.200")
-                runtimeOnly("org.slf4j:slf4j-simple:1.7.31")
+                runtimeOnly("org.slf4j:slf4j-simple:1.7.32")
             }
         }
     }
