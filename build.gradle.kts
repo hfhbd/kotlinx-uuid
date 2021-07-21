@@ -41,16 +41,6 @@ allprojects {
     }
 
     publishing {
-        repositories {
-            maven(url = uri("https://maven.pkg.github.com/hfhbd/kotlinx-uuid")) {
-                name = "GitHubPackages"
-                credentials {
-                    username = System.getenv("GITHUB_ACTOR")
-                    password = System.getenv("GITHUB_TOKEN")
-                }
-            }
-        }
-
         publications.all {
             if (this is MavenPublication) {
                 artifact(tasks.getByName("emptyJar")) {
