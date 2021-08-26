@@ -21,7 +21,7 @@ kotlin {
             languageSettings.useExperimentalAnnotation("kotlinx.uuid.InternalAPI")
         }
         
-        val ktorVersion = "1.6.2"
+        val ktorVersion = "1.6.3"
 
         getByName("jvmMain") {
             dependencies {
