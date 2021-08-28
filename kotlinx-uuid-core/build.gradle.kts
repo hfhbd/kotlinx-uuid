@@ -12,6 +12,7 @@ kotlin {
     jvm()
 
     ios()
+    iosSimulatorArm64()
 
     js(IR) {
         browser {
@@ -29,8 +30,8 @@ kotlin {
     sourceSets {
         all {
             languageSettings.progressiveMode = true
-            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
-            languageSettings.useExperimentalAnnotation("kotlinx.uuid.InternalAPI")
+            languageSettings.optIn("kotlin.RequiresOptIn")
+            languageSettings.optIn("kotlinx.uuid.InternalAPI")
         }
 
         // Apache 2, https://github.com/Kotlin/kotlinx.serialization/releases/latest
@@ -48,6 +49,14 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-cbor:$serializationVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$serializationVersion")
             }
+        }
+        val iosMain by getting
+        val iosTest by getting
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosSimulatorArm64Test by getting {
+            dependsOn(iosTest)
         }
     }
 }
