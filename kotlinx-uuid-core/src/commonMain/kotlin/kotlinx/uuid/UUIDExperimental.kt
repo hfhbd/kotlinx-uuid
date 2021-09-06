@@ -5,8 +5,7 @@
 package kotlinx.uuid
 
 /**
- * The API marked with this annotation is experimental. It's stability is not guaranteed
- * and you shouldn't rely on it.
+ * The API marked with this annotation is experimental. Its stability is not guaranteed, and you shouldn't rely on it.
  *
  * @property plannedVersion in which this API is planned to be stabilized
  */
@@ -25,7 +24,7 @@ public annotation class UUIDExperimentalAPI(val plannedVersion: String = "")
 
 /**
  * The API marked with this annotation is internal and should be never used
- * outside of uuid library. It's stability, behaviour and compatibility is not guaranteed
+ * outside this library. It's stability, behaviour and compatibility is not guaranteed
  * and could be changed in any release without notice.
  */
 @RequiresOptIn(

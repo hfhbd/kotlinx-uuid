@@ -9,7 +9,7 @@ import kotlin.experimental.*
 
 /**
  * Generates a [UUID] instance by [namespace] and [name] applying SHA-1.
- * It doesn't use any random source so it will produce the same result for
+ * It doesn't use any random source, so it will produce the same result for
  * the same input values.
  *
  * See [RFC4122 sec 4.3](https://tools.ietf.org/html/rfc4122#section-4.3)
@@ -25,7 +25,7 @@ public fun UUID.Companion.generateUUID(namespace: UUID, name: String): UUID {
 
 /**
  * Generates a [UUID] instance by input [bytes] applying SHA-1.
- * It doesn't use any random source so it will produce the same result for
+ * It doesn't use any random source, so it will produce the same result for
  * the same input values.
  *
  * See [RFC4122 sec 4.3](https://tools.ietf.org/html/rfc4122#section-4.3)
