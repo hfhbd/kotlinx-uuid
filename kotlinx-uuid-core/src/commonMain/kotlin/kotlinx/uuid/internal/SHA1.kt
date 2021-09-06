@@ -6,7 +6,7 @@ package kotlinx.uuid.internal
 
 /**
  * This is a simple Kotlin SHA-1 implementation based on wiki's description.
- * This is not optimized for speed and has been never verified except for simple tests.
+ * This is not optimized for speed and has never been verified except for simple tests.
  */
 internal class SHA1 {
     private val buffer = ByteArray(64)

@@ -7,7 +7,7 @@ package kotlinx.uuid
 internal const val UUID_BYTE_ARRAY_SIZE: Int = 16
 
 /**
- * Encode [UUID] as a byte array in it's classic format, just like in text format, but as bytes.
+ * Encode [UUID] as a byte array in its classic format, just like in text format, but as bytes.
  */
 public fun UUID.encodeToByteArray(): ByteArray {
     val result = ByteArray(UUID_BYTE_ARRAY_SIZE)

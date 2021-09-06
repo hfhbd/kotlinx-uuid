@@ -11,7 +11,7 @@ import kotlinx.serialization.encoding.*
 
 /**
  * This serializer is useful with binary formats to reduce size. You may also use it with
- * text formats like json but it is not that useful (because there will be no size gain)
+ * text formats like json, but it is not that useful (because there will be no size gain)
  * and a serialized UUID is not human-readable.
  *
  * With this serializer, a UUID is represented as an array of long with two elements.

@@ -26,7 +26,7 @@ public class UUID private constructor(
      * Creates an instance by the string [uuid] representation.
      * An input string should consist of five hexademical parts
      * separated with the minus character, and optionally surrounded with curly brackets.
-     * The space and tab characters are ignored at the and end at the beginning
+     * The space and tab characters are ignored at the end and at the beginning
      * and surrounding brackets and minus characters.
      *
      * Valid examples:
