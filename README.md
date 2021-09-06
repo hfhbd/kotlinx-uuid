@@ -99,30 +99,6 @@ size.
 val bytes = Protobuf.encodeToByteArray(BinarySerializer, uuid)
 ```
 
-## Using with ktor
-
-Include `uuid-ktor-server` artifact:
-
-```kotlin
-val jvmMain by getting {
-    dependencies {
-        implementation("app.softwork:kotlinx-uuid-ktor-server:0.0.1")
-    }
-}
-```
-
-Install converter:
-
-```kotlin
-install(DataConversion) {
-    uuid()
-}
-```
-
-Unfortunately, ktor [doesn't provide (KTOR-1309)](https://youtrack.jetbrains.com/issue/KTOR-1309)
-any way to plug converters automatically, so you need to configure it manually. Also, in some cases, like delegating to
-call parameters, it will not work and there is no workaround at the moment.
-
 ## Using with Exposed
 
 [Exposed](https://github.com/JetBrains/Exposed) is an ORM framework for Kotlin. It has support for `java.util.UUID`, but
@@ -157,7 +133,7 @@ object MyTable : Table() {
 }
 ```
 
-Unfortunately, there is a function called `uuid` in the base class, inside of the exposed core, this is why we can't
+Unfortunately, there is a function called `uuid` in the base class, inside Exposed, this is why we can't
 overwrite/override it, so it may lead to confusion. The function `uuid` only works with `java.util.UUID`:
 
 ```kotlin

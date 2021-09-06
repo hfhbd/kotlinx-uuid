@@ -6,5 +6,4 @@ rootProject.name = "kotlinx-uuid"
 
 include("kotlinx-uuid-core")
 
-include("kotlinx-uuid-ktor-server")
 include("kotlinx-uuid-exposed")
