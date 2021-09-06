@@ -37,41 +37,40 @@ allprojects {
 
     group = "app.softwork"
 
-    task("emptyJar", Jar::class) {
-    }
+    val emptyJar by tasks.creating(Jar::class) { }
 
     publishing {
         publications.all {
-            if (this is MavenPublication) {
-                artifact(tasks.getByName("emptyJar")) {
-                    classifier = "javadoc"
+            this as MavenPublication
+            artifact(emptyJar) {
+                classifier = "javadoc"
+            }
+            pom {
+                name.set("app.softwork UUID Library")
+                description.set("A multiplatform Kotlin UUID library, forked from https://github.com/cy6erGn0m/kotlinx-uuid")
+                url.set("https://github.com/hfhbd/kotlinx-uuid")
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
                 }
-                pom {
-                    name.set("app.softwork UUID Library")
-                    description.set("A multiplatform Kotlin UUID library, forked from https://github.com/cy6erGn0m/kotlinx-uuid")
+                developers {
+                    developer {
+                        id.set("hfhbd")
+                        name.set("Philip Wedemann")
+                        email.set("mybztg+mavencentral@icloud.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
+                    developerConnection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
                     url.set("https://github.com/hfhbd/kotlinx-uuid")
-                    licenses {
-                        license {
-                            name.set("The Apache License, Version 2.0")
-                            url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
-                        }
-                    }
-                    developers {
-                        developer {
-                            id.set("hfhbd")
-                            name.set("Philip Wedemann")
-                            email.set("mybztg+mavencentral@icloud.com")
-                        }
-                    }
-                    scm {
-                        connection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
-                        developerConnection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
-                        url.set("https://github.com/hfhbd/kotlinx-uuid")
-                    }
                 }
             }
         }
     }
+
     (System.getProperty("signing.privateKey") ?: System.getenv("SIGNING_PRIVATE_KEY"))?.let {
         String(java.util.Base64.getDecoder().decode(it)).trim()
     }?.let { key ->

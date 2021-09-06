@@ -15,7 +15,7 @@ Supported platforms are:
 - JVM (Java 8+, IR only)
 - JavaScript (IR backend only)
 - Native:
-    - iOS ARM64
+    - iOS
 
 > To support the extensions on iOS, you need
 > ```kotlin
