@@ -17,8 +17,8 @@ kotlin {
     sourceSets {
         all {
             languageSettings.progressiveMode = true
-            languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
-            languageSettings.useExperimentalAnnotation("kotlinx.uuid.InternalAPI")
+            languageSettings.optIn("kotlin.RequiresOptIn")
+            languageSettings.optIn("kotlinx.uuid.InternalAPI")
         }
 
         // Apache 2, https://github.com/JetBrains/Exposed/releases/latest
