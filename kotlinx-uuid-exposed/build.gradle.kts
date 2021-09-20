@@ -17,8 +17,6 @@ kotlin {
     sourceSets {
         all {
             languageSettings.progressiveMode = true
-            languageSettings.optIn("kotlin.RequiresOptIn")
-            languageSettings.optIn("kotlinx.uuid.InternalAPI")
         }
 
         // Apache 2, https://github.com/JetBrains/Exposed/releases/latest
@@ -26,8 +24,7 @@ kotlin {
 
         getByName("jvmMain") {
             dependencies {
-                api(project(":kotlinx-uuid-core"))
-                api("org.jetbrains.exposed:exposed-core:$exposedVersion")
+                api(projects.kotlinxUuidCore)
                 api("org.jetbrains.exposed:exposed-dao:$exposedVersion")
             }
         }

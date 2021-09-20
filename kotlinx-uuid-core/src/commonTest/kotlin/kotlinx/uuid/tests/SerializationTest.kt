@@ -11,6 +11,7 @@ import kotlinx.uuid.*
 import kotlinx.uuid.Serializer
 import kotlin.test.*
 
+@ExperimentalSerializationApi
 class SerializationTest {
     @Test
     fun smokeTest() {
@@ -49,7 +50,6 @@ class SerializationTest {
     }
 
     @Test
-    @OptIn(ExperimentalSerializationApi::class)
     fun testDescriptor() {
         val descriptor = Serializer.Default.descriptor
 
