@@ -5,7 +5,7 @@
 
 plugins {
     kotlin("multiplatform") version "1.5.31" apply false
-    kotlin("plugin.serialization") version "1.5.30" apply false
+    kotlin("plugin.serialization") version "1.5.31" apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.7.1"
     `maven-publish`
     signing
