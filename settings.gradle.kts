@@ -4,6 +4,9 @@
  */
 rootProject.name = "kotlinx-uuid"
 
-include("kotlinx-uuid-core")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include("kotlinx-uuid-exposed")
+include(":kotlinx-uuid-core")
+
+include(":kotlinx-uuid-exposed")
+include(":kotlinx-uuid-sqldelight")
