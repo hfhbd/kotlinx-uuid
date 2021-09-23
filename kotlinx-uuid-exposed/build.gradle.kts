@@ -20,7 +20,7 @@ kotlin {
         }
 
         // Apache 2, https://github.com/JetBrains/Exposed/releases/latest
-        val exposedVersion = "0.34.2"
+        val exposedVersion = "0.35.1"
 
         getByName("jvmMain") {
             dependencies {
