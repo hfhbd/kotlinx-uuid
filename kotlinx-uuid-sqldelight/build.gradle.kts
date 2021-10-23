@@ -10,7 +10,7 @@ kotlin {
     jvm()
 
     ios()
-    //iosSimulatorArm64() https://github.com/cashapp/sqldelight/issues/2577
+    iosSimulatorArm64()
 
     js(IR) {
         browser {
@@ -39,12 +39,12 @@ kotlin {
         }
         val iosMain by getting
         val iosTest by getting
-        /*
+        
         val iosSimulatorArm64Main by getting {
             dependsOn(iosMain)
         }
         val iosSimulatorArm64Test by getting {
             dependsOn(iosTest)
-        }*/
+        }
     }
 }
