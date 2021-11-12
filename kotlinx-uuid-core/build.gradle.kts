@@ -35,7 +35,7 @@ kotlin {
         }
 
         // Apache 2, https://github.com/Kotlin/kotlinx.serialization/releases/latest
-        val serializationVersion = "1.3.0"
+        val serializationVersion = "1.3.1"
 
         commonMain {
             dependencies {
