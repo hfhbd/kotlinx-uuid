@@ -4,7 +4,7 @@
  */
 
 plugins {
-    kotlin("multiplatform") version "1.6.0" apply false
+    kotlin("multiplatform") version "1.6.10" apply false
     kotlin("plugin.serialization") version "1.6.10" apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.8.0"
     `maven-publish`
