@@ -1,3 +1,5 @@
+import org.jetbrains.dokka.gradle.*
+
 /*
  * Copyright 2020-2021 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
  * Copyright 2021 hfhbd and contributors. Use of this source code is governed by the Apache 2.0 license.
@@ -28,7 +30,8 @@ nexusPublishing {
     }
 }
 
-allprojects {
+subprojects {
+    plugins.apply("org.jetbrains.kotlin.multiplatform")
     plugins.apply("org.gradle.maven-publish")
     plugins.apply("org.gradle.signing")
     plugins.apply("org.jetbrains.dokka")
@@ -84,9 +87,23 @@ allprojects {
         }
     }
 
-    tasks.dokkaHtml {
+    tasks.getByName<DokkaTaskPartial>("dokkaHtmlPartial") {
+        val module = project.name
         dokkaSourceSets.configureEach {
+            reportUndocumented.set(true)
+            val sourceSetName = name
+            File("$module/src/$sourceSetName").takeIf { it.exists() }?.let {
+                sourceLink {
+                    localDirectory.set(file("src/$sourceSetName/kotlin"))
+                    remoteUrl.set(uri("https://github.com/hfhbd/kotlinx-uuid/tree/main/$module/src/$sourceSetName/kotlin").toURL())
+                    remoteLineSuffix.set("#L")
+                }
+            }
             externalDocumentationLink("https://kotlin.github.io/kotlinx.serialization/")
         }
     }
+}
+
+tasks.dokkaHtmlMultiModule.configure {
+    includes.from("README.md")
 }

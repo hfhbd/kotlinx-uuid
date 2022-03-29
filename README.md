@@ -17,19 +17,6 @@ Supported platforms are:
 - Native:
     - iOS
 
-> To support the extensions on iOS, you need
-> ```kotlin
-> // build.gradle.kts
-> ios {
->   binaries {
->     framework {
->        // Export transitively.
->        transitiveExport = true
->     }
->   }  
-> }
-> ```
-
 ## Including
 
 This package is uploaded to `mavenCentral`.
