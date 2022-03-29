@@ -10,6 +10,7 @@ plugins {
     `maven-publish`
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    id("org.jetbrains.dokka") version "1.6.10"
 }
 
 repositories {
@@ -28,8 +29,9 @@ nexusPublishing {
 }
 
 allprojects {
-    apply(plugin = "org.gradle.maven-publish")
-    apply(plugin = "org.gradle.signing")
+    plugins.apply("org.gradle.maven-publish")
+    plugins.apply("org.gradle.signing")
+    plugins.apply("org.jetbrains.dokka")
 
     repositories {
         mavenCentral()
@@ -79,6 +81,12 @@ allprojects {
             val signingPassword = System.getProperty("signing.password") ?: System.getenv("SIGNING_PASSWORD")
             useInMemoryPgpKeys(key, signingPassword)
             sign(publishing.publications)
+        }
+    }
+
+    tasks.dokkaHtml {
+        dokkaSourceSets.configureEach {
+            externalDocumentationLink("https://kotlin.github.io/kotlinx.serialization/")
         }
     }
 }
