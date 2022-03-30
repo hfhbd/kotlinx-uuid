@@ -30,6 +30,8 @@ nexusPublishing {
     }
 }
 
+group = "app.softwork"
+
 subprojects {
     plugins.apply("org.jetbrains.kotlin.multiplatform")
     plugins.apply("org.gradle.maven-publish")
@@ -39,8 +41,6 @@ subprojects {
     repositories {
         mavenCentral()
     }
-
-    group = "app.softwork"
 
     val emptyJar by tasks.creating(Jar::class) { }
 
