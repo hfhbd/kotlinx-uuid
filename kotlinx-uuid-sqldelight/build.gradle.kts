@@ -2,10 +2,6 @@
  * Copyright 2021 hfhbd and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
-plugins {
-    kotlin("multiplatform")
-}
-
 kotlin {
     jvm()
 
@@ -23,8 +19,6 @@ kotlin {
         }
     }
 
-    explicitApi()
-
     sourceSets {
         commonMain {
             dependencies {
@@ -39,7 +33,7 @@ kotlin {
         }
         val iosMain by getting
         val iosTest by getting
-        
+
         val iosSimulatorArm64Main by getting {
             dependsOn(iosMain)
         }

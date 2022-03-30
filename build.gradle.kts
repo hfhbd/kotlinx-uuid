@@ -19,30 +19,54 @@ repositories {
     mavenCentral()
 }
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            username.set(System.getProperty("sonartype.apiKey") ?: System.getenv("SONARTYPE_APIKEY"))
-            password.set(System.getProperty("sonartype.apiToken") ?: System.getenv("SONARTYPE_APITOKEN"))
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-        }
-    }
-}
-
-group = "app.softwork"
-
 subprojects {
     plugins.apply("org.jetbrains.kotlin.multiplatform")
-    plugins.apply("org.gradle.maven-publish")
-    plugins.apply("org.gradle.signing")
     plugins.apply("org.jetbrains.dokka")
 
     repositories {
         mavenCentral()
     }
 
+    extensions.configure<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>("kotlin") {
+        explicitApi()
+
+        sourceSets {
+            all {
+                languageSettings.progressiveMode = true
+                languageSettings.optIn("kotlin.RequiresOptIn")
+                languageSettings.optIn("kotlinx.uuid.InternalAPI")
+            }
+        }
+    }
+
+    tasks.getByName<DokkaTaskPartial>("dokkaHtmlPartial") {
+        val module = project.name
+        dokkaSourceSets.configureEach {
+            reportUndocumented.set(true)
+            val sourceSetName = name
+            File("$module/src/$sourceSetName").takeIf { it.exists() }?.let {
+                sourceLink {
+                    localDirectory.set(file("src/$sourceSetName/kotlin"))
+                    remoteUrl.set(uri("https://github.com/hfhbd/kotlinx-uuid/tree/main/$module/src/$sourceSetName/kotlin").toURL())
+                    remoteLineSuffix.set("#L")
+                }
+            }
+            externalDocumentationLink("https://kotlin.github.io/kotlinx.serialization/")
+        }
+    }
+}
+
+tasks.dokkaHtmlMultiModule.configure {
+    includes.from("README.md")
+}
+
+allprojects {
+    plugins.apply("org.gradle.maven-publish")
+    plugins.apply("org.gradle.signing")
+
     val emptyJar by tasks.creating(Jar::class) { }
+
+    group = "app.softwork"
 
     publishing {
         publications.all {
@@ -86,24 +110,15 @@ subprojects {
             sign(publishing.publications)
         }
     }
-
-    tasks.getByName<DokkaTaskPartial>("dokkaHtmlPartial") {
-        val module = project.name
-        dokkaSourceSets.configureEach {
-            reportUndocumented.set(true)
-            val sourceSetName = name
-            File("$module/src/$sourceSetName").takeIf { it.exists() }?.let {
-                sourceLink {
-                    localDirectory.set(file("src/$sourceSetName/kotlin"))
-                    remoteUrl.set(uri("https://github.com/hfhbd/kotlinx-uuid/tree/main/$module/src/$sourceSetName/kotlin").toURL())
-                    remoteLineSuffix.set("#L")
-                }
-            }
-            externalDocumentationLink("https://kotlin.github.io/kotlinx.serialization/")
-        }
-    }
 }
 
-tasks.dokkaHtmlMultiModule.configure {
-    includes.from("README.md")
+nexusPublishing {
+    repositories {
+        sonatype {
+            username.set(System.getProperty("sonartype.apiKey") ?: System.getenv("SONARTYPE_APIKEY"))
+            password.set(System.getProperty("sonartype.apiToken") ?: System.getenv("SONARTYPE_APITOKEN"))
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+        }
+    }
 }
