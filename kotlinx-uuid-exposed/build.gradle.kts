@@ -3,22 +3,10 @@
  * Copyright 2021 hfhbd and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
-plugins {
-    kotlin("multiplatform")
-}
-
-description = "kotlinx-uuid integration for exposed"
-
 kotlin {
     jvm()
 
-    explicitApi()
-
     sourceSets {
-        all {
-            languageSettings.progressiveMode = true
-        }
-
         // Apache 2, https://github.com/JetBrains/Exposed/releases/latest
         val exposedVersion = "0.37.3"
 

@@ -4,7 +4,6 @@
  */
 
 plugins {
-    kotlin("multiplatform")
     kotlin("plugin.serialization")
 }
 
@@ -25,15 +24,7 @@ kotlin {
         }
     }
 
-    explicitApi()
-
     sourceSets {
-        all {
-            languageSettings.progressiveMode = true
-            languageSettings.optIn("kotlin.RequiresOptIn")
-            languageSettings.optIn("kotlinx.uuid.InternalAPI")
-        }
-
         // Apache 2, https://github.com/Kotlin/kotlinx.serialization/releases/latest
         val serializationVersion = "1.3.2"
 
