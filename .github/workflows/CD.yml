@@ -22,7 +22,7 @@ jobs:
       - name: Generate Docs
         run: ./gradlew dokkaHtmlMultiModule
       - name: Upload Docs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           path: build/dokka/htmlMultiModule
       - name: Publish
