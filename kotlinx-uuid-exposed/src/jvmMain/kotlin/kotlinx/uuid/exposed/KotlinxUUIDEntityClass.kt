@@ -13,5 +13,6 @@ import org.jetbrains.exposed.dao.id.*
  */
 public abstract class KotlinxUUIDEntityClass<out E : KotlinxUUIDEntity>(
     table: IdTable<UUID>,
-    entityType: Class<E>? = null
-) : EntityClass<UUID, E>(table, entityType)
+    entityType: Class<E>? = null,
+    entityCtor: ((EntityID<UUID>) -> E)? = null
+) : EntityClass<UUID, E>(table, entityType, entityCtor)
