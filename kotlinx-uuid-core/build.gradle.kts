@@ -26,7 +26,7 @@ kotlin {
 
     sourceSets {
         // Apache 2, https://github.com/Kotlin/kotlinx.serialization/releases/latest
-        val serializationVersion = "1.3.2"
+        val serializationVersion = "1.3.3"
 
         commonMain {
             dependencies {
