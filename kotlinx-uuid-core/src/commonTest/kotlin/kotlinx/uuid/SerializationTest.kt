@@ -2,13 +2,11 @@
  * Copyright 2020-2020 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
-package kotlinx.uuid.tests
+package kotlinx.uuid
 
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.json.*
-import kotlinx.uuid.*
-import kotlinx.uuid.Serializer
 import kotlin.test.*
 
 @ExperimentalSerializationApi

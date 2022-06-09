@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
@@ -19,3 +19,8 @@ jobs:
           java-version: 11
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Upload Tests Results
+        uses: actions/upload-artifact@v3
+        with:
+          path: kotlinx-uuid-core/build/reports/tests/allTests
+        if: failure()
