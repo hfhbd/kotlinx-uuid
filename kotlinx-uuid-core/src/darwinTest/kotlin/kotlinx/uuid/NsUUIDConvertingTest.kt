@@ -8,7 +8,6 @@
 
 package kotlinx.uuid
 
-import kotlinx.uuid.tests.*
 import kotlin.test.*
 
 class NsUUIDConvertingTest {
