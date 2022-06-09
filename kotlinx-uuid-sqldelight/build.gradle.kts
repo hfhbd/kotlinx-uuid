@@ -7,6 +7,10 @@ kotlin {
 
     ios()
     iosSimulatorArm64()
+    macosArm64()
+    macosX64()
+    linuxX64()
+    mingwX64()
 
     js(IR) {
         browser {
@@ -30,15 +34,6 @@ kotlin {
             dependencies {
                 api(kotlin("test"))
             }
-        }
-        val iosMain by getting
-        val iosTest by getting
-
-        val iosSimulatorArm64Main by getting {
-            dependsOn(iosMain)
-        }
-        val iosSimulatorArm64Test by getting {
-            dependsOn(iosTest)
         }
     }
 }
