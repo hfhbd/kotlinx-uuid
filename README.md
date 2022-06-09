@@ -6,6 +6,9 @@
 `kotlinx-uuid` is a multiplatform (MPP) [Kotlin](https://kotlinlang.org) library introducing support
 for [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).
 
+- [Source code](https://github.com/hfhbd/kotlinx-uuid)
+- [Docs](https://uuid.softwork.app)
+
 The main class `UUID` is serializable out of the box, so the library depends
 on [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). If you don't need serialization, you don't
 need to apply the plugin.
@@ -16,8 +19,11 @@ Supported platforms are:
 - JavaScript (IR backend only)
 - Native:
     - iOS
+    - macOS
+    - linuxX64
+    - mingwX64
 
-## Including
+## Install
 
 This package is uploaded to `mavenCentral`.
 
