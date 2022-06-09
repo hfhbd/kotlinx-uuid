@@ -12,6 +12,10 @@ kotlin {
 
     ios()
     iosSimulatorArm64()
+    macosArm64()
+    macosX64()
+    linuxX64()
+    mingwX64()
 
     js(IR) {
         browser {
@@ -41,8 +45,30 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$serializationVersion")
             }
         }
-        val iosMain by getting
-        val iosTest by getting
+        val darwinMain by creating {
+            dependsOn(commonMain.get())
+        }
+        val darwinTest by creating {
+            dependsOn(commonTest.get())
+        }
+        val iosMain by getting {
+            dependsOn(darwinMain)
+        }
+        val iosTest by getting {
+            dependsOn(darwinTest)
+        }
+        val macosArm64Main by getting {
+            dependsOn(darwinMain)
+        }
+        val macosArm64Test by getting {
+            dependsOn(darwinTest)
+        }
+        val macosX64Main by getting {
+            dependsOn(darwinMain)
+        }
+        val macosX64Test by getting {
+            dependsOn(darwinTest)
+        }
         val iosSimulatorArm64Main by getting {
             dependsOn(iosMain)
         }
