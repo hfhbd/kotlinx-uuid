@@ -19,12 +19,6 @@ jobs:
           java-version: 11
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Generate Docs
-        run: ./gradlew dokkaHtmlMultiModule
-      - name: Upload Docs
-        uses: actions/upload-artifact@v3
-        with:
-          path: build/dokka/htmlMultiModule
       - name: Publish
         run: ./gradlew -Pversion=$version -Dorg.gradle.parallel=false publish closeAndReleaseStagingRepository
         env:
@@ -32,27 +26,3 @@ jobs:
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
           SONARTYPE_APIKEY: ${{ secrets.SONARTYPE_APIKEY }}
           SONARTYPE_APITOKEN: ${{ secrets.SONARTYPE_APITOKEN }}
-
-  docs:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set environment for version
-        run: long="${{ github.ref }}"; version=${long#"refs/tags/v"}; echo "version=${version}" >> $GITHUB_ENV
-      - name: Switch to GitHub Pages
-        uses: actions/checkout@v3
-        with:
-          ref: docs
-      - uses: actions/download-artifact@v3
-      - name: Copy files to /
-        run: cp -r artifact/* . && rm -Rf artifact/*
-      - name: Config git
-        run: git config user.email "cd-bot@softwork.app" && git config user.name "CD Bot"
-      - name: Add changes
-        run: git add .
-      - name: Try to commit changes
-        run: git commit -m "Publish docs $version"
-        continue-on-error: true
-      - name: Publish changes
-        run: git push
-        if: ${{ success() }}
