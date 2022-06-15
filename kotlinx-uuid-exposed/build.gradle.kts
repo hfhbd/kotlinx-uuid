@@ -21,7 +21,7 @@ kotlin {
                 implementation(kotlin("test-junit"))
 
                 runtimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
-                runtimeOnly("com.h2database:h2:2.1.212")
+                runtimeOnly("com.h2database:h2:2.1.214")
                 runtimeOnly("org.slf4j:slf4j-simple:1.7.36")
             }
         }
