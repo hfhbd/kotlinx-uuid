@@ -8,7 +8,7 @@ kotlin {
 
     sourceSets {
         // Apache 2, https://github.com/JetBrains/Exposed/releases/latest
-        val exposedVersion = "0.38.2"
+        val exposedVersion = "0.39.1"
 
         getByName("jvmMain") {
             dependencies {
