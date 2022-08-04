@@ -27,3 +27,7 @@ kotlin {
         }
     }
 }
+
+licensee {
+    allow("MIT")
+}

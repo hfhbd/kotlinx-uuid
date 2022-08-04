@@ -1,4 +1,6 @@
+import app.cash.licensee.*
 import org.jetbrains.dokka.gradle.*
+import org.jetbrains.kotlin.gradle.dsl.*
 
 /*
  * Copyright 2020-2021 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
@@ -13,6 +15,7 @@ plugins {
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
     id("org.jetbrains.dokka") version "1.7.10"
+    id("app.cash.licensee") version "1.5.0" apply false
 }
 
 repositories {
@@ -22,18 +25,18 @@ repositories {
 subprojects {
     plugins.apply("org.jetbrains.kotlin.multiplatform")
     plugins.apply("org.jetbrains.dokka")
+    plugins.apply("app.cash.licensee")
 
     repositories {
         mavenCentral()
     }
 
-    extensions.configure<org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension>("kotlin") {
+    the<KotlinMultiplatformExtension>().apply {
         explicitApi()
 
         sourceSets {
             all {
                 languageSettings.progressiveMode = true
-                languageSettings.optIn("kotlin.RequiresOptIn")
                 languageSettings.optIn("kotlinx.uuid.InternalAPI")
             }
         }
@@ -53,6 +56,10 @@ subprojects {
             }
             externalDocumentationLink("https://kotlin.github.io/kotlinx.serialization/")
         }
+    }
+
+    the<LicenseeExtension>().apply {
+        allow(spdxId = "Apache-2.0")
     }
 }
 
