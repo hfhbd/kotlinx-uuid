@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: macos-latest
 
+    environment:
+      name: CD
+
     steps:
       - name: Set environment for version
         run: long="${{ github.ref }}"; version=${long#"refs/tags/v"}; echo "version=${version}" >> $GITHUB_ENV
