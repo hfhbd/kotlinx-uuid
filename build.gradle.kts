@@ -54,7 +54,7 @@ subprojects {
                     remoteLineSuffix.set("#L")
                 }
             }
-            externalDocumentationLink("https://kotlin.github.io/kotlinx.serialization/")
+            externalDocumentationLink("https://kotlinlang.org/api/kotlinx.serialization/")
         }
     }
 
