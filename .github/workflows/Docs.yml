@@ -9,9 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - uses: actions/configure-pages@v2
       - uses: actions/checkout@v3
       - uses: gradle/wrapper-validation-action@v1
       - uses: actions/setup-java@v3
@@ -21,24 +28,9 @@ jobs:
       - name: Generate Docs
         run: ./gradlew dokkaHtmlMultimodule
       - name: Upload Docs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
           path: build/dokka/htmlMultiModule
-      - name: Switch to GitHub Pages
-        uses: actions/checkout@v3
-        with:
-          ref: docs
-      - run: find . -maxdepth 1 ! \( -name "CNAME" -o -name ".git" -o -name "." -o -name ".." \) -exec rm -r {} +
-      - uses: actions/download-artifact@v3
-      - name: Copy files to /
-        run: cp -r artifact/* . && rm -Rf artifact/*
-      - name: Config git
-        run: git config user.email "cd-bot@softwork.app" && git config user.name "CD Bot"
-      - name: Add changes
-        run: git add .
-      - name: Try to commit changes
-        run: git commit -m "Publish docs"
-        continue-on-error: true
-      - name: Publish changes
-        run: git push
-        if: ${{ success() }}
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@main
