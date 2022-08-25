@@ -4,7 +4,6 @@
 
 package kotlinx.uuid
 
-import kotlinx.uuid.*
 import kotlin.test.*
 
 class DumpHexTest {

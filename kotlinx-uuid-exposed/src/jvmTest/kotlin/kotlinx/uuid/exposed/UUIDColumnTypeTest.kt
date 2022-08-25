@@ -5,7 +5,6 @@
 package kotlinx.uuid.exposed
 
 import kotlinx.uuid.*
-import kotlinx.uuid.exposed.*
 import java.nio.*
 import kotlin.test.*
 

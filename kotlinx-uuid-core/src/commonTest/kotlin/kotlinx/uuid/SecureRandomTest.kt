@@ -2,7 +2,7 @@ package kotlinx.uuid
 
 import kotlin.test.*
 
-class SecureRandomTestLinux {
+class SecureRandomTest {
     @Test
     fun random() {
         repeat(10) {

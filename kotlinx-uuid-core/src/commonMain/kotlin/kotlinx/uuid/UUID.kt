@@ -40,7 +40,7 @@ public class UUID private constructor(
     /**
      * Creates a new Version 4 Random based instance using a [SecureRandom] generator.
      */
-    public constructor(): this(SecureRandom.nextUUID())
+    public constructor() : this(SecureRandom.nextUUID())
 
     /**
      * Creates an instance of [UUID] from components
@@ -192,7 +192,7 @@ public class UUID private constructor(
         public fun isValidUUIDString(spec: String): Boolean = try {
             parseUUID(spec)
             true
-        } catch (cause: UUIDFormatException) {
+        } catch (_: UUIDFormatException) {
             false
         }
 
@@ -217,6 +217,6 @@ public fun String.toUUID(): UUID = parseUUID(this)
  */
 public fun String.toUUIDOrNull(): UUID? = try {
     parseUUID(this)
-} catch (cause: UUIDFormatException) {
+} catch (_: UUIDFormatException) {
     null
 }

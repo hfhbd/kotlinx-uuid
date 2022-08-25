@@ -4,8 +4,6 @@
 
 package kotlinx.uuid
 
-internal class UUIDFormatException(override val message: String) : Exception(message)
-
 internal fun parseUUID(text: String): UUID {
     var textIndex = skipCharacters(text, 0, '{')
 
