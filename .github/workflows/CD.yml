@@ -4,6 +4,10 @@ on:
   release:
     types: [ created ]
 
+concurrency:
+  group: "cd"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: macos-latest
