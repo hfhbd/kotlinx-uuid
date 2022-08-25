@@ -19,8 +19,8 @@ jobs:
           java-version: 11
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Upload Tests Results
-        uses: actions/upload-artifact@v3
+      - name: Upload SARIF to Github using the upload-sarif action
+        uses: github/codeql-action/upload-sarif@v2
+        if: success() || failure()
         with:
-          path: kotlinx-uuid-core/build/reports/tests/allTests
-        if: failure()
+          sarif_file: build/reports/detekt/detekt.sarif  
