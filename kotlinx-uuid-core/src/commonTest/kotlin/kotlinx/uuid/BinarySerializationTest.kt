@@ -36,7 +36,7 @@ class BinarySerializationTest {
     fun testDeadDecoder() {
         val decoder = object : AbstractDecoder() {
             override val serializersModule: SerializersModule
-                get() = EmptySerializersModule
+                get() = EmptySerializersModule()
 
             override fun decodeElementIndex(descriptor: SerialDescriptor): Int {
                 return 777

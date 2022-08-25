@@ -4,7 +4,6 @@
 
 package kotlinx.uuid
 
-import kotlinx.uuid.*
 import java.security.*
 import kotlin.random.*
 import kotlin.test.*

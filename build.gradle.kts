@@ -1,4 +1,5 @@
 import app.cash.licensee.*
+import io.gitlab.arturbosch.detekt.*
 import org.jetbrains.dokka.gradle.*
 import org.jetbrains.kotlin.gradle.dsl.*
 
@@ -16,6 +17,8 @@ plugins {
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
     id("org.jetbrains.dokka") version "1.7.10"
     id("app.cash.licensee") version "1.5.0" apply false
+    id("org.jetbrains.kotlinx.kover") version "0.6.0"
+    id("io.gitlab.arturbosch.detekt") version "1.21.0"
 }
 
 repositories {
@@ -70,6 +73,8 @@ tasks.dokkaHtmlMultiModule.configure {
 allprojects {
     plugins.apply("org.gradle.maven-publish")
     plugins.apply("org.gradle.signing")
+
+    plugins.apply("org.jetbrains.kotlinx.kover")
 
     val emptyJar by tasks.creating(Jar::class) { }
 
@@ -126,6 +131,49 @@ nexusPublishing {
             password.set(System.getProperty("sonartype.apiToken") ?: System.getenv("SONARTYPE_APITOKEN"))
             nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
             snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+        }
+    }
+}
+
+detekt {
+    source = files(rootProject.rootDir)
+    parallel = true
+    autoCorrect = true
+    buildUponDefaultConfig = true
+}
+
+dependencies {
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.21.0")
+}
+
+tasks {
+    fun SourceTask.config() {
+        include("**/*.kt")
+        exclude("**/*.kts")
+        exclude("**/resources/**")
+        exclude("**/generated/**")
+        exclude("**/build/**")
+    }
+    withType<DetektCreateBaselineTask>().configureEach {
+        config()
+    }
+    withType<Detekt>().configureEach {
+        config()
+
+        reports {
+            sarif.required.set(true)
+        }
+    }
+}
+
+koverMerged {
+    enable()
+    verify {
+        onCheck.set(true)
+        rule {
+            bound {
+                minValue = 95
+            }
         }
     }
 }

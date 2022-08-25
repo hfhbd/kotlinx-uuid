@@ -10,7 +10,7 @@ public actual val SecureRandom: Random = SecureRandomIos
 /**
  * https://developer.apple.com/documentation/security/1399291-secrandomcopybytes?language=objc
  */
-private object SecureRandomIos: Random() {
+private object SecureRandomIos : Random() {
     override fun nextBits(bitCount: Int): Int {
         require(bitCount > 0)
         val numberOfBytes = (bitCount + Byte.SIZE_BITS) / Byte.SIZE_BITS
