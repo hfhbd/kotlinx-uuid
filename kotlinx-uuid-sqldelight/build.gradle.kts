@@ -7,9 +7,18 @@ kotlin {
 
     ios()
     iosSimulatorArm64()
+
+    watchos()
+    watchosSimulatorArm64()
+
+    tvos()
+    tvosSimulatorArm64()
+
     macosArm64()
     macosX64()
+
     linuxX64()
+
     mingwX64()
 
     js(IR) {

@@ -15,7 +15,7 @@ private object SecureRandomIos : Random() {
         require(bitCount > 0)
         val numberOfBytes = (bitCount + Byte.SIZE_BITS) / Byte.SIZE_BITS
         val bytes = ByteArray(size = numberOfBytes)
-        val status = SecRandomCopyBytes(kSecRandomDefault, numberOfBytes.toULong(), bytes.refTo(0))
+        val status = SecRandomCopyBytes(kSecRandomDefault, numberOfBytes.convert(), bytes.refTo(0))
 
         require(status == errSecSuccess)
         var result = 0

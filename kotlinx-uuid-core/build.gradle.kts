@@ -12,9 +12,18 @@ kotlin {
 
     ios()
     iosSimulatorArm64()
+
+    watchos()
+    watchosSimulatorArm64()
+
+    tvos()
+    tvosSimulatorArm64()
+
     macosArm64()
     macosX64()
+
     linuxX64()
+
     mingwX64()
 
     js(IR) {
@@ -45,6 +54,7 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$serializationVersion")
             }
         }
+
         val darwinMain by creating {
             dependsOn(commonMain.get())
         }
@@ -74,6 +84,30 @@ kotlin {
         }
         val iosSimulatorArm64Test by getting {
             dependsOn(iosTest)
+        }
+        val watchosMain by getting {
+            dependsOn(darwinMain)
+        }
+        val watchosTest by getting {
+            dependsOn(darwinTest)
+        }
+        val watchosSimulatorArm64Main by getting {
+            dependsOn(watchosMain)
+        }
+        val watchosSimulatorArm64Test by getting {
+            dependsOn(watchosTest)
+        }
+        val tvosMain by getting {
+            dependsOn(darwinMain)
+        }
+        val tvosTest by getting {
+            dependsOn(darwinTest)
+        }
+        val tvosSimulatorArm64Main by getting {
+            dependsOn(tvosMain)
+        }
+        val tvosSimulatorArm64Test by getting {
+            dependsOn(tvosTest)
         }
     }
 }
