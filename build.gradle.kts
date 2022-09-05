@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
 plugins {
     kotlin("multiplatform") version "1.7.10" apply false
     kotlin("plugin.serialization") version "1.7.10" apply false
-    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.11.0"
+    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.11.1"
     `maven-publish`
     signing
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
