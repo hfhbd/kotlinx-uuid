@@ -25,6 +25,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: 11
+      - uses: gradle/gradle-build-action@v2
       - name: Generate Docs
         run: ./gradlew dokkaHtmlMultimodule
       - name: Upload Docs
