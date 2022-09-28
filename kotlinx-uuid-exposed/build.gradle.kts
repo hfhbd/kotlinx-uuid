@@ -22,7 +22,7 @@ kotlin {
 
                 runtimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
                 runtimeOnly("com.h2database:h2:2.1.214")
-                runtimeOnly("org.slf4j:slf4j-simple:2.0.2")
+                runtimeOnly("org.slf4j:slf4j-simple:2.0.3")
             }
         }
     }
