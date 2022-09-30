@@ -9,8 +9,8 @@ import org.jetbrains.kotlin.gradle.dsl.*
  */
 
 plugins {
-    kotlin("multiplatform") version "1.7.10" apply false
-    kotlin("plugin.serialization") version "1.7.10" apply false
+    kotlin("multiplatform") version "1.7.20" apply false
+    kotlin("plugin.serialization") version "1.7.20" apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.11.1"
     `maven-publish`
     signing
