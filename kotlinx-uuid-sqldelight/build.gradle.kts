@@ -36,7 +36,7 @@ kotlin {
         commonMain {
             dependencies {
                 api(projects.kotlinxUuidCore)
-                api("com.squareup.sqldelight:runtime:1.5.3")
+                api("com.squareup.sqldelight:runtime:1.5.4")
             }
         }
         commonTest {
