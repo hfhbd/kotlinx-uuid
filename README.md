@@ -1,7 +1,7 @@
 # Kotlinx-UUID
 
 > #### This is a fork from https://github.com/cy6erGn0m/kotlinx-uuid, released under Apache 2.
-> #### The main implementation was thankfully provided by [cy6erGn0m](https://github.com/cy6erGn0m)!
+> #### The main implementation was thankfully provided by [Sergey Mashkov (cy6erGn0m)](https://github.com/cy6erGn0m)!
 
 `kotlinx-uuid` is a multiplatform (MPP) [Kotlin](https://kotlinlang.org) library introducing support
 for [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier).

@@ -14,6 +14,7 @@ kotlin {
     iosSimulatorArm64()
 
     watchos()
+    watchosX86()
     watchosSimulatorArm64()
 
     tvos()
@@ -23,17 +24,13 @@ kotlin {
     macosX64()
 
     linuxX64()
+    linuxArm64()
 
     mingwX64()
 
     js(IR) {
         browser {
             binaries.library()
-            testTask {
-                useKarma {
-                    useChromeHeadless()
-                }
-            }
         }
     }
 
@@ -53,6 +50,14 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-cbor:$serializationVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$serializationVersion")
             }
+        }
+
+        val linuxMain by creating
+        val linuxX64Main by getting {
+            dependsOn(linuxMain)
+        }
+        val linuxArm64Main by getting {
+            dependsOn(linuxMain)
         }
 
         val darwinMain by creating {
@@ -95,6 +100,12 @@ kotlin {
             dependsOn(watchosMain)
         }
         val watchosSimulatorArm64Test by getting {
+            dependsOn(watchosTest)
+        }
+        val watchosX86Main by getting {
+            dependsOn(watchosMain)
+        }
+        val watchosX86Test by getting {
             dependsOn(watchosTest)
         }
         val tvosMain by getting {
