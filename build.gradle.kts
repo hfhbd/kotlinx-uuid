@@ -19,7 +19,7 @@ plugins {
     id("org.jetbrains.dokka") version "1.7.20"
     id("app.cash.licensee") version "1.6.0" apply false
     id("org.jetbrains.kotlinx.kover") version "0.6.1"
-    id("io.gitlab.arturbosch.detekt") version "1.21.0"
+    id("io.gitlab.arturbosch.detekt") version "1.22.0"
 }
 
 repositories {
