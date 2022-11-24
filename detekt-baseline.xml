@@ -85,7 +85,5 @@
     <ID>MagicNumber:UUID.kt$UUID.Version.NAME_BASED_SHA1$5</ID>
     <ID>MagicNumber:UUID.kt$UUID.Version.RANDOM_BASED$4</ID>
     <ID>TooManyFunctions:SHA1.kt$SHA1</ID>
-    <ID>UnnecessaryAbstractClass:KotlinxUUIDEntity.kt$KotlinxUUIDEntity$KotlinxUUIDEntity</ID>
-    <ID>UnnecessaryAbstractClass:KotlinxUUIDEntityClass.kt$KotlinxUUIDEntityClass$KotlinxUUIDEntityClass</ID>
   </CurrentIssues>
 </SmellBaseline>

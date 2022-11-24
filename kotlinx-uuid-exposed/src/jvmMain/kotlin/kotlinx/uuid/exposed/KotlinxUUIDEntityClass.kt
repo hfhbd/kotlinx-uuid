@@ -11,7 +11,7 @@ import org.jetbrains.exposed.dao.id.*
 /**
  * A [UUID](Kotlinx.uuid.UUID) DAO EntityClass for using the Exposed DAO API.
  */
-public abstract class KotlinxUUIDEntityClass<out E : KotlinxUUIDEntity>(
+public open class KotlinxUUIDEntityClass<out E : KotlinxUUIDEntity>(
     table: IdTable<UUID>,
     entityType: Class<E>? = null,
     entityCtor: ((EntityID<UUID>) -> E)? = null
