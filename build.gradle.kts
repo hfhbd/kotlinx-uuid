@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
  */
 
 plugins {
-    val kotlin = "1.7.21"
+    val kotlin = "1.7.22"
     kotlin("multiplatform") version kotlin apply false
     kotlin("plugin.serialization") version kotlin apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.12.1"
