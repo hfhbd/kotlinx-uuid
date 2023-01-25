@@ -22,14 +22,7 @@ kotlin {
     mingwX64()
 
     js(IR) {
-        browser {
-            binaries.library()
-            testTask {
-                useKarma {
-                    useChromeHeadless()
-                }
-            }
-        }
+        browser()
     }
 
     sourceSets {

@@ -10,13 +10,13 @@ kotlin {
         // Apache 2, https://github.com/JetBrains/Exposed/releases/latest
         val exposedVersion = "0.41.1"
 
-        getByName("jvmMain") {
+        named("jvmMain") {
             dependencies {
                 api(projects.kotlinxUuidCore)
                 api("org.jetbrains.exposed:exposed-dao:$exposedVersion")
             }
         }
-        getByName("jvmTest") {
+        named("jvmTest") {
             dependencies {
                 implementation(kotlin("test-junit"))
 

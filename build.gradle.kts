@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.dsl.*
  */
 
 plugins {
-    val kotlin = "1.7.22"
+    val kotlin = "1.8.0"
     kotlin("multiplatform") version kotlin apply false
     kotlin("plugin.serialization") version kotlin apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.12.1"
@@ -39,14 +39,14 @@ subprojects {
         explicitApi()
 
         sourceSets {
-            all {
+            configureEach {
                 languageSettings.progressiveMode = true
                 languageSettings.optIn("kotlinx.uuid.InternalAPI")
             }
         }
     }
 
-    tasks.getByName<DokkaTaskPartial>("dokkaHtmlPartial") {
+    tasks.named<DokkaTaskPartial>("dokkaHtmlPartial") {
         val module = project.name
         dokkaSourceSets.configureEach {
             reportUndocumented.set(true)
@@ -77,12 +77,10 @@ allprojects {
 
     plugins.apply("org.jetbrains.kotlinx.kover")
 
-    val emptyJar by tasks.creating(Jar::class) { }
-
-    group = "app.softwork"
+    val emptyJar by tasks.registering(Jar::class)
 
     publishing {
-        publications.all {
+        publications.configureEach {
             this as MavenPublication
             artifact(emptyJar) {
                 classifier = "javadoc"

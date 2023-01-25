@@ -29,9 +29,7 @@ kotlin {
     mingwX64()
 
     js(IR) {
-        browser {
-            binaries.library()
-        }
+        browser()
     }
 
     sourceSets {
