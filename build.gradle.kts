@@ -39,14 +39,14 @@ subprojects {
         explicitApi()
 
         sourceSets {
-            all {
+            configureEach {
                 languageSettings.progressiveMode = true
                 languageSettings.optIn("kotlinx.uuid.InternalAPI")
             }
         }
     }
 
-    tasks.getByName<DokkaTaskPartial>("dokkaHtmlPartial") {
+    tasks.named<DokkaTaskPartial>("dokkaHtmlPartial") {
         val module = project.name
         dokkaSourceSets.configureEach {
             reportUndocumented.set(true)
@@ -77,12 +77,10 @@ allprojects {
 
     plugins.apply("org.jetbrains.kotlinx.kover")
 
-    val emptyJar by tasks.creating(Jar::class) { }
-
-    group = "app.softwork"
+    val emptyJar by tasks.registering(Jar::class)
 
     publishing {
-        publications.all {
+        publications.configureEach {
             this as MavenPublication
             artifact(emptyJar) {
                 classifier = "javadoc"
