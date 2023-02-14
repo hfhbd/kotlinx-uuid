@@ -1,6 +1,7 @@
 package kotlinx.uuid
 
 import kotlinx.cinterop.*
+import kotlinx.uuid.internal.*
 import platform.posix.*
 import kotlin.random.*
 
@@ -18,11 +19,6 @@ private class DevUrandom : Random() {
         }
         close(urandom)
         require(status >= 0)
-        var result = 0
-        for (byte in bytes) {
-            result = (result or byte.toInt()) shl Byte.SIZE_BITS
-        }
-
-        return result
+        return bytes.toInt()
     }
 }

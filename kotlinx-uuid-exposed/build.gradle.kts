@@ -3,29 +3,24 @@
  * Copyright 2021 hfhbd and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
-kotlin {
-    jvm()
+plugins {
+    kotlinJvm
+    dokkaKover
+    publish
+}
 
-    sourceSets {
-        // Apache 2, https://github.com/JetBrains/Exposed/releases/latest
-        val exposedVersion = "0.41.1"
 
-        named("jvmMain") {
-            dependencies {
-                api(projects.kotlinxUuidCore)
-                api("org.jetbrains.exposed:exposed-dao:$exposedVersion")
-            }
-        }
-        named("jvmTest") {
-            dependencies {
-                implementation(kotlin("test-junit"))
+dependencies {
+    api(projects.kotlinxUuidCore)
 
-                runtimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
-                runtimeOnly("com.h2database:h2:2.1.214")
-                runtimeOnly("org.slf4j:slf4j-simple:2.0.6")
-            }
-        }
-    }
+    val exposedVersion = "0.41.1"
+    api("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+
+    testImplementation(kotlin("test-junit"))
+
+    testRuntimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    testRuntimeOnly("com.h2database:h2:2.1.214")
+    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.6")
 }
 
 licensee {

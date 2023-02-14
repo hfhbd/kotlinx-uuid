@@ -1,29 +1,44 @@
 /*
  * Copyright 2021 hfhbd and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
+plugins {
+    kotlinMPP
+    publish
+    dokkaKover
+}
 
 kotlin {
     jvm()
-
-    ios()
-    iosSimulatorArm64()
-
-    watchos()
-    watchosSimulatorArm64()
-
-    tvos()
-    tvosSimulatorArm64()
-
-    macosArm64()
-    macosX64()
-
-    linuxX64()
-
-    mingwX64()
-
     js(IR) {
         browser()
+        nodejs()
     }
+
+    // tier 1
+    linuxX64()
+    macosX64()
+    macosArm64()
+    iosSimulatorArm64()
+    iosX64()
+
+    // tier 2
+    // no sqldelight support linuxArm64()
+    watchosSimulatorArm64()
+    watchosX64()
+    watchosArm32()
+    watchosArm64()
+    tvosSimulatorArm64()
+    tvosX64()
+    tvosArm64()
+    iosArm64()
+
+    // tier 3
+    // androidNativeArm32()
+    // androidNativeArm64()
+    // androidNativeX86()
+    // androidNativeX64()
+    mingwX64()
+    // watchosDeviceArm64()
 
     sourceSets {
         commonMain {
@@ -34,7 +49,7 @@ kotlin {
         }
         commonTest {
             dependencies {
-                api(kotlin("test"))
+                implementation(kotlin("test"))
             }
         }
     }
