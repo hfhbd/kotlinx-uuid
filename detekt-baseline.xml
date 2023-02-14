@@ -17,6 +17,7 @@
     <ID>MagicNumber:Formatter.kt$6</ID>
     <ID>MagicNumber:Formatter.kt$8</ID>
     <ID>MagicNumber:Formatter.kt$9</ID>
+    <ID>MagicNumber:KotlinConfig.kt$8</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$0x3f</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$4</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$6</ID>
@@ -62,8 +63,8 @@
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$3</ID>
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$4</ID>
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$8</ID>
-    <ID>MagicNumber:SecureRandom.kt$SecureRandomJs$31</ID>
-    <ID>MagicNumber:SecureRandom.kt$SecureRandomJs$32</ID>
+    <ID>MagicNumber:SecureRandom.kt$SecureRandomBrowser$31</ID>
+    <ID>MagicNumber:SecureRandom.kt$SecureRandomBrowser$32</ID>
     <ID>MagicNumber:UUID.kt$UUID$0x0fffL</ID>
     <ID>MagicNumber:UUID.kt$UUID$0x1fff</ID>
     <ID>MagicNumber:UUID.kt$UUID$0xf000L</ID>

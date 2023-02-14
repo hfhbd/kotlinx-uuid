@@ -1,6 +1,7 @@
 package kotlinx.uuid
 
 import kotlinx.cinterop.*
+import kotlinx.uuid.internal.*
 import platform.windows.*
 import kotlin.random.*
 
@@ -21,11 +22,7 @@ private class BCryptRandom : Random() {
         }
 
         require(status == NTSTATUS_SUCCESS)
-        var result = 0
-        for (byte in bytes) {
-            result = (result or byte.toInt()) shl Byte.SIZE_BITS
-        }
-        return result
+        return bytes.toInt()
     }
 }
 

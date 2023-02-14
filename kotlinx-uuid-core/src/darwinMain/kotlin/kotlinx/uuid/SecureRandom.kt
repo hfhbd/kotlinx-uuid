@@ -1,6 +1,7 @@
 package kotlinx.uuid
 
 import kotlinx.cinterop.*
+import kotlinx.uuid.internal.*
 import platform.Security.*
 import platform.darwin.*
 import kotlin.random.*
@@ -18,10 +19,6 @@ private object SecureRandomIos : Random() {
         val status = SecRandomCopyBytes(kSecRandomDefault, numberOfBytes.convert(), bytes.refTo(0))
 
         require(status == errSecSuccess)
-        var result = 0
-        for (byte in bytes) {
-            result = (result or byte.toInt()) shl Byte.SIZE_BITS
-        }
-        return result
+        return bytes.toInt()
     }
 }
