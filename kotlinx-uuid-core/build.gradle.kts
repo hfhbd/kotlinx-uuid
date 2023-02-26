@@ -44,7 +44,7 @@ kotlin {
 
     sourceSets {
         // Apache 2, https://github.com/Kotlin/kotlinx.serialization/releases/latest
-        val serializationVersion = "1.4.1"
+        val serializationVersion = "1.5.0"
 
         commonMain {
             dependencies {
