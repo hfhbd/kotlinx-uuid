@@ -20,7 +20,7 @@ dependencies {
 
     testRuntimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
     testRuntimeOnly("com.h2database:h2:2.1.214")
-    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.6")
+    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.7")
 }
 
 licensee {
