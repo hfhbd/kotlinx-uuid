@@ -8,6 +8,9 @@ concurrency:
   group: "cd"
   cancel-in-progress: false
 
+env:
+  GRADLE_OPTS: -Dorg.gradle.parallel=true -Dorg.gradle.caching=true
+
 jobs:
   build:
     runs-on: macos-latest
