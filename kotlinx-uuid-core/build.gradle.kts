@@ -10,6 +10,7 @@ plugins {
 }
 
 kotlin {
+    targetHierarchy.default()
     jvm()
     js(IR) {
         browser()
@@ -59,28 +60,5 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$serializationVersion")
             }
         }
-
-        val linuxMain by creating {
-            dependsOn(commonMain.get())
-        }
-        val linuxX64Main by getting { dependsOn(linuxMain) }
-        val linuxArm64Main by getting { dependsOn(linuxMain) }
-
-        val darwinMain by creating {
-            dependsOn(commonMain.get())
-        }
-        val macosX64Main by getting { dependsOn(darwinMain) }
-        val macosArm64Main by getting { dependsOn(darwinMain) }
-        val iosSimulatorArm64Main by getting { dependsOn(darwinMain) }
-        val iosX64Main by getting { dependsOn(darwinMain) }
-
-        val watchosSimulatorArm64Main by getting { dependsOn(darwinMain) }
-        val watchosX64Main by getting { dependsOn(darwinMain) }
-        val watchosArm32Main by getting { dependsOn(darwinMain) }
-        val watchosArm64Main by getting { dependsOn(darwinMain) }
-        val tvosSimulatorArm64Main by getting { dependsOn(darwinMain) }
-        val tvosX64Main by getting { dependsOn(darwinMain) }
-        val tvosArm64Main by getting { dependsOn(darwinMain) }
-        val iosArm64Main by getting { dependsOn(darwinMain) }
     }
 }
