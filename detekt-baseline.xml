@@ -2,6 +2,7 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
+    <ID>FunctionNaming:UUID7.kt$@UUIDExperimentalAPI public fun UUIDv7(timeStamp: Long, random: Random = SecureRandom): UUID</ID>
     <ID>MagicNumber:Encoding.kt$0xff</ID>
     <ID>MagicNumber:Encoding.kt$56</ID>
     <ID>MagicNumber:Encoding.kt$7</ID>
@@ -85,6 +86,13 @@
     <ID>MagicNumber:UUID.kt$UUID.Version.NAME_BASED_MD5$3</ID>
     <ID>MagicNumber:UUID.kt$UUID.Version.NAME_BASED_SHA1$5</ID>
     <ID>MagicNumber:UUID.kt$UUID.Version.RANDOM_BASED$4</ID>
+    <ID>MagicNumber:UUID7.kt$0x38</ID>
+    <ID>MagicNumber:UUID7.kt$0x3fffffffffffffffL</ID>
+    <ID>MagicNumber:UUID7.kt$0x7000L</ID>
+    <ID>MagicNumber:UUID7.kt$0x80L</ID>
+    <ID>MagicNumber:UUID7.kt$16</ID>
+    <ID>MagicNumber:UUID7.kt$20</ID>
     <ID>TooManyFunctions:SHA1.kt$SHA1</ID>
+    <ID>VariableNaming:UUID7.kt$val rand_a = (random.nextInt() shr 20).toLong()</ID>
   </CurrentIssues>
 </SmellBaseline>
