@@ -107,6 +107,12 @@ public final class kotlinx/uuid/UUID$Version : java/lang/Enum {
 	public static fun values ()[Lkotlinx/uuid/UUID$Version;
 }
 
+public final class kotlinx/uuid/UUID7Kt {
+	public static final fun UUIDv7 (JLkotlin/random/Random;)Lkotlinx/uuid/UUID;
+	public static synthetic fun UUIDv7$default (JLkotlin/random/Random;ILjava/lang/Object;)Lkotlinx/uuid/UUID;
+	public static final fun getUnixTimeStamp (Lkotlinx/uuid/UUID;)J
+}
+
 public abstract interface annotation class kotlinx/uuid/UUIDExperimentalAPI : java/lang/annotation/Annotation {
 	public abstract fun plannedVersion ()Ljava/lang/String;
 }
