@@ -14,7 +14,7 @@ plugins {
     io.gitlab.arturbosch.detekt
 }
 
-tasks.dokkaHtmlMultiModule.configure {
+tasks.dokkaHtmlMultiModule {
     includes.from("README.md")
 }
 
