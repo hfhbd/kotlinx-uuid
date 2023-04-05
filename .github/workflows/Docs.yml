@@ -5,6 +5,9 @@ on:
     types: [created]
   workflow_dispatch:
 
+env:
+  GRADLE_OPTS: -Dorg.gradle.parallel=true -Dorg.gradle.caching=true
+
 jobs:
   build:
     runs-on: ubuntu-latest
