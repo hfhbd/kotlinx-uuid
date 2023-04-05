@@ -4,6 +4,5 @@ plugins {
 }
 
 kotlin {
-    
     kotlinConfig()
 }
