@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    val kotlin = "1.8.20"
+    val kotlin = "1.8.21"
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin")
     implementation("org.jetbrains.kotlin:kotlin-serialization:$kotlin")
     implementation("org.jetbrains.kotlinx:binary-compatibility-validator:0.13.1")
