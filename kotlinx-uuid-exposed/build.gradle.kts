@@ -4,23 +4,20 @@
  */
 
 plugins {
-    kotlinJvm
-    dokkaKover
-    publish
+    id("kotlinJvm")
+    id("dokkaKover")
+    id("publish")
 }
 
 
 dependencies {
     api(projects.kotlinxUuidCore)
-
-    val exposedVersion = "0.41.1"
-    api("org.jetbrains.exposed:exposed-dao:$exposedVersion")
+    api(libs.exposed.dao)
 
     testImplementation(kotlin("test-junit"))
-
-    testRuntimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
-    testRuntimeOnly("com.h2database:h2:2.1.214")
-    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.7")
+    testRuntimeOnly(libs.exposed.jdbc)
+    testRuntimeOnly(libs.h2)
+    testRuntimeOnly(libs.slf4j)
 }
 
 licensee {

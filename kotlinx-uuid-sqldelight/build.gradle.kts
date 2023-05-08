@@ -2,9 +2,9 @@
  * Copyright 2021 hfhbd and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 plugins {
-    kotlinMPP
-    publish
-    dokkaKover
+    id("kotlinMPP")
+    id("publish")
+    id("dokkaKover")
 }
 
 kotlin {
@@ -44,7 +44,7 @@ kotlin {
         commonMain {
             dependencies {
                 api(projects.kotlinxUuidCore)
-                api("com.squareup.sqldelight:runtime:1.5.5")
+                api(libs.sqldelight.runtime)
             }
         }
         commonTest {

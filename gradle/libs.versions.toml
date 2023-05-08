@@ -1,0 +1,26 @@
+[versions]
+kotlin = "1.8.20"
+serialization = "1.5.0"
+exposed = "0.41.1"
+
+[libraries]
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+binary = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version = "0.13.1" }
+publish = { module = "io.github.gradle-nexus:publish-plugin", version = "1.3.0" }
+dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "1.8.10" }
+licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.7.0" }
+kover = { module = "org.jetbrains.kotlinx:kover", version = "0.6.1" }
+detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version = "1.22.0" }
+
+serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
+serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+serialization-cbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "serialization" }
+serialization-protobuf = { module = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf", version.ref = "serialization" }
+
+exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
+exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
+h2 = { module = "com.h2database:h2", version = "2.1.214" }
+slf4j = { module = "org.slf4j:slf4j-simple", version = "2.0.7" }
+
+sqldelight-runtime = { module = "com.squareup.sqldelight:runtime", version = "1.5.5" }
