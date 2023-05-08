@@ -4,13 +4,14 @@
  */
 
 plugins {
-    kotlinMPP
-    publish
-    dokkaKover
+    id("kotlinMPP")
+    id("publish")
+    id("dokkaKover")
 }
 
 kotlin {
     targetHierarchy.default()
+
     jvm()
     js(IR) {
         browser()
@@ -44,20 +45,17 @@ kotlin {
     // no kotlinx.serialization support watchosDeviceArm64()
 
     sourceSets {
-        // Apache 2, https://github.com/Kotlin/kotlinx.serialization/releases/latest
-        val serializationVersion = "1.5.0"
-
         commonMain {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                implementation(libs.serialization.core)
             }
         }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-cbor:$serializationVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$serializationVersion")
+                implementation(libs.serialization.json)
+                implementation(libs.serialization.cbor)
+                implementation(libs.serialization.protobuf)
             }
         }
     }

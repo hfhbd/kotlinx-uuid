@@ -8,10 +8,10 @@ import io.gitlab.arturbosch.detekt.*
 plugins {
     kotlin("multiplatform") apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
-    io.github.`gradle-nexus`.`publish-plugin`
-    org.jetbrains.dokka
-    org.jetbrains.kotlinx.kover
-    io.gitlab.arturbosch.detekt
+    id("io.github.gradle-nexus.publish-plugin")
+    id("org.jetbrains.dokka")
+    id("org.jetbrains.kotlinx.kover")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 tasks.dokkaHtmlMultiModule {
@@ -37,7 +37,7 @@ detekt {
 }
 
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
 }
 
 tasks {
