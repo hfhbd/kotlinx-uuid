@@ -13,19 +13,7 @@ The main class `UUID` is serializable out of the box, so the library depends
 on [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization). If you don't need serialization, you don't
 need to apply the plugin.
 
-Supported platforms are `jvm`, `js(IR)` and all tier 1, 2 and 3 native targets except the following:
-
-```
-js(LEGACY)
-
-// tier 3
-androidNativeArm32()
-androidNativeArm64()
-androidNativeX86()
-androidNativeX64()
-
-watchosDeviceArm64()
-```
+Supported platforms are `jvm`, `js(IR)` and all tier 1, 2 and 3 native targets.
 
 ## Install
 
