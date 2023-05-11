@@ -10,7 +10,14 @@ plugins {
 }
 
 kotlin {
-    targetHierarchy.default()
+    targetHierarchy.default {
+        common {
+            group("linuxDerivat") {
+                withAndroidNative()
+                withLinux()
+            }
+        }
+    }
 
     jvm()
     js(IR) {
@@ -37,12 +44,12 @@ kotlin {
     iosArm64()
 
     // tier 3
-    // no kotlinx.serialization support androidNativeArm32()
-    // no kotlinx.serialization support androidNativeArm64()
-    // no kotlinx.serialization support androidNativeX86()
-    // no kotlinx.serialization support androidNativeX64()
+    androidNativeArm32()
+    androidNativeArm64()
+    androidNativeX86()
+    androidNativeX64()
     mingwX64()
-    // no kotlinx.serialization support watchosDeviceArm64()
+    watchosDeviceArm64()
 
     sourceSets {
         commonMain {
