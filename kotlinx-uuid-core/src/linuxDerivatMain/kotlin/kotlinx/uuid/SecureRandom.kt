@@ -15,7 +15,7 @@ private class DevUrandom : Random() {
         val urandom = open("/dev/urandom", O_RDONLY)
         require(urandom >= 0)
         val status = bytes.usePinned {
-            read(urandom, it.addressOf(0), numberOfBytes.toULong())
+            read(urandom, it.addressOf(0), numberOfBytes.convert())
         }
         close(urandom)
         require(status >= 0)

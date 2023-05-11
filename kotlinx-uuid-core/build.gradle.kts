@@ -10,7 +10,14 @@ plugins {
 }
 
 kotlin {
-    targetHierarchy.default()
+    targetHierarchy.default {
+        common {
+            group("linuxDerivat") {
+                withAndroidNative()
+                withLinux()
+            }
+        }
+    }
 
     jvm()
     js(IR) {

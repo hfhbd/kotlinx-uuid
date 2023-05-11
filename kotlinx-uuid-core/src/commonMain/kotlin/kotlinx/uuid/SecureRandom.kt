@@ -8,6 +8,6 @@ import kotlin.random.*
  * - On JS, it uses `window.crypto` or `nodejs.crypto`.
  * - On darwin, it uses `SecRandomCopyBytes`.
  * - On mingw, it uses `BCryptRandom`.
- * - On Linux, it uses `DevUrandom`.
+ * - On Linux and Android native, it uses `DevUrandom`.
  */
 public expect val SecureRandom: Random
