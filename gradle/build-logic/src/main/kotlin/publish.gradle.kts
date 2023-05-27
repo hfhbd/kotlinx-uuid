@@ -40,7 +40,6 @@ publishing {
 (System.getProperty("signing.privateKey") ?: System.getenv("SIGNING_PRIVATE_KEY"))?.let {
     String(java.util.Base64.getDecoder().decode(it)).trim()
 }?.let { key ->
-    println("found key, config signing")
     signing {
         val signingPassword = System.getProperty("signing.password") ?: System.getenv("SIGNING_PASSWORD")
         useInMemoryPgpKeys(key, signingPassword)

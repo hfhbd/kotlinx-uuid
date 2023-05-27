@@ -6,7 +6,6 @@ import io.gitlab.arturbosch.detekt.*
  */
 
 plugins {
-    kotlin("multiplatform") apply false
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
     id("io.github.gradle-nexus.publish-plugin")
     id("org.jetbrains.dokka")
@@ -19,7 +18,7 @@ tasks.dokkaHtmlMultiModule {
 }
 
 nexusPublishing {
-    repositories {
+    this.repositories {
         sonatype {
             username.set(System.getProperty("sonartype.apiKey") ?: System.getenv("SONARTYPE_APIKEY"))
             password.set(System.getProperty("sonartype.apiToken") ?: System.getenv("SONARTYPE_APITOKEN"))
@@ -30,7 +29,7 @@ nexusPublishing {
 }
 
 detekt {
-    source = files(rootProject.rootDir)
+    source.from(files(rootProject.rootDir))
     parallel = true
     autoCorrect = true
     buildUponDefaultConfig = true

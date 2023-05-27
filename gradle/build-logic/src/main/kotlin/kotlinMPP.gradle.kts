@@ -6,6 +6,6 @@ plugins {
 
 plugins.apply("org.jetbrains.kotlin.multiplatform")
 
-the<KotlinMultiplatformExtension>().apply {
+extensions.configure<KotlinMultiplatformExtension>("kotlin") {
     kotlinConfig()
 }
