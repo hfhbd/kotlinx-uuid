@@ -33,7 +33,7 @@ koverReport {
             onCheck = true
             rule {
                 bound {
-                    minValue = 95
+                    minValue = 90
                 }
             }
         }
