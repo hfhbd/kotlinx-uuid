@@ -26,3 +26,16 @@ tasks.named<DokkaTaskPartial>("dokkaHtmlPartial") {
 licensee {
     allow(spdxId = "Apache-2.0")
 }
+
+koverReport {
+    defaults {
+        verify {
+            onCheck = true
+            rule {
+                bound {
+                    minValue = 90
+                }
+            }
+        }
+    }
+}

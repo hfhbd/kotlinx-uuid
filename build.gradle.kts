@@ -9,7 +9,6 @@ plugins {
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
     id("io.github.gradle-nexus.publish-plugin")
     id("org.jetbrains.dokka")
-    id("org.jetbrains.kotlinx.kover")
     id("io.gitlab.arturbosch.detekt")
 }
 
@@ -37,9 +36,6 @@ detekt {
 
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
-    kover(projects.kotlinxUuidCore)
-    kover(projects.kotlinxUuidExposed)
-    kover(projects.kotlinxUuidSqldelight)
 }
 
 tasks {
@@ -58,19 +54,6 @@ tasks {
 
         reports {
             sarif.required.set(true)
-        }
-    }
-}
-
-koverReport {
-    defaults {
-        verify {
-            onCheck = true
-            rule {
-                bound {
-                    minValue = 95
-                }
-            }
         }
     }
 }
