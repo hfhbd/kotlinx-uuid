@@ -37,6 +37,9 @@ detekt {
 
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
+    kover(projects.kotlinxUuidCore)
+    kover(projects.kotlinxUuidExposed)
+    kover(projects.kotlinxUuidSqldelight)
 }
 
 tasks {
@@ -59,13 +62,14 @@ tasks {
     }
 }
 
-koverMerged {
-    enable()
-    verify {
-        onCheck.set(true)
-        rule {
-            bound {
-                minValue = 95
+koverReport {
+    defaults {
+        verify {
+            onCheck = true
+            rule {
+                bound {
+                    minValue = 95
+                }
             }
         }
     }
