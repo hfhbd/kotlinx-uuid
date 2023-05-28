@@ -23,3 +23,14 @@ dependencies {
 licensee {
     allow("MIT")
 }
+
+publishing {
+    publications.register<MavenPublication>("maven") {
+        from(components["java"])
+    }
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
