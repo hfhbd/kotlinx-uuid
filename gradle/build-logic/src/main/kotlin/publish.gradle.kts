@@ -8,8 +8,10 @@ val emptyJar by tasks.registering(Jar::class)
 publishing {
     publications.configureEach {
         this as MavenPublication
-        artifact(emptyJar) {
-            classifier = "javadoc"
+        if (project.name != "kotlinx-uuid-exposed") {
+            artifact(emptyJar) {
+                classifier = "javadoc"
+            }
         }
         pom {
             name.set("app.softwork UUID Library")
