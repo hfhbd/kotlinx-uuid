@@ -5,7 +5,8 @@
 
 plugins {
     id("kotlinJvm")
-    id("dokkaKover")
+    id("dokkaLicensee")
+    id("kover")
     id("publish")
 }
 

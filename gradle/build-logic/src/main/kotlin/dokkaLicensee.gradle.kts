@@ -3,7 +3,6 @@ import org.jetbrains.dokka.gradle.*
 plugins {
     id("org.jetbrains.dokka")
     id("app.cash.licensee")
-    id("org.jetbrains.kotlinx.kover")
 }
 
 tasks.named<DokkaTaskPartial>("dokkaHtmlPartial") {
@@ -25,17 +24,4 @@ tasks.named<DokkaTaskPartial>("dokkaHtmlPartial") {
 
 licensee {
     allow(spdxId = "Apache-2.0")
-}
-
-koverReport {
-    defaults {
-        verify {
-            onCheck = true
-            rule {
-                bound {
-                    minValue = 90
-                }
-            }
-        }
-    }
 }
