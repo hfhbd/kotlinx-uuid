@@ -1,6 +1,6 @@
 package kotlinx.uuid.sqldelight
 
-import com.squareup.sqldelight.*
+import app.cash.sqldelight.*
 import kotlinx.uuid.*
 
 public object UUIDStringAdapter : ColumnAdapter<UUID, String> {

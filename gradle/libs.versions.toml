@@ -23,4 +23,4 @@ exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "e
 h2 = { module = "com.h2database:h2", version = "2.2.220" }
 slf4j = { module = "org.slf4j:slf4j-simple", version = "2.0.7" }
 
-sqldelight-runtime = { module = "com.squareup.sqldelight:runtime", version = "1.5.5" }
+sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.0.0" }
