@@ -11,6 +11,7 @@ public actual val SecureRandom: Random = SecureRandomIos
 /**
  * https://developer.apple.com/documentation/security/1399291-secrandomcopybytes?language=objc
  */
+@OptIn(ExperimentalForeignApi::class)
 private object SecureRandomIos : Random() {
     override fun nextBits(bitCount: Int): Int {
         require(bitCount > 0)

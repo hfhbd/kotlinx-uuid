@@ -103,6 +103,7 @@ public final class kotlinx/uuid/UUID$Version : java/lang/Enum {
 	public static final field NAME_BASED_SHA1 Lkotlinx/uuid/UUID$Version;
 	public static final field RANDOM_BASED Lkotlinx/uuid/UUID$Version;
 	public static final field TIME_BASED Lkotlinx/uuid/UUID$Version;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lkotlinx/uuid/UUID$Version;
 	public static fun values ()[Lkotlinx/uuid/UUID$Version;
 }
