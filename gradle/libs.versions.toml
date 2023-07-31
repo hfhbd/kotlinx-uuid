@@ -11,7 +11,7 @@ publish = { module = "io.github.gradle-nexus:publish-plugin", version = "1.3.0" 
 dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "1.8.20" }
 licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.7.0" }
 kover = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version = "0.7.1" }
-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version = "1.23.0" }
+detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version = "1.23.1" }
 
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
