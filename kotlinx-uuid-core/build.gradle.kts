@@ -6,7 +6,8 @@
 plugins {
     id("kotlinMPP")
     id("publish")
-    id("dokkaKover")
+    id("dokkaLicensee")
+    id("kover")
 }
 
 kotlin {
