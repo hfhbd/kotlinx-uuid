@@ -9,6 +9,7 @@ plugins {
     id("publish")
 }
 
+kotlin.jvmToolchain(11)
 
 dependencies {
     api(projects.kotlinxUuidCore)

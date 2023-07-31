@@ -12,5 +12,3 @@ dependencies {
     implementation(libs.kover)
     implementation(libs.detekt)
 }
-
-kotlin.jvmToolchain(11)
