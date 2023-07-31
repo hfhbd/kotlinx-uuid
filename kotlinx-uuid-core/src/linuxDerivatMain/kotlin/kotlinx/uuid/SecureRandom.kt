@@ -7,6 +7,7 @@ import kotlin.random.*
 
 public actual val SecureRandom: Random = DevUrandom()
 
+@OptIn(ExperimentalForeignApi::class)
 private class DevUrandom : Random() {
     override fun nextBits(bitCount: Int): Int {
         require(bitCount > 0)

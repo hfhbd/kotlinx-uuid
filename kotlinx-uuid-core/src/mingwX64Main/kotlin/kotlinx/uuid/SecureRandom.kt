@@ -7,6 +7,7 @@ import kotlin.random.*
 
 public actual val SecureRandom: Random = BCryptRandom()
 
+@OptIn(ExperimentalForeignApi::class)
 private class BCryptRandom : Random() {
     override fun nextBits(bitCount: Int): Int {
         require(bitCount > 0)
@@ -16,8 +17,8 @@ private class BCryptRandom : Random() {
             BCryptGenRandom(
                 hAlgorithm = null,
                 pbBuffer = it.addressOf(0).reinterpret(),
-                cbBuffer = numberOfBytes.toUInt(),
-                dwFlags = BCRYPT_USE_SYSTEM_PREFERRED_RNG
+                cbBuffer = numberOfBytes.convert(),
+                dwFlags = BCRYPT_USE_SYSTEM_PREFERRED_RNG.convert()
             )
         }
 
