@@ -1,3 +1,5 @@
+import java.util.*
+
 plugins {
     id("org.gradle.maven-publish")
     id("org.gradle.signing")
@@ -39,12 +41,11 @@ publishing {
     }
 }
 
-(System.getProperty("signing.privateKey") ?: System.getenv("SIGNING_PRIVATE_KEY"))?.let {
-    String(java.util.Base64.getDecoder().decode(it)).trim()
-}?.let { key ->
-    signing {
-        val signingPassword = System.getProperty("signing.password") ?: System.getenv("SIGNING_PASSWORD")
-        useInMemoryPgpKeys(key, signingPassword)
+signing {
+    val signingKey: String? by project
+    val signingPassword: String? by project
+    signingKey?.let {
+        useInMemoryPgpKeys(String(Base64.getDecoder().decode(it)).trim(), signingPassword)
         sign(publishing.publications)
     }
 }
@@ -53,4 +54,9 @@ publishing {
 val signingTasks = tasks.withType<Sign>()
 tasks.withType<AbstractPublishToMaven>().configureEach {
     dependsOn(signingTasks)
+}
+
+tasks.withType<AbstractArchiveTask>().configureEach {
+    isPreserveFileTimestamps = false
+    isReproducibleFileOrder = true
 }
