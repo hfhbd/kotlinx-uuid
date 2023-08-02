@@ -22,7 +22,7 @@ kotlin {
     iosX64()
 
     // tier 2
-    // no sqldelight support linuxArm64()
+    linuxArm64()
     watchosSimulatorArm64()
     watchosX64()
     watchosArm32()
@@ -33,12 +33,12 @@ kotlin {
     iosArm64()
 
     // tier 3
-    // androidNativeArm32()
-    // androidNativeArm64()
-    // androidNativeX86()
-    // androidNativeX64()
+    androidNativeArm32()
+    androidNativeArm64()
+    androidNativeX86()
+    androidNativeX64()
     mingwX64()
-    // watchosDeviceArm64()
+    watchosDeviceArm64()
 
     sourceSets {
         commonMain {
