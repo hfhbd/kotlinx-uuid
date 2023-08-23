@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.9.0"
+kotlin = "1.9.10"
 serialization = "1.6.0"
 exposed = "0.42.1"
 
