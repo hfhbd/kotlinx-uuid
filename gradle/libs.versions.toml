@@ -9,7 +9,7 @@ kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", v
 binary = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version = "0.13.2" }
 publish = { module = "io.github.gradle-nexus:publish-plugin", version = "1.3.0" }
 dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version = "1.9.0" }
-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.7.0" }
+licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.8.0" }
 kover = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version = "0.7.3" }
 detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version = "1.23.1" }
 
