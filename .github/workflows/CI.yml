@@ -18,6 +18,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: 11
       - uses: gradle/gradle-build-action@v2
         with:
           dependency-graph: generate-and-submit
