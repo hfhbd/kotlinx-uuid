@@ -11,7 +11,7 @@ plugins {
 }
 
 kotlin {
-    targetHierarchy.default {
+    applyDefaultHierarchyTemplate {
         common {
             group("linuxDerivat") {
                 withAndroidNative()

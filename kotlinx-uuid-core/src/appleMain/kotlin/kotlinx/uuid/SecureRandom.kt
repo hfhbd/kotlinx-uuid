@@ -13,6 +13,7 @@ public actual val SecureRandom: Random = SecureRandomIos
  */
 @OptIn(ExperimentalForeignApi::class)
 private object SecureRandomIos : Random() {
+    @OptIn(UnsafeNumber::class)
     override fun nextBits(bitCount: Int): Int {
         require(bitCount > 0)
         val numberOfBytes = (bitCount + Byte.SIZE_BITS) / Byte.SIZE_BITS
