@@ -14,10 +14,10 @@ private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
 @UUIDExperimentalAPI
 public fun UUIDv7(timeStamp: Long, random: Random = SecureRandom): UUID {
     require(timeStamp <= UNIX_48_TIMESTAMP) {
-        "timeStamp $timeStamp must be 48 bits, was $timeStamp."
+        "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
     }
     val leftTimeStamp = timeStamp shl 16
-    val rand_a = (random.nextInt() shr 20).toLong()
+    val rand_a = random.nextBits(12).toLong()
     val timeStampAndVersionRaw = (leftTimeStamp or rand_a) and -0xf001L or 0x7000L
 
     // set variant to 4 or 5
