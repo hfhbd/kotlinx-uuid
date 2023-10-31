@@ -5,9 +5,9 @@
 
 plugins {
     id("kotlinJvm")
+    id("publish")
     id("dokkaLicensee")
     id("kover")
-    id("publish")
 }
 
 kotlin.jvmToolchain(11)
