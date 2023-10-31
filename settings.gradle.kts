@@ -30,6 +30,7 @@ gradleEnterprise {
 rootProject.name = "kotlinx-uuid"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
 include(":kotlinx-uuid-core")
 

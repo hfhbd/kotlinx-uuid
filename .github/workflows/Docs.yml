@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  GRADLE_OPTS: -Dorg.gradle.parallel=true -Dorg.gradle.caching=true
+  GRADLE_OPTS: -Dorg.gradle.caching=true
 
 jobs:
   build:
@@ -32,4 +32,4 @@ jobs:
           path: build/dokka/htmlMultiModule
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@main
+        uses: actions/deploy-pages@v2
