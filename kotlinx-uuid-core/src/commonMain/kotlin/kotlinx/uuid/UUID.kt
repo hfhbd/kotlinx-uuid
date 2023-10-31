@@ -203,7 +203,7 @@ public class UUID private constructor(
             return UUID(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw)
         }
 
-        private fun versionFor(id: Int): Version? = Version.values().firstOrNull { it.id == id }
+        private fun versionFor(id: Int): Version? = Version.entries.firstOrNull { it.id == id }
     }
 }
 
