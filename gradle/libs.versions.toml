@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.9.20"
-serialization = "1.6.0"
+serialization = "1.6.1"
 exposed = "0.44.1"
 
 [libraries]
