@@ -1,12 +1,9 @@
-import org.jetbrains.kotlin.gradle.dsl.*
-
 plugins {
+    kotlin("multiplatform")
     kotlin("plugin.serialization")
 }
 
-plugins.apply("org.jetbrains.kotlin.multiplatform")
-
-extensions.configure<KotlinMultiplatformExtension>("kotlin") {
+kotlin {
     jvm()
     js(IR) {
         browser()
