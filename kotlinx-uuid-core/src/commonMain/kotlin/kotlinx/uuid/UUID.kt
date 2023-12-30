@@ -5,6 +5,7 @@
 package kotlinx.uuid
 
 import kotlinx.serialization.*
+import kotlinx.uuid.internal.JavaSerializable
 
 /**
  * This type represents a UUID as per RFC
@@ -14,7 +15,7 @@ import kotlinx.serialization.*
 public class UUID private constructor(
     internal val timeStampAndVersionRaw: Long,
     internal val clockSequenceVariantAndNodeRaw: Long
-) : Comparable<UUID> {
+) : Comparable<UUID>, JavaSerializable {
     private constructor(
         helper: UUID
     ) : this(
