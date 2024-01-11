@@ -1,7 +1,7 @@
 [versions]
 kotlin = "1.9.21"
 serialization = "1.6.1"
-exposed = "0.44.1"
+exposed = "0.45.0"
 
 [libraries]
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
