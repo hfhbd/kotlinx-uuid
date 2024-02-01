@@ -22,7 +22,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: 11
-      - uses: gradle/gradle-build-action@v2
+      - uses: gradle/gradle-build-action@v3
         with:
           dependency-graph: generate-and-submit
           gradle-home-cache-cleanup: true
