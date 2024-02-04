@@ -24,7 +24,6 @@ jobs:
           java-version: 21
       - uses: gradle/actions/setup-gradle@v3
         with:
-          dependency-graph: generate-and-submit
           gradle-home-cache-cleanup: true
       - name: Build with Gradle
         run: ./gradlew build

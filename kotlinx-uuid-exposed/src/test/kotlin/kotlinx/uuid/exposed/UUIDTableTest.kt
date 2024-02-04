@@ -32,7 +32,7 @@ class UUIDTableTest {
             val uuid = TestTable.insert {}[TestTable.id].value
             assertNotNull(uuid)
 
-            val row = TestTable.select {
+            val row = TestTable.selectAll().where {
                 TestTable.id eq uuid
             }.single()
 
