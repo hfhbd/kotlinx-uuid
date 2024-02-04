@@ -8,6 +8,6 @@ public expect abstract class Parcelable(
     clockSequenceVariantAndNodeRaw: Long
 )
 
-public expect interface ParcelableCreator<T: Any>
+public expect interface ParcelableCreator<T : Any>
 
 internal expect val creator: ParcelableCreator<UUID>

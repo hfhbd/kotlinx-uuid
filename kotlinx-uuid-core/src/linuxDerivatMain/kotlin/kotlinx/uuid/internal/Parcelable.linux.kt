@@ -8,6 +8,6 @@ public actual abstract class Parcelable actual constructor(
     clockSequenceVariantAndNodeRaw: Long
 )
 
-public actual interface ParcelableCreator<T: Any>
+public actual interface ParcelableCreator<T : Any>
 
-internal actual val creator: ParcelableCreator<UUID> = object: ParcelableCreator<UUID> {}
+internal actual val creator: ParcelableCreator<UUID> = object : ParcelableCreator<UUID> {}

@@ -12,5 +12,4 @@ public actual abstract class Parcelable actual constructor(
 public actual interface ParcelableCreator<T : Any>
 
 internal actual val creator: ParcelableCreator<UUID> = object : ParcelableCreator<UUID> {
-
 }
