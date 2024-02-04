@@ -5,16 +5,18 @@
 package kotlinx.uuid
 
 import kotlinx.serialization.*
+import kotlinx.uuid.internal.*
+import kotlin.jvm.*
 
 /**
  * This type represents a UUID as per RFC
  * See: https://tools.ietf.org/html/rfc4122
  */
 @Serializable(with = Serializer.Default::class)
-public class UUID private constructor(
+public class UUID internal constructor(
     internal val timeStampAndVersionRaw: Long,
-    internal val clockSequenceVariantAndNodeRaw: Long
-) : Comparable<UUID> {
+    internal val clockSequenceVariantAndNodeRaw: Long,
+) : Parcelable(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw), Comparable<UUID> {
     private constructor(
         helper: UUID
     ) : this(
@@ -204,6 +206,9 @@ public class UUID private constructor(
         }
 
         private fun versionFor(id: Int): Version? = Version.entries.firstOrNull { it.id == id }
+
+        @JvmField
+        public val CREATOR: ParcelableCreator<UUID> = creator
     }
 }
 
