@@ -1,7 +1,7 @@
 [versions]
 kotlin = "1.9.22"
 serialization = "1.6.3"
-exposed = "0.47.0"
+exposed = "0.48.0"
 
 [libraries]
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
