@@ -67,12 +67,12 @@ public final class kotlinx/uuid/Serializer$WrappedCurlyBrackets : kotlinx/uuid/S
 	public static final field INSTANCE Lkotlinx/uuid/Serializer$WrappedCurlyBrackets;
 }
 
-public final class kotlinx/uuid/UUID : java/lang/Comparable {
+public final class kotlinx/uuid/UUID : kotlinx/uuid/internal/Parcelable, java/lang/Comparable {
+	public static final field CREATOR Lkotlinx/uuid/internal/ParcelableCreator;
 	public static final field Companion Lkotlinx/uuid/UUID$Companion;
 	public fun <init> ()V
 	public fun <init> (IJIJI)V
 	public synthetic fun <init> (IJIJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;)V
 	public fun <init> (Lkotlinx/uuid/UUID$Version;JIJI)V
 	public synthetic fun <init> (Lkotlinx/uuid/UUID$Version;JIJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -121,5 +121,12 @@ public abstract interface annotation class kotlinx/uuid/UUIDExperimentalAPI : ja
 public final class kotlinx/uuid/UUIDKt {
 	public static final fun toUUID (Ljava/lang/String;)Lkotlinx/uuid/UUID;
 	public static final fun toUUIDOrNull (Ljava/lang/String;)Lkotlinx/uuid/UUID;
+}
+
+public abstract class kotlinx/uuid/internal/Parcelable {
+	public fun <init> (JJ)V
+}
+
+public abstract interface class kotlinx/uuid/internal/ParcelableCreator {
 }
 
