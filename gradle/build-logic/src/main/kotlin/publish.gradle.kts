@@ -1,8 +1,8 @@
 import java.util.*
 
 plugins {
-    id("org.gradle.maven-publish")
-    id("org.gradle.signing")
+    id("maven-publish")
+    id("signing")
 }
 
 val emptyJar by tasks.registering(Jar::class)
