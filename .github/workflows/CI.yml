@@ -34,7 +34,7 @@ jobs:
           sarif_file: build/reports/detekt/detekt.sarif
 
   androidIntegrationTest:
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     needs:
       - build
     steps:
