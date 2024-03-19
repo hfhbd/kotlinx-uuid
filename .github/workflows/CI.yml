@@ -47,4 +47,4 @@ jobs:
         with:
           gradle-home-cache-cleanup: true
       - name: Run Android integration tests
-        run: ./gradlew :kotlinx-uuid-core:allDevicesCheck
+        run: ./gradlew :kotlinx-uuid-core:allDevicesCheck -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
