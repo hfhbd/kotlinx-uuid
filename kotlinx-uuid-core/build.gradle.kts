@@ -62,8 +62,9 @@ android {
             localDevices {
                 register("pixel2api30") {
                     device = "Pixel 2"
-                    apiLevel = 30
+                    apiLevel = 34
                     systemImageSource = "aosp"
+                    require64Bit = true
                 }
             }
         }
