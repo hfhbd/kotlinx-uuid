@@ -42,10 +42,9 @@ publishing {
 }
 
 signing {
-    val signingKey: String? by project
-    val signingPassword: String? by project
-    signingKey?.let {
-        useInMemoryPgpKeys(String(Base64.getDecoder().decode(it)).trim(), signingPassword)
+    val signingKey = providers.gradleProperty("signingKey")
+    if (signingKey.isPresent) {
+        useInMemoryPgpKeys(signingKey.get(), providers.gradleProperty("signingPassword").get())
         sign(publishing.publications)
     }
 }
