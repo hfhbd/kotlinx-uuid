@@ -56,13 +56,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    publishing {
-        multipleVariants {
-            allVariants()
-            withJavadocJar()
-        }
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -81,17 +74,16 @@ android {
     }
 }
 
-kotlin.sourceSets {
-    named("androidInstrumentedTest") {
-        dependencies {
-            implementation("androidx.test:runner:1.5.2")
-            implementation("androidx.test.ext:junit-ktx:1.1.4")
-        }
+kotlin {
+    androidTarget {
+        publishAllLibraryVariants()
     }
-}
-
-publishing.publications.register("androidLib", MavenPublication::class) {
-    afterEvaluate {
-        from(components["default"])
+    sourceSets {
+        named("androidInstrumentedTest") {
+            dependencies {
+                implementation("androidx.test:runner:1.5.2")
+                implementation("androidx.test.ext:junit-ktx:1.1.4")
+            }
+        }
     }
 }
