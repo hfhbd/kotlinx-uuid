@@ -50,7 +50,17 @@ android {
 
     defaultConfig {
         minSdk = 21
+        aarMetadata {
+            minCompileSdk = 21
+        }
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    publishing {
+        multipleVariants {
+            allVariants()
+            withJavadocJar()
+        }
     }
 
     compileOptions {
@@ -60,7 +70,7 @@ android {
     testOptions {
         managedDevices {
             localDevices {
-                register("pixel2api30") {
+                register("pixel2api34") {
                     device = "Pixel 2"
                     apiLevel = 34
                     systemImageSource = "aosp-atd"
@@ -77,5 +87,11 @@ kotlin.sourceSets {
             implementation("androidx.test:runner:1.5.2")
             implementation("androidx.test.ext:junit-ktx:1.1.4")
         }
+    }
+}
+
+publishing.publications.register("androidLib", MavenPublication::class) {
+    afterEvaluate {
+        from(components["default"])
     }
 }
