@@ -14,17 +14,20 @@ pluginManagement {
 plugins {
     id("mySettings")
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
-    id("com.gradle.enterprise") version "3.16.2"
+    id("com.gradle.develocity") version "3.17.2"
 }
 
-gradleEnterprise {
+develocity {
     buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
-        if (System.getenv("CI") != null) {
-            publishAlways()
-            tag("CI")
+        termsOfUseUrl.set("https://gradle.com/terms-of-service")
+        termsOfUseAgree.set("yes")
+        publishing {
+            val isCI = providers.environmentVariable("CI").isPresent
+            onlyIf {
+                isCI
+            }
         }
+        tag("CI")
     }
 }
 
