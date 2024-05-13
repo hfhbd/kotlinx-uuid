@@ -76,7 +76,7 @@ kotlin {
         named("androidInstrumentedTest") {
             dependencies {
                 implementation("androidx.test:runner:1.5.2")
-                implementation("androidx.test.ext:junit-ktx:1.1.4")
+                implementation("androidx.test.ext:junit-ktx:1.1.5")
             }
         }
     }
