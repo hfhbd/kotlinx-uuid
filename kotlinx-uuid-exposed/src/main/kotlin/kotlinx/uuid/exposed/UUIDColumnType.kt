@@ -13,7 +13,7 @@ import java.nio.*
  * A [UUID] column type for registering in exposed tables.
  * @see kotlinxUUID to see how it is used
  */
-public class UUIDColumnType : ColumnType() {
+public class UUIDColumnType : ColumnType<UUID>() {
     override fun sqlType(): String = currentDialect.dataTypeProvider.uuidType()
 
     override fun valueFromDB(value: Any): UUID = when {
@@ -25,9 +25,9 @@ public class UUIDColumnType : ColumnType() {
         else -> error("Unexpected value of type UUID: $value of ${value::class.qualifiedName}")
     }
 
-    override fun notNullValueToDB(value: Any): Any = currentDialect.dataTypeProvider.uuidToDB(valueToUUID(value))
+    override fun notNullValueToDB(value: UUID): Any = currentDialect.dataTypeProvider.uuidToDB(valueToUUID(value))
 
-    override fun nonNullValueToString(value: Any): String = "'${valueToUUID(value)}'"
+    override fun nonNullValueToString(value: UUID): String = "'${valueToUUID(value)}'"
 
     internal fun valueToUUID(value: Any): java.util.UUID = when (value) {
         is java.util.UUID -> value
