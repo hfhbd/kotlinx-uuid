@@ -11,3 +11,7 @@ import kotlin.random.*
  * - On Linux and Android native, it uses `DevUrandom`.
  */
 public actual val SecureRandom: Random = java.security.SecureRandom().asKotlinRandom()
+
+public fun a() {
+    UUID.CREATOR
+}
