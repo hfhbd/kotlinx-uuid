@@ -11,6 +11,7 @@ plugins {
     id("dokkaLicensee")
     id("kover")
     id("com.android.library")
+    kotlin("plugin.parcelize")
 }
 
 kotlin {
@@ -80,4 +81,8 @@ kotlin {
             }
         }
     }
+    compilerOptions.freeCompilerArgs.addAll(
+        "-P",
+        "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=kotlinx.uuid.internal.CommonParcelize",
+    )
 }
