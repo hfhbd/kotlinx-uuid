@@ -2,10 +2,9 @@ plugins {
     id("org.jetbrains.kotlinx.kover")
 }
 
-koverReport {
-    defaults {
+kover {
+    reports {
         verify {
-            onCheck = true
             rule {
                 bound {
                     minValue = 85
