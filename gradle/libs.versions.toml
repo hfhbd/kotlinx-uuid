@@ -2,6 +2,7 @@
 kotlin = "2.0.0"
 serialization = "1.7.0"
 exposed = "0.51.1"
+datetime = "0.6.0"
 
 [libraries]
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
@@ -15,6 +16,8 @@ h2 = { module = "com.h2database:h2", version = "2.2.224" }
 slf4j = { module = "org.slf4j:slf4j-simple", version = "2.0.13" }
 
 sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.0.2" }
+
+datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

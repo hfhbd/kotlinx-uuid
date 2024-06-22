@@ -40,3 +40,4 @@ include(":kotlinx-uuid-core")
 
 include(":kotlinx-uuid-exposed")
 include(":kotlinx-uuid-sqldelight")
+include(":kotlinx-uuid-datetime")
