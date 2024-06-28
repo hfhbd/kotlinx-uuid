@@ -12,11 +12,12 @@ import kotlin.jvm.*
  * This type represents a UUID as per RFC
  * See: https://tools.ietf.org/html/rfc4122
  */
+@CommonParcelize
 @Serializable(with = Serializer.Default::class)
 public class UUID internal constructor(
     internal val timeStampAndVersionRaw: Long,
     internal val clockSequenceVariantAndNodeRaw: Long,
-) : Parcelable(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw), Comparable<UUID> {
+) : CommonParcelable, Comparable<UUID> {
     private constructor(
         helper: UUID
     ) : this(
@@ -26,7 +27,7 @@ public class UUID internal constructor(
 
     /**
      * Creates an instance by the string [uuid] representation.
-     * An input string should consist of five hexademical parts
+     * An input string should consist of five hexadecimal parts
      * separated with the minus character, and optionally surrounded with curly brackets.
      * The space and tab characters are ignored at the end and at the beginning
      * and surrounding brackets and minus characters.
@@ -206,9 +207,6 @@ public class UUID internal constructor(
         }
 
         private fun versionFor(id: Int): Version? = Version.entries.firstOrNull { it.id == id }
-
-        @JvmField
-        public val CREATOR: ParcelableCreator<UUID> = creator
     }
 }
 

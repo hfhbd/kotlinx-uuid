@@ -11,14 +11,15 @@ plugins {
     id("dokkaLicensee")
     id("kover")
     id("com.android.library")
+    kotlin("plugin.parcelize")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate {
         common {
             group("linuxDerivat") {
-                withAndroidNative()
-                withLinux()
+                group("androidNative")
+                group("linux")
             }
         }
     }
@@ -80,4 +81,8 @@ kotlin {
             }
         }
     }
+    compilerOptions.freeCompilerArgs.addAll(
+        "-P",
+        "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=kotlinx.uuid.internal.CommonParcelize",
+    )
 }

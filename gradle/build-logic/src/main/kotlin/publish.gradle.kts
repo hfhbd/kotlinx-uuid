@@ -58,4 +58,6 @@ tasks.withType<AbstractPublishToMaven>().configureEach {
 tasks.withType<AbstractArchiveTask>().configureEach {
     isPreserveFileTimestamps = false
     isReproducibleFileOrder = true
+    filePermissions {}
+    dirPermissions {}
 }

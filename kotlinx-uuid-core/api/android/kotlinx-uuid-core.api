@@ -62,7 +62,7 @@ public final class kotlinx/uuid/Serializer$WrappedCurlyBrackets : kotlinx/uuid/S
 	public static final field INSTANCE Lkotlinx/uuid/Serializer$WrappedCurlyBrackets;
 }
 
-public final class kotlinx/uuid/UUID : kotlinx/uuid/internal/Parcelable, java/lang/Comparable {
+public final class kotlinx/uuid/UUID : android/os/Parcelable, java/lang/Comparable {
 	public static final field CREATOR Landroid/os/Parcelable$Creator;
 	public static final field Companion Lkotlinx/uuid/UUID$Companion;
 	public fun <init> ()V
@@ -73,6 +73,7 @@ public final class kotlinx/uuid/UUID : kotlinx/uuid/internal/Parcelable, java/la
 	public synthetic fun <init> (Lkotlinx/uuid/UUID$Version;JIJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun compareTo (Ljava/lang/Object;)I
 	public fun compareTo (Lkotlinx/uuid/UUID;)I
+	public final fun describeContents ()I
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getClockSequence ()I
 	public final fun getNode ()J
@@ -84,12 +85,21 @@ public final class kotlinx/uuid/UUID : kotlinx/uuid/internal/Parcelable, java/la
 	public final fun isRfcVariant ()Z
 	public fun toString ()Ljava/lang/String;
 	public final fun toString (Z)Ljava/lang/String;
+	public final fun writeToParcel (Landroid/os/Parcel;I)V
 }
 
 public final class kotlinx/uuid/UUID$Companion {
 	public final fun getNIL ()Lkotlinx/uuid/UUID;
 	public final fun isValidUUIDString (Ljava/lang/String;)Z
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class kotlinx/uuid/UUID$Creator : android/os/Parcelable$Creator {
+	public fun <init> ()V
+	public synthetic fun createFromParcel (Landroid/os/Parcel;)Ljava/lang/Object;
+	public final fun createFromParcel (Landroid/os/Parcel;)Lkotlinx/uuid/UUID;
+	public synthetic fun newArray (I)[Ljava/lang/Object;
+	public final fun newArray (I)[Lkotlinx/uuid/UUID;
 }
 
 public final class kotlinx/uuid/UUID$Version : java/lang/Enum {
@@ -116,15 +126,5 @@ public abstract interface annotation class kotlinx/uuid/UUIDExperimentalAPI : ja
 public final class kotlinx/uuid/UUIDKt {
 	public static final fun toUUID (Ljava/lang/String;)Lkotlinx/uuid/UUID;
 	public static final fun toUUIDOrNull (Ljava/lang/String;)Lkotlinx/uuid/UUID;
-}
-
-public abstract class kotlinx/uuid/internal/Parcelable : android/os/Parcelable {
-	public fun <init> (JJ)V
-	public fun describeContents ()I
-	public fun writeToParcel (Landroid/os/Parcel;I)V
-}
-
-public final class kotlinx/uuid/internal/Parcelable_androidKt {
-	public static final fun getCreator ()Landroid/os/Parcelable$Creator;
 }
 
