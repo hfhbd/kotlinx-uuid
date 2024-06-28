@@ -1,0 +1,6 @@
+public final class kotlinx/uuid/datetime/DslKt {
+	public static final fun UUIDv7 (Lkotlinx/datetime/Instant;Lkotlin/random/Random;)Lkotlinx/uuid/UUID;
+	public static synthetic fun UUIDv7$default (Lkotlinx/datetime/Instant;Lkotlin/random/Random;ILjava/lang/Object;)Lkotlinx/uuid/UUID;
+	public static final fun getInstant (Lkotlinx/uuid/UUID;)Lkotlinx/datetime/Instant;
+}
+
