@@ -2,7 +2,6 @@
 kotlin = "2.0.0"
 serialization = "1.7.1"
 exposed = "0.52.0"
-datetime = "0.6.0"
 
 [libraries]
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
@@ -17,7 +16,9 @@ slf4j = { module = "org.slf4j:slf4j-simple", version = "2.0.13" }
 
 sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.0.2" }
 
-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
+datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.0" }
+
+androidx-test-runner = { module = "androidx.test:runner", version = "1.6.1" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
