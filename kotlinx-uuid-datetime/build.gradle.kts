@@ -4,33 +4,22 @@
  */
 
 plugins {
-    id("kotlinJvm")
+    id("kotlinMPP")
     id("publish")
     id("dokkaLicensee")
     id("kover")
 }
 
-kotlin.jvmToolchain(11)
-
-dependencies {
-    api(projects.kotlinxUuidCore)
-    api(libs.datetime)
-
-    testImplementation(kotlin("test-junit"))
-    testRuntimeOnly(libs.slf4j)
-}
-
-licensee {
-    allow("MIT")
-}
-
-publishing {
-    publications.register<MavenPublication>("maven") {
-        from(components["java"])
+kotlin.sourceSets {
+    commonMain {
+        dependencies {
+            api(projects.kotlinxUuidCore)
+            api(libs.datetime)
+        }
     }
-}
-
-java {
-    withJavadocJar()
-    withSourcesJar()
+    commonTest {
+        dependencies {
+            implementation(kotlin("test"))
+        }
+    }
 }

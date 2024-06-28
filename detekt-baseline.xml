@@ -2,6 +2,7 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
+    <ID>FunctionNaming:Dsl.kt$@UUIDExperimentalAPI public fun UUIDv7(timeStamp: Instant = Clock.System.now(), random: Random = SecureRandom): UUID</ID>
     <ID>FunctionNaming:UUID7.kt$@UUIDExperimentalAPI public fun UUIDv7(timeStamp: Long, random: Random = SecureRandom): UUID</ID>
     <ID>MagicNumber:Encoding.kt$0xff</ID>
     <ID>MagicNumber:Encoding.kt$56</ID>

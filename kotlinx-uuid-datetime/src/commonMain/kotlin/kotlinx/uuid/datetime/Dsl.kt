@@ -10,8 +10,8 @@ import kotlinx.uuid.unixTimeStamp
 import kotlin.random.Random
 
 @UUIDExperimentalAPI
-public fun UUIDv7(random: Random = SecureRandom): UUID =
-    UUIDv7(timeStamp = Clock.System.now().toEpochMilliseconds(), random = random)
+public fun UUIDv7(timeStamp: Instant = Clock.System.now(), random: Random = SecureRandom): UUID =
+    UUIDv7(timeStamp = timeStamp.toEpochMilliseconds(), random = random)
 
 /**
  * The UUIDv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
