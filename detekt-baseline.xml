@@ -91,7 +91,11 @@
     <ID>MagicNumber:UUID7.kt$0x80L</ID>
     <ID>MagicNumber:UUID7.kt$12</ID>
     <ID>MagicNumber:UUID7.kt$16</ID>
-    <ID>MatchingDeclarationName:Parcelable.android.kt$Parcelable : Parcelable</ID>
+    <ID>MatchingDeclarationName:CommonParcelable.apple.kt$CommonParcelable</ID>
+    <ID>MatchingDeclarationName:CommonParcelable.js.kt$CommonParcelable</ID>
+    <ID>MatchingDeclarationName:CommonParcelable.jvm.kt$CommonParcelable</ID>
+    <ID>MatchingDeclarationName:CommonParcelable.linux.kt$CommonParcelable</ID>
+    <ID>MatchingDeclarationName:CommonParcelable.ming.kt$CommonParcelable</ID>
     <ID>TooManyFunctions:SHA1.kt$SHA1</ID>
     <ID>VariableNaming:UUID7.kt$val rand_a = random.nextBits(12).toLong()</ID>
   </CurrentIssues>
