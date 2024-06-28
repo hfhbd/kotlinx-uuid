@@ -11,14 +11,15 @@ plugins {
     id("dokkaLicensee")
     id("kover")
     id("com.android.library")
+    kotlin("plugin.parcelize")
 }
 
 kotlin {
     applyDefaultHierarchyTemplate {
         common {
             group("linuxDerivat") {
-                withAndroidNative()
-                withLinux()
+                group("androidNative")
+                group("linux")
             }
         }
     }
@@ -75,9 +76,13 @@ kotlin {
     sourceSets {
         named("androidInstrumentedTest") {
             dependencies {
-                implementation("androidx.test:runner:1.5.2")
-                implementation("androidx.test.ext:junit-ktx:1.1.5")
+                implementation("androidx.test:runner:1.6.1")
+                implementation("androidx.test.ext:junit-ktx:1.2.1")
             }
         }
     }
+    compilerOptions.freeCompilerArgs.addAll(
+        "-P",
+        "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=kotlinx.uuid.internal.CommonParcelize",
+    )
 }

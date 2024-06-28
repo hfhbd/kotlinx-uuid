@@ -1,13 +1,6 @@
 package kotlinx.uuid.internal
 
-import kotlinx.uuid.*
+@Target(AnnotationTarget.CLASS)
+internal annotation class CommonParcelize
 
-@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
-public expect abstract class Parcelable(
-    timeStampAndVersionRaw: Long,
-    clockSequenceVariantAndNodeRaw: Long
-)
-
-public expect interface ParcelableCreator<T : Any>
-
-internal expect val creator: ParcelableCreator<UUID>
+public expect interface CommonParcelable

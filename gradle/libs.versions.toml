@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.0.0"
-serialization = "1.7.0"
+serialization = "1.7.1"
 exposed = "0.51.1"
 datetime = "0.6.0"
 
@@ -22,6 +22,7 @@ datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "d
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 android = { id = "com.android.application", version = "8.5.0" }
 binary = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.14.0" }
 publish = { id = "io.github.gradle-nexus.publish-plugin", version = "2.0.0" }
