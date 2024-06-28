@@ -7,7 +7,6 @@ plugins {
     id("kotlinMPP")
     id("publish")
     id("dokkaLicensee")
-    id("kover")
 }
 
 kotlin.sourceSets {
