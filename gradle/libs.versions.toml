@@ -1,7 +1,7 @@
 [versions]
-kotlin = "2.0.0-RC3"
-serialization = "1.6.3"
-exposed = "0.50.1"
+kotlin = "2.0.0"
+serialization = "1.7.0"
+exposed = "0.51.1"
 
 [libraries]
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
@@ -20,10 +20,10 @@ sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.0.2"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-android = { id = "com.android.application", version = "8.4.1" }
+android = { id = "com.android.application", version = "8.5.0" }
 binary = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.14.0" }
 publish = { id = "io.github.gradle-nexus.publish-plugin", version = "2.0.0" }
 dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
 licensee = { id = "app.cash.licensee", version = "1.11.0" }
-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.6" }
+kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.1" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.6"}
