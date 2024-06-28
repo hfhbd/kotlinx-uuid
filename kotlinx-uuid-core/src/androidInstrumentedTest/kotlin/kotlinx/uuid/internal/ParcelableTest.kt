@@ -2,6 +2,7 @@ package kotlinx.uuid.internal
 
 import android.os.Parcel
 import androidx.test.ext.junit.runners.*
+import kotlinx.parcelize.parcelableCreator
 import kotlinx.uuid.*
 import org.junit.runner.*
 import kotlin.test.*
@@ -14,6 +15,6 @@ class ParcelableTest {
         val uuid = UUID(SOME_UUID_STRING)
         uuid.writeToParcel(parcel, uuid.describeContents())
         parcel.setDataPosition(0)
-        assertEquals(uuid, UUID.CREATOR.createFromParcel(parcel))
+        assertEquals(uuid, parcelableCreator<UUID>().createFromParcel(parcel))
     }
 }

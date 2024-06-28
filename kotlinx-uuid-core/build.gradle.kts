@@ -21,9 +21,6 @@ kotlin {
                 group("androidNative")
                 group("linux")
             }
-            group("android") {
-                withAndroidTarget()
-            }
         }
     }
 
