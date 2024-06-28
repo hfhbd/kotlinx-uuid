@@ -1,13 +1,10 @@
 package kotlinx.uuid.internal
 
 import android.os.Parcel
-import androidx.test.ext.junit.runners.*
 import kotlinx.parcelize.parcelableCreator
 import kotlinx.uuid.*
-import org.junit.runner.*
 import kotlin.test.*
 
-@RunWith(AndroidJUnit4::class)
 class ParcelableTest {
     @Test
     fun testParcelable() {
