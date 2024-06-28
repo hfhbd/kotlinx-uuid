@@ -12,6 +12,7 @@ class ParcelableTest {
         val uuid = UUID(SOME_UUID_STRING)
         uuid.writeToParcel(parcel, uuid.describeContents())
         parcel.setDataPosition(0)
+
         assertNotEquals(uuid, parcelableCreator<UUID>().createFromParcel(parcel))
     }
 }
