@@ -8,30 +8,30 @@ import kotlinx.uuid.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.vendors.*
 import java.nio.*
+import kotlin.uuid.Uuid
 
 /**
  * A [UUID] column type for registering in exposed tables.
  * @see kotlinxUUID to see how it is used
  */
-public class UUIDColumnType : ColumnType<UUID>() {
+public class UUIDColumnType : ColumnType<Uuid>() {
     override fun sqlType(): String = currentDialect.dataTypeProvider.uuidType()
 
-    override fun valueFromDB(value: Any): UUID = when {
+    override fun valueFromDB(value: Any): Uuid = when {
         value is java.util.UUID -> value.toKotlinUUID()
-        value is UUID -> value
+        value is Uuid -> value
         value is ByteArray -> ByteBuffer.wrap(value).let { b -> valueFromDB(java.util.UUID(b.long, b.long)) }
-        value is String && UUID.isValidUUIDString(value) -> UUID(value)
-        value is String -> valueFromDB(value.toByteArray())
+        value is String -> value.toUUIDOrNull() ?: valueFromDB(value.toByteArray())
         else -> error("Unexpected value of type UUID: $value of ${value::class.qualifiedName}")
     }
 
-    override fun notNullValueToDB(value: UUID): Any = currentDialect.dataTypeProvider.uuidToDB(valueToUUID(value))
+    override fun notNullValueToDB(value: Uuid): Any = currentDialect.dataTypeProvider.uuidToDB(valueToUUID(value))
 
-    override fun nonNullValueToString(value: UUID): String = "'${valueToUUID(value)}'"
+    override fun nonNullValueToString(value: Uuid): String = "'${valueToUUID(value)}'"
 
     internal fun valueToUUID(value: Any): java.util.UUID = when (value) {
         is java.util.UUID -> value
-        is UUID -> value.toJavaUUID()
+        is Uuid -> value.toJavaUUID()
         is String -> java.util.UUID.fromString(value)
         is ByteArray -> ByteBuffer.wrap(value).let { java.util.UUID(it.long, it.long) }
         else -> error("Unexpected value of type UUID: ${value.javaClass.canonicalName}")

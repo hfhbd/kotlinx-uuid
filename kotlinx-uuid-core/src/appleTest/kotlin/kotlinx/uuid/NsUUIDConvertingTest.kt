@@ -9,12 +9,13 @@
 package kotlinx.uuid
 
 import kotlin.test.*
+import kotlin.uuid.Uuid
 
 class NsUUIDConvertingTest {
 
     @Test
     fun toNsUUID() {
-        val kotlinUUID = UUID(SOME_UUID_STRING)
+        val kotlinUUID = Uuid.parse(SOME_UUID_STRING)
         val nsUUID = kotlinUUID.toNsUUID()
         assertEquals(SOME_UUID_STRING, nsUUID.UUIDString.lowercase())
     }

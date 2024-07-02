@@ -1,9 +1,9 @@
 package kotlinx.uuid.sqldelight
 
 import app.cash.sqldelight.*
-import kotlinx.uuid.*
+import kotlin.uuid.Uuid
 
-public object UUIDByteArrayAdapter : ColumnAdapter<UUID, ByteArray> {
-    override fun decode(databaseValue: ByteArray): UUID = UUID(databaseValue)
-    override fun encode(value: UUID): ByteArray = value.encodeToByteArray()
+public object UUIDByteArrayAdapter : ColumnAdapter<Uuid, ByteArray> {
+    override fun decode(databaseValue: ByteArray): Uuid = Uuid.fromByteArray(databaseValue)
+    override fun encode(value: Uuid): ByteArray = value.toByteArray()
 }

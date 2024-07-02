@@ -4,15 +4,15 @@
 
 package kotlinx.uuid.exposed
 
-import kotlinx.uuid.*
 import org.jetbrains.exposed.dao.*
 import org.jetbrains.exposed.dao.id.*
+import kotlin.uuid.Uuid
 
 /**
  * A [UUID](Kotlinx.uuid.UUID) DAO EntityClass for using the Exposed DAO API.
  */
 public open class KotlinxUUIDEntityClass<out E : KotlinxUUIDEntity>(
-    table: IdTable<UUID>,
+    table: IdTable<Uuid>,
     entityType: Class<E>? = null,
-    entityCtor: ((EntityID<UUID>) -> E)? = null
-) : EntityClass<UUID, E>(table, entityType, entityCtor)
+    entityCtor: ((EntityID<Uuid>) -> E)? = null
+) : EntityClass<Uuid, E>(table, entityType, entityCtor)

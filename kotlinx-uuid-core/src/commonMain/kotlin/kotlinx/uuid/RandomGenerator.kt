@@ -5,24 +5,28 @@
 package kotlinx.uuid
 
 import kotlin.random.*
+import kotlin.uuid.Uuid
 
 /**
  * Generates a random UUID v4 using the specified [random] source.
  * It uses by default a [SecureRandom] instance.
  */
-public fun UUID.Companion.generateUUID(random: Random = SecureRandom): UUID {
-    // set version 4 (random)
-    val timeStampAndVersionRaw = random.nextLong() and -0xf001L or 0x4000L
+public fun Uuid.Companion.random(random: Random): Uuid {
+    val randomBytes = random.nextBytes(16)
+    return uuidFromRandomBytes(randomBytes)
+}
 
-    // set variant to 4 or 5
-    // we keep the lower variant bit random as it is defined as "don't care"
-    val clockSequenceVariantAndNodeRaw: Long = random.nextLong() and
-        0x3fffffffffffffffL or (0x80L shl 0x38)
-
-    return create(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw)
+// Copied from stdlib
+@ExperimentalStdlibApi
+private fun uuidFromRandomBytes(randomBytes: ByteArray): Uuid {
+    randomBytes[6] = (randomBytes[6].toInt() and 0x0f).toByte() /* clear version        */
+    randomBytes[6] = (randomBytes[6].toInt() or 0x40).toByte() /* set to version 4     */
+    randomBytes[8] = (randomBytes[8].toInt() and 0x3f).toByte() /* clear variant        */
+    randomBytes[8] = (randomBytes[8].toInt() or 0x80).toByte() /* set to IETF variant  */
+    return Uuid.fromByteArray(randomBytes)
 }
 
 /**
  * Generates a random UUID v4 using this [Random] instance.
  */
-public fun Random.nextUUID(): UUID = UUID.generateUUID(this)
+public fun Random.nextUUID(): Uuid = Uuid.random(this)

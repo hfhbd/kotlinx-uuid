@@ -4,7 +4,6 @@ plugins {
 
 dependencies {
     implementation(libs.plugins.kotlin.jvm.toDep())
-    implementation(libs.plugins.kotlin.serialization.toDep())
     implementation(libs.plugins.kotlin.parcelize.toDep())
     implementation(libs.plugins.android.toDep())
     implementation(libs.plugins.binary.toDep())
