@@ -1,6 +1,5 @@
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -8,6 +7,9 @@ kotlin {
     js(IR) {
         browser()
         nodejs()
+        compilerOptions {
+            target.set("es2015")
+        }
     }
 
     // tier 1
