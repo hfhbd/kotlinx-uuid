@@ -15,27 +15,12 @@ plugins {
 }
 
 kotlin {
-    applyDefaultHierarchyTemplate {
-        common {
-            group("linuxDerivat") {
-                group("androidNative")
-                group("linux")
-            }
-        }
-    }
+    applyDefaultHierarchyTemplate()
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.serialization.core)
-            }
-        }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
-                implementation(libs.serialization.json)
-                implementation(libs.serialization.cbor)
-                implementation(libs.serialization.protobuf)
             }
         }
     }
@@ -80,8 +65,4 @@ kotlin {
             }
         }
     }
-    compilerOptions.freeCompilerArgs.addAll(
-        "-P",
-        "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=kotlinx.uuid.internal.CommonParcelize",
-    )
 }

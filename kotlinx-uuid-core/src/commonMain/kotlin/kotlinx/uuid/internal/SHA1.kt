@@ -170,37 +170,30 @@ internal class SHA1 {
         buffer.fill(0)
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun f1(m: Int, l: Int, k: Int): Int {
         return (m and l) or (m.inv() and k)
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun f2(m: Int, l: Int, k: Int): Int {
         return m xor l xor k
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun f3(m: Int, l: Int, k: Int): Int {
         return (m and l) or (m and k) or (l and k)
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun f4(m: Int, l: Int, k: Int): Int {
         return f2(m, l, k)
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun Int.rollBits1(): Int {
         return rollBitsLeft(1)
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun Int.rollBits5(): Int {
         return rollBitsLeft(5)
     }
 
-    @Suppress("NOTHING_TO_INLINE")
     private inline fun Int.rollBitsLeft(n: Int): Int {
         return (this shl n) or (this ushr (32 - n))
     }
@@ -208,7 +201,6 @@ internal class SHA1 {
     private class IntArrayView(private val bytes: ByteArray) {
         inline val size: Int get() = bytes.size / 4
 
-        @Suppress("NOTHING_TO_INLINE")
         inline operator fun get(index: Int): Int {
             val startIndex = index shl 2
             return ((bytes[startIndex].toInt() and 0xff) shl 24) or
@@ -217,7 +209,6 @@ internal class SHA1 {
                 (bytes[startIndex + 3].toInt() and 0xff)
         }
 
-        @Suppress("NOTHING_TO_INLINE")
         inline operator fun set(index: Int, value: Int) {
             val startIndex = index shl 2
 

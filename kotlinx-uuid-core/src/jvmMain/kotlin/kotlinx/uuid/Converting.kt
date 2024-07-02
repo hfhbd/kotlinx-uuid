@@ -3,15 +3,16 @@
  */
 
 package kotlinx.uuid
+import kotlin.uuid.Uuid
 
 /**
  * Converts this [java.util.UUID][java.util.UUID] value to a [kotlinx.uuid.UUID][UUID] value
  * by using the default [toString] representation.
  */
-public fun java.util.UUID.toKotlinUUID(): UUID = UUID(toString())
+public fun java.util.UUID.toKotlinUUID(): Uuid = Uuid.parse(toString())
 
 /**
  * Converts this [kotlinx.uuid.UUID][UUID] value to a [java.util.UUID][java.util.UUID] value
  * by using the default [toString] representation.
  */
-public fun UUID.toJavaUUID(): java.util.UUID = java.util.UUID.fromString(toString())
+public fun Uuid.toJavaUUID(): java.util.UUID = java.util.UUID.fromString(toString())
