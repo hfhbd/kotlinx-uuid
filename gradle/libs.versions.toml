@@ -25,7 +25,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 android = { id = "com.android.application", version = "8.5.1" }
-binary = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.0" }
+binary = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.2" }
 publish = { id = "io.github.gradle-nexus.publish-plugin", version = "2.0.0" }
 dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
 licensee = { id = "app.cash.licensee", version = "1.11.0" }
