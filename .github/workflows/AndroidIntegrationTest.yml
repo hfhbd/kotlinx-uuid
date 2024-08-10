@@ -24,8 +24,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
-      - uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-home-cache-cleanup: true
+      - uses: gradle/actions/setup-gradle@v4
       - name: Run Android integration tests
         run: ./gradlew :kotlinx-uuid-core:allDevicesCheck -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
