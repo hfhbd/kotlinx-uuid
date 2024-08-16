@@ -1,18 +1,12 @@
 [versions]
-kotlin = "2.0.20-dev-7572"
+kotlin = "2.0.20-RC2"
 serialization = "1.7.1"
-exposed = "0.52.0"
 
 [libraries]
 serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 serialization-cbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "serialization" }
 serialization-protobuf = { module = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf", version.ref = "serialization" }
-
-exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
-exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
-h2 = { module = "com.h2database:h2", version = "2.3.230" }
-slf4j = { module = "org.slf4j:slf4j-simple", version = "2.0.13" }
 
 sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.0.2" }
 

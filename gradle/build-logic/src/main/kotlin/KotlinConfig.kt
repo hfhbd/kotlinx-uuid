@@ -8,7 +8,7 @@ fun KotlinProjectExtension.kotlinConfig() {
     sourceSets.configureEach {
         languageSettings {
             progressiveMode = true
-            optIn("kotlin.ExperimentalStdlibApi")
+            optIn("kotlin.uuid.ExperimentalUuidApi")
         }
     }
 }

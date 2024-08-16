@@ -15,8 +15,6 @@ plugins {
 }
 
 kotlin {
-    applyDefaultHierarchyTemplate()
-
     sourceSets {
         commonTest {
             dependencies {

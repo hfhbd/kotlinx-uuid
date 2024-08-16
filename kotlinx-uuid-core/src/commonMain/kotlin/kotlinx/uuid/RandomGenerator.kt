@@ -17,7 +17,7 @@ public fun Uuid.Companion.random(random: Random): Uuid {
 }
 
 // Copied from stdlib
-@ExperimentalStdlibApi
+@kotlin.uuid.ExperimentalUuidApi
 private fun uuidFromRandomBytes(randomBytes: ByteArray): Uuid {
     randomBytes[6] = (randomBytes[6].toInt() and 0x0f).toByte() /* clear version        */
     randomBytes[6] = (randomBytes[6].toInt() or 0x40).toByte() /* set to version 4     */
