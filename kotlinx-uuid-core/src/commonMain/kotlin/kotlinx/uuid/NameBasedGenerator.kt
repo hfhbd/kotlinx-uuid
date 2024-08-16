@@ -52,5 +52,5 @@ private fun generateUUIDByHash(hashBytes: ByteArray, version: Int): Uuid {
     hashBytes[6] = (hashBytes[6] and 0x0f or (version shl 4).toByte())
     hashBytes[8] = hashBytes[8] and 0x3f or 0x80.toByte()
 
-    return Uuid.fromByteArray(hashBytes.copyOf(16))
+    return Uuid.fromByteArray(hashBytes.copyOf(Uuid.SIZE_BYTES))
 }
