@@ -23,7 +23,7 @@ class NsUUIDConvertingTest {
     @Test
     fun fromNsUUID() {
         val nsUUID = platform.Foundation.NSUUID(SOME_UUID_STRING)
-        val kotlinUUID = nsUUID.toKotlinUUID()
+        val kotlinUUID = nsUUID.toKotlinUuid()
         assertEquals(SOME_UUID_STRING, kotlinUUID.toString())
     }
 }

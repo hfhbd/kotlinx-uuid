@@ -7,13 +7,13 @@ package kotlinx.uuid
 import kotlin.uuid.Uuid
 
 /**
- * Converts this [platform.Foundation.NSUUID][platform.Foundation.NSUUID] value to a [kotlinx.uuid.UUID][UUID] value
+ * Converts this [platform.Foundation.NSUUID][platform.Foundation.NSUUID] value to a [kotlin.uuid.UUID][Uuid] value
  * by using the [UUIDString][platform.Foundation.NSUUID.UUIDString] representation.
  */
-public fun platform.Foundation.NSUUID.toKotlinUUID(): Uuid = Uuid.parse(UUIDString)
+public fun platform.Foundation.NSUUID.toKotlinUuid(): Uuid = Uuid.parse(UUIDString)
 
 /**
- * Converts this [kotlinx.uuid.UUID][UUID] value to a [platform.Foundation.NSUUID][platform.Foundation.NSUUID] value
+ * Converts this [kotlin.uuid.Uuid][Uuid] value to a [platform.Foundation.NSUUID][platform.Foundation.NSUUID] value
  * by using the default [toString] representation.
  */
 public fun Uuid.toNsUUID(): platform.Foundation.NSUUID = platform.Foundation.NSUUID(toString())
