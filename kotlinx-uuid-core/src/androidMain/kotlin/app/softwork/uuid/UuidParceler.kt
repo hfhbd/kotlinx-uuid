@@ -1,4 +1,4 @@
-package app.softwork.uuid.internal
+package app.softwork.uuid
 
 import android.os.Parcel
 import kotlinx.parcelize.Parceler

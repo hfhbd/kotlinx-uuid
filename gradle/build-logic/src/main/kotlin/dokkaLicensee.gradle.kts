@@ -19,6 +19,11 @@ tasks.named<DokkaTaskPartial>("dokkaHtmlPartial") {
             }
         }
         externalDocumentationLink("https://kotlinlang.org/api/kotlinx.serialization/")
+        externalDocumentationLink(
+            url = "https://kotlinlang.org/api/kotlinx-datetime/",
+            packageListUrl = "https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/package-list",
+        )
+        externalDocumentationLink("https://cashapp.github.io/sqldelight/2.0.2/2.x/")
     }
 }
 

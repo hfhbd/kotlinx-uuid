@@ -36,8 +36,8 @@ public final class app/softwork/uuid/UUIDKt {
 	public static final fun toUuidOrNull (Ljava/lang/String;)Lkotlin/uuid/Uuid;
 }
 
-public final class app/softwork/uuid/internal/UuidParceler : kotlinx/parcelize/Parceler {
-	public static final field INSTANCE Lapp/softwork/uuid/internal/UuidParceler;
+public final class app/softwork/uuid/UuidParceler : kotlinx/parcelize/Parceler {
+	public static final field INSTANCE Lapp/softwork/uuid/UuidParceler;
 	public synthetic fun create (Landroid/os/Parcel;)Ljava/lang/Object;
 	public fun create (Landroid/os/Parcel;)Lkotlin/uuid/Uuid;
 	public fun equals (Ljava/lang/Object;)Z
