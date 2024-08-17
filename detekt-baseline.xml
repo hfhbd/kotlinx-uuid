@@ -61,14 +61,19 @@
     <ID>MagicNumber:Uuid.kt$60</ID>
     <ID>MagicNumber:Uuid.kt$61</ID>
     <ID>MagicNumber:Uuid.kt$7</ID>
-    <ID>MagicNumber:Uuidv7.kt$0x0fffL</ID>
-    <ID>MagicNumber:Uuidv7.kt$0xffff0000L</ID>
+    <ID>MagicNumber:Uuidv7.kt$0x3F</ID>
+    <ID>MagicNumber:Uuidv7.kt$0x70</ID>
+    <ID>MagicNumber:Uuidv7.kt$0x80</ID>
+    <ID>MagicNumber:Uuidv7.kt$0xFF</ID>
     <ID>MagicNumber:Uuidv7.kt$16</ID>
-    <ID>MagicNumber:Uuidv7.kt$28672</ID>
+    <ID>MagicNumber:Uuidv7.kt$24</ID>
+    <ID>MagicNumber:Uuidv7.kt$3</ID>
     <ID>MagicNumber:Uuidv7.kt$32</ID>
-    <ID>MagicNumber:Uuidv7.kt$4095</ID>
-    <ID>MagicNumber:Uuidv7.kt$48</ID>
-    <ID>MagicNumber:Uuidv7.kt$62</ID>
+    <ID>MagicNumber:Uuidv7.kt$4</ID>
+    <ID>MagicNumber:Uuidv7.kt$40</ID>
+    <ID>MagicNumber:Uuidv7.kt$5</ID>
+    <ID>MagicNumber:Uuidv7.kt$6</ID>
+    <ID>MagicNumber:Uuidv7.kt$8</ID>
     <ID>TooManyFunctions:SHA1.kt$SHA1</ID>
   </CurrentIssues>
 </SmellBaseline>
