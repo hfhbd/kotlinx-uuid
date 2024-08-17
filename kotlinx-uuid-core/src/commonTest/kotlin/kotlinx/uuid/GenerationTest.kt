@@ -41,7 +41,7 @@ class GenerationTest {
     }
 
     private fun Uuid.assertRandomGenerated() {
-        //   assertTrue(isRfcVariant)
-        //   assertEquals(4, versionNumber)
+           assertTrue(isRfcVariant)
+           assertEquals(4, versionNumber)
     }
 }

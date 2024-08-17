@@ -19,6 +19,9 @@ kotlin {
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(libs.serialization.json)
+                implementation(libs.serialization.cbor)
+                implementation(libs.serialization.protobuf)
             }
         }
     }
