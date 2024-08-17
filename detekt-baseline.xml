@@ -2,40 +2,19 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>FunctionNaming:Dsl.kt$@UUIDExperimentalAPI public fun UUIDv7(timeStamp: Instant = Clock.System.now(), random: Random = SecureRandom): UUID</ID>
-    <ID>FunctionNaming:UUID7.kt$@UUIDExperimentalAPI public fun UUIDv7(timeStamp: Long, random: Random = SecureRandom): UUID</ID>
-    <ID>MagicNumber:Encoding.kt$0xff</ID>
-    <ID>MagicNumber:Encoding.kt$56</ID>
-    <ID>MagicNumber:Encoding.kt$7</ID>
-    <ID>MagicNumber:Encoding.kt$8</ID>
-    <ID>MagicNumber:Formatter.kt$0xffff</ID>
-    <ID>MagicNumber:Formatter.kt$0xffffffffffffL</ID>
-    <ID>MagicNumber:Formatter.kt$10</ID>
-    <ID>MagicNumber:Formatter.kt$16</ID>
-    <ID>MagicNumber:Formatter.kt$32</ID>
-    <ID>MagicNumber:Formatter.kt$38</ID>
-    <ID>MagicNumber:Formatter.kt$4</ID>
-    <ID>MagicNumber:Formatter.kt$48</ID>
-    <ID>MagicNumber:Formatter.kt$6</ID>
-    <ID>MagicNumber:Formatter.kt$8</ID>
-    <ID>MagicNumber:Formatter.kt$9</ID>
+    <ID>FunctionNaming:Dsl.kt$public fun UUIDv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
+    <ID>FunctionNaming:UUID7.kt$public fun UUIDv7(timeStamp: Long, random: Random): Uuid</ID>
     <ID>MagicNumber:KotlinConfig.kt$8</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$0x3f</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$4</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$6</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$8</ID>
-    <ID>MagicNumber:Parser.kt$10</ID>
-    <ID>MagicNumber:Parser.kt$12</ID>
-    <ID>MagicNumber:Parser.kt$16</ID>
-    <ID>MagicNumber:Parser.kt$32</ID>
-    <ID>MagicNumber:Parser.kt$4</ID>
-    <ID>MagicNumber:Parser.kt$48</ID>
-    <ID>MagicNumber:Parser.kt$6</ID>
-    <ID>MagicNumber:Parser.kt$8</ID>
-    <ID>MagicNumber:RandomGenerator.kt$0x38</ID>
-    <ID>MagicNumber:RandomGenerator.kt$0x3fffffffffffffffL</ID>
-    <ID>MagicNumber:RandomGenerator.kt$0x4000L</ID>
-    <ID>MagicNumber:RandomGenerator.kt$0x80L</ID>
+    <ID>MagicNumber:RandomGenerator.kt$0x3f</ID>
+    <ID>MagicNumber:RandomGenerator.kt$0x40</ID>
+    <ID>MagicNumber:RandomGenerator.kt$0x80</ID>
+    <ID>MagicNumber:RandomGenerator.kt$16</ID>
+    <ID>MagicNumber:RandomGenerator.kt$6</ID>
+    <ID>MagicNumber:RandomGenerator.kt$8</ID>
     <ID>MagicNumber:SHA1.kt$SHA1$0X67452301</ID>
     <ID>MagicNumber:SHA1.kt$SHA1$0x5a827999</ID>
     <ID>MagicNumber:SHA1.kt$SHA1$0x6ed9eba1</ID>
@@ -65,37 +44,31 @@
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$3</ID>
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$4</ID>
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$8</ID>
-    <ID>MagicNumber:SecureRandom.js.kt$SecureRandomBrowser$31</ID>
-    <ID>MagicNumber:SecureRandom.js.kt$SecureRandomBrowser$32</ID>
-    <ID>MagicNumber:UUID.kt$UUID$0x0fffL</ID>
-    <ID>MagicNumber:UUID.kt$UUID$0x1fff</ID>
-    <ID>MagicNumber:UUID.kt$UUID$0xf000L</ID>
-    <ID>MagicNumber:UUID.kt$UUID$0xffff0000L</ID>
-    <ID>MagicNumber:UUID.kt$UUID$0xffffffffffffL</ID>
-    <ID>MagicNumber:UUID.kt$UUID$12</ID>
-    <ID>MagicNumber:UUID.kt$UUID$13</ID>
-    <ID>MagicNumber:UUID.kt$UUID$15</ID>
-    <ID>MagicNumber:UUID.kt$UUID$16</ID>
-    <ID>MagicNumber:UUID.kt$UUID$32</ID>
-    <ID>MagicNumber:UUID.kt$UUID$4</ID>
-    <ID>MagicNumber:UUID.kt$UUID$48</ID>
-    <ID>MagicNumber:UUID.kt$UUID$5</ID>
-    <ID>MagicNumber:UUID.kt$UUID$60</ID>
-    <ID>MagicNumber:UUID.kt$UUID$61</ID>
-    <ID>MagicNumber:UUID.kt$UUID$7</ID>
-    <ID>MagicNumber:UUID.kt$UUID.Version.NAME_BASED_MD5$3</ID>
-    <ID>MagicNumber:UUID.kt$UUID.Version.NAME_BASED_SHA1$5</ID>
-    <ID>MagicNumber:UUID.kt$UUID.Version.RANDOM_BASED$4</ID>
+    <ID>MagicNumber:UUID.kt$0x0fffL</ID>
+    <ID>MagicNumber:UUID.kt$0x1fff</ID>
+    <ID>MagicNumber:UUID.kt$0xf000L</ID>
+    <ID>MagicNumber:UUID.kt$0xffff00000000L</ID>
+    <ID>MagicNumber:UUID.kt$0xffff0000L</ID>
+    <ID>MagicNumber:UUID.kt$0xffffffffffffL</ID>
+    <ID>MagicNumber:UUID.kt$12</ID>
+    <ID>MagicNumber:UUID.kt$13</ID>
+    <ID>MagicNumber:UUID.kt$15</ID>
+    <ID>MagicNumber:UUID.kt$16</ID>
+    <ID>MagicNumber:UUID.kt$32</ID>
+    <ID>MagicNumber:UUID.kt$4</ID>
+    <ID>MagicNumber:UUID.kt$48</ID>
+    <ID>MagicNumber:UUID.kt$5</ID>
+    <ID>MagicNumber:UUID.kt$60</ID>
+    <ID>MagicNumber:UUID.kt$61</ID>
+    <ID>MagicNumber:UUID.kt$7</ID>
+    <ID>MagicNumber:UUID7.kt$0x0fffL</ID>
+    <ID>MagicNumber:UUID7.kt$0xffff0000L</ID>
     <ID>MagicNumber:UUID7.kt$16</ID>
     <ID>MagicNumber:UUID7.kt$28672</ID>
+    <ID>MagicNumber:UUID7.kt$32</ID>
     <ID>MagicNumber:UUID7.kt$4095</ID>
+    <ID>MagicNumber:UUID7.kt$48</ID>
     <ID>MagicNumber:UUID7.kt$62</ID>
-    <ID>MatchingDeclarationName:CommonParcelable.apple.kt$CommonParcelable</ID>
-    <ID>MatchingDeclarationName:CommonParcelable.js.kt$CommonParcelable</ID>
-    <ID>MatchingDeclarationName:CommonParcelable.jvm.kt$CommonParcelable</ID>
-    <ID>MatchingDeclarationName:CommonParcelable.linux.kt$CommonParcelable</ID>
-    <ID>MatchingDeclarationName:CommonParcelable.ming.kt$CommonParcelable</ID>
     <ID>TooManyFunctions:SHA1.kt$SHA1</ID>
-    <ID>VariableNaming:UUID7.kt$val rand_a = helper.timeStamp and 4095</ID>
   </CurrentIssues>
 </SmellBaseline>

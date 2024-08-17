@@ -17,10 +17,14 @@ public fun Uuid.Companion.random(random: Random): Uuid {
 
 // Copied from stdlib
 private fun uuidFromRandomBytes(randomBytes: ByteArray): Uuid {
-    randomBytes[6] = (randomBytes[6].toInt() and 0x0f).toByte() /* clear version        */
-    randomBytes[6] = (randomBytes[6].toInt() or 0x40).toByte() /* set to version 4     */
-    randomBytes[8] = (randomBytes[8].toInt() and 0x3f).toByte() /* clear variant        */
-    randomBytes[8] = (randomBytes[8].toInt() or 0x80).toByte() /* set to IETF variant  */
+    // clear version
+    randomBytes[6] = (randomBytes[6].toInt() and 0x0f).toByte()
+    // set to version 4
+    randomBytes[6] = (randomBytes[6].toInt() or 0x40).toByte()
+    // clear variant
+    randomBytes[8] = (randomBytes[8].toInt() and 0x3f).toByte()
+    // set to IETF variant
+    randomBytes[8] = (randomBytes[8].toInt() or 0x80).toByte()
     return Uuid.fromByteArray(randomBytes)
 }
 

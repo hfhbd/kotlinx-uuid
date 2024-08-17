@@ -15,16 +15,21 @@ public fun UUIDv7(timeStamp: Long, random: Random): Uuid {
     require(timeStamp <= UNIX_48_TIMESTAMP) {
         "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
     }
-    val (helperTimeStampAndVersionRaw, helperClockSequenceVariantAndNodeRaw) = random.nextUuid().toLongs { mostSignificantBits, leastSignificantBits -> mostSignificantBits to leastSignificantBits }
+    val (
+        helperTimeStampAndVersionRaw,
+        helperClockSequenceVariantAndNodeRaw
+    ) = random.nextUuid().toLongs { mostSignificantBits, leastSignificantBits ->
+        mostSignificantBits to leastSignificantBits
+    }
     val leftTimeStamp = timeStamp shl 16
     // set version to 0b0111
     val leftTimeStampAndVersion = leftTimeStamp or 28672
-    val rand_a = helperTimeStampAndVersionRaw.let { timeStampAndVersionRaw ->
+    val randA = helperTimeStampAndVersionRaw.let { timeStampAndVersionRaw ->
         (timeStampAndVersionRaw ushr 32) or
             (timeStampAndVersionRaw and 0xffff0000L shl 16) or
             (timeStampAndVersionRaw and 0x0fffL shl 48)
     } and 4095
-    val timeStampAndVersionRaw = leftTimeStampAndVersion or rand_a
+    val timeStampAndVersionRaw = leftTimeStampAndVersion or randA
     // set variant to 0b10
     val clockSequenceVariantAndNodeRaw = (2L shl 62) or (helperClockSequenceVariantAndNodeRaw ushr 2)
 

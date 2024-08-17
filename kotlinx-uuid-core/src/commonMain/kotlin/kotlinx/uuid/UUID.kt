@@ -23,9 +23,9 @@ public fun Uuid.Companion.from(
     require(clockSequence in 0 until (1 shl 13))
 
     val timeStampAndVersionRaw = (timeStamp shl 32) or (timeStamp and 0xffff00000000L shr 16) or
-            (timeStamp shr 48) or (versionNumber.toLong() shl 12)
+        (timeStamp shr 48) or (versionNumber.toLong() shl 12)
     val clockSequenceVariantAndNodeRaw = (clockSequence.toLong() shl 48) or
-            (variant.toLong() shl 61) or node
+        (variant.toLong() shl 61) or node
 
     return fromLongs(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw)
 }
@@ -39,8 +39,8 @@ public fun Uuid.Companion.from(
 public val Uuid.timeStamp: Long
     get() = toLongs { timeStampAndVersionRaw, _ ->
         (timeStampAndVersionRaw ushr 32) or
-                (timeStampAndVersionRaw and 0xffff0000L shl 16) or
-                (timeStampAndVersionRaw and 0x0fffL shl 48)
+            (timeStampAndVersionRaw and 0xffff0000L shl 16) or
+            (timeStampAndVersionRaw and 0x0fffL shl 48)
     }
 
 /**
@@ -53,12 +53,18 @@ public val Uuid.clockSequence: Int
 /**
  * UUID [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]
  */
-public val Uuid.versionNumber: Int get() = toLongs { timeStampAndVersionRaw, _ -> (timeStampAndVersionRaw and 0xf000L shr 12).toInt() }
+public val Uuid.versionNumber: Int
+    get() = toLongs { timeStampAndVersionRaw, _ ->
+        (timeStampAndVersionRaw and 0xf000L shr 12).toInt()
+    }
 
 /**
  * UUID variant in range `[0..7]`, similar to version
  */
-public val Uuid.variant: Int get() = toLongs { _, clockSequenceVariantAndNodeRaw -> (clockSequenceVariantAndNodeRaw ushr 61).toInt() }
+public val Uuid.variant: Int
+    get() = toLongs { _, clockSequenceVariantAndNodeRaw ->
+        (clockSequenceVariantAndNodeRaw ushr 61).toInt()
+    }
 
 /**
  * UUID variant specified and documented by the RFC
