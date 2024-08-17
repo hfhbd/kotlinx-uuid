@@ -5,6 +5,7 @@
 package kotlinx.uuid
 
 import kotlin.test.*
+import kotlin.uuid.Uuid
 
 private const val UUID_STRING_ALL_FF: String = "ffffffff-ffff-ffff-ffff-ffffffffffff"
 private const val UUID_STRING: String = "1b3e4567-e99b-13d3-a476-446657420000"
@@ -12,37 +13,35 @@ private const val UUID_STRING2: String = "1b3e4567-e99b-13d3-a476-446657420001"
 private const val UUID_STRING3: String = "1b3e4568-e99b-13d3-a476-446657420000"
 internal const val SOME_UUID_STRING: String = "1b3e4567-e99b-13d3-a476-446657420000"
 
-/*
+
 class UUIDTest {
     @Test
     fun testZero() {
-        assertEquals(0, Uuid.NIL.)
-        assertEquals(0, UUID.NIL.versionNumber)
-        assertNull(UUID.NIL.version)
-        assertEquals(0, UUID.NIL.timeStamp)
-        assertEquals(0, UUID.NIL.clockSequence)
-        assertEquals(0, UUID.NIL.node)
-        assertEquals(false, UUID.NIL.isRfcVariant)
+        assertEquals(0, Uuid.NIL.variant)
+        assertEquals(0, Uuid.NIL.versionNumber)
+        assertEquals(0, Uuid.NIL.timeStamp)
+        assertEquals(0, Uuid.NIL.clockSequence)
+        assertEquals(0, Uuid.NIL.node)
+        assertEquals(false, Uuid.NIL.isRfcVariant)
     }
 
     @Test
     fun testConstructingFromString() {
-        val uuid = UUID(UUID_STRING)
+        val uuid = Uuid.parse(UUID_STRING)
 
         assertEquals(1, uuid.versionNumber)
-        assertEquals(UUID.Version.TIME_BASED, uuid.version)
         assertEquals(5, uuid.variant)
         assertEquals("3d3e99b1b3e4567", uuid.timeStamp.toString(16))
         assertEquals("476", uuid.clockSequence.toString(16))
         assertEquals("446657420000", uuid.node.toString(16))
 
-        assertEquals(uuid, UUID_STRING.toUUID())
+        assertEquals(uuid, UUID_STRING.toUuid())
         assertEquals(uuid, UUID_STRING.toUUIDOrNull())
     }
 
     @Test
     fun testConstructingFromStringAllFf() {
-        val uuid = UUID(UUID_STRING_ALL_FF)
+        val uuid = Uuid.parse(UUID_STRING_ALL_FF)
 
         assertEquals(0xf, uuid.versionNumber)
         assertEquals(null, uuid.version)
@@ -54,7 +53,7 @@ class UUIDTest {
 
     @Test
     fun testToString() {
-        val uuid = UUID(UUID_STRING)
+        val uuid = Uuid.parse(UUID_STRING)
         assertEquals(UUID_STRING, uuid.toString())
         assertEquals("{1b3e4567-e99b-13d3-a476-446657420000}", uuid.toString(true))
     }
@@ -62,11 +61,11 @@ class UUIDTest {
     @Test
     fun testConstructingFromStringValid() {
         val combined = setOf(
-            UUID("1b3e4567-e99b-13d3-a476-446657420000 "),
-            UUID("1b3e4567-e99b-13d3-a476 - 446657420000"),
-            UUID(" 1b3e4567-e99b-13d3-a476 - 446657420000"),
-            UUID(" { 1b3e4567-e99b-13d3-a476 - 446657420000}"),
-            UUID("{1b3e4567-e99b-13d3-a476 - 446657420000}")
+            Uuid.parse("1b3e4567-e99b-13d3-a476-446657420000 "),
+            Uuid.parse("1b3e4567-e99b-13d3-a476 - 446657420000"),
+            Uuid.parse(" 1b3e4567-e99b-13d3-a476 - 446657420000"),
+            Uuid.parse(" { 1b3e4567-e99b-13d3-a476 - 446657420000}"),
+            Uuid.parse("{1b3e4567-e99b-13d3-a476 - 446657420000}")
         )
 
         assertEquals(1, combined.size)
@@ -74,8 +73,8 @@ class UUIDTest {
 
     @Test
     fun testConstructingFromComponents() {
-        val first = UUID(SOME_UUID_STRING)
-        val second = UUID(
+        val first = Uuid.parse(SOME_UUID_STRING)
+        val second = Uuid.parse(
             timeStamp = first.timeStamp,
             versionNumber = first.versionNumber,
             clockSequence = first.clockSequence,
@@ -88,8 +87,8 @@ class UUIDTest {
 
     @Test
     fun testConstructingFromComponentsWithVersion() {
-        val first = UUID(SOME_UUID_STRING)
-        val second = UUID(
+        val first = Uuid.parse(SOME_UUID_STRING)
+        val second = Uuid(
             timeStamp = first.timeStamp,
             version = first.version!!,
             clockSequence = first.clockSequence,
@@ -101,8 +100,8 @@ class UUIDTest {
 
     @Test
     fun testConstructingFromComponentsDefaultVariant() {
-        val first = UUID(SOME_UUID_STRING)
-        val second = UUID(
+        val first = Uuid.parse(SOME_UUID_STRING)
+        val second = Uuid.parse(
             timeStamp = first.timeStamp,
             versionNumber = first.versionNumber,
             clockSequence = first.clockSequence,
@@ -114,8 +113,8 @@ class UUIDTest {
 
     @Test
     fun testConstructingFromComponentsAllFf() {
-        val first = UUID(UUID_STRING_ALL_FF)
-        val second = UUID(
+        val first = Uuid.parse(UUID_STRING_ALL_FF)
+        val second = Uuid(
             timeStamp = first.timeStamp,
             versionNumber = first.versionNumber,
             clockSequence = first.clockSequence,
@@ -126,15 +125,15 @@ class UUIDTest {
         assertEquals(first, second)
 
         assertFailsWith<IllegalArgumentException> {
-            UUID(100, first.timeStamp, first.clockSequence, first.node, first.variant)
+            Uuid.parse(100, first.timeStamp, first.clockSequence, first.node, first.variant)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            UUID(1, first.timeStamp, first.clockSequence, first.node, 100)
+            Uuid.parse(1, first.timeStamp, first.clockSequence, first.node, 100)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            UUID(1, Long.MAX_VALUE, first.clockSequence, first.node, first.variant)
+            Uuid(1, Long.MAX_VALUE, first.clockSequence, first.node, first.variant)
         }
 
         assertFailsWith<IllegalArgumentException> {
@@ -247,8 +246,7 @@ class UUIDTest {
 
     @Test
     fun testRandomCreation() {
-        assertEquals(UUID.Version.RANDOM_BASED, UUID().version)
-        assertEquals(UUID.Version.RANDOM_BASED, SecureRandom.nextUUID().version)
+        assertEquals(4, Uuid.random().versionNumber)
+        assertEquals(4, Random.nextUUID().versionNumber)
     }
 }
-*/

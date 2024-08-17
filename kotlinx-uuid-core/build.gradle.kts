@@ -16,6 +16,12 @@ plugins {
 
 kotlin {
     sourceSets {
+        commonMain {
+            dependencies {
+                implementation(libs.serialization.core)
+            }
+        }
+
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
