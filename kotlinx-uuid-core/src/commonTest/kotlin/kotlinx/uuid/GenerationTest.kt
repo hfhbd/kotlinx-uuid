@@ -24,7 +24,7 @@ class GenerationTest {
 
     @Test
     fun testRandomExtension() {
-        Random.nextUUID().assertRandomGenerated()
+        Random.nextUuid().assertRandomGenerated()
     }
 
     @Test
@@ -45,5 +45,12 @@ class GenerationTest {
     private fun Uuid.assertRandomGenerated() {
         assertTrue(isRfcVariant)
         assertEquals(4, versionNumber)
+    }
+
+    private fun String.explodeToBytes(): List<Byte> {
+        return replace("-", "")
+            .windowed(2, 2) {
+                it.toString().toInt(radix = 16).toByte()
+            }
     }
 }

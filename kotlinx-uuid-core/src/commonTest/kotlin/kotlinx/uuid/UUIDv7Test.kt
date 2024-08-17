@@ -13,6 +13,6 @@ class UUIDv7Test {
         assertEquals(1645557742000, one.unixTimeStamp)
         assertEquals(1645557742000, two.unixTimeStamp)
         assertEquals("017f22e2-79b0-7b35-ab5c-c2334bd875e2", one.toString())
-        // assertEquals(7, one.versionNumber)
+        assertEquals(7, one.versionNumber)
     }
 }

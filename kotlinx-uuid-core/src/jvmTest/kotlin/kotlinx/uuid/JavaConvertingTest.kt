@@ -5,12 +5,13 @@
 package kotlinx.uuid
 
 import kotlin.test.*
+import kotlin.uuid.Uuid
 
 class JavaConvertingTest {
 
     @Test
     fun toJavaUUID() {
-        val kotlinUUID = UUID(SOME_UUID_STRING)
+        val kotlinUUID = Uuid.parse(SOME_UUID_STRING)
         val javaUUID = kotlinUUID.toJavaUUID()
         assertEquals(SOME_UUID_STRING, javaUUID.toString())
     }

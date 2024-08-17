@@ -9,7 +9,6 @@ import kotlin.uuid.Uuid
 
 /**
  * Generates a random UUID v4 using the specified [random] source.
- * It uses by default a [SecureRandom] instance.
  */
 public fun Uuid.Companion.random(random: Random): Uuid {
     val randomBytes = random.nextBytes(16)
@@ -17,7 +16,6 @@ public fun Uuid.Companion.random(random: Random): Uuid {
 }
 
 // Copied from stdlib
-@kotlin.uuid.ExperimentalUuidApi
 private fun uuidFromRandomBytes(randomBytes: ByteArray): Uuid {
     randomBytes[6] = (randomBytes[6].toInt() and 0x0f).toByte() /* clear version        */
     randomBytes[6] = (randomBytes[6].toInt() or 0x40).toByte() /* set to version 4     */
@@ -29,4 +27,4 @@ private fun uuidFromRandomBytes(randomBytes: ByteArray): Uuid {
 /**
  * Generates a random UUID v4 using this [Random] instance.
  */
-public fun Random.nextUUID(): Uuid = Uuid.random(this)
+public fun Random.nextUuid(): Uuid = Uuid.random(this)

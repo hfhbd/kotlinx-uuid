@@ -1,6 +1,7 @@
 package kotlinx.uuid.datetime
 
 import kotlinx.datetime.Instant
+import kotlinx.uuid.versionNumber
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -13,6 +14,6 @@ class InstantTest {
         val uuid = UUIDv7(timeStamp = timestamp, random = Random(4242))
         assertEquals(timestamp, uuid.instant)
         assertEquals("0170621e-0ef0-7b35-ab5c-c2334bd875e2", uuid.toString())
-        //  assertEquals(7, uuid.versionNumber)
+        assertEquals(7, uuid.versionNumber)
     }
 }

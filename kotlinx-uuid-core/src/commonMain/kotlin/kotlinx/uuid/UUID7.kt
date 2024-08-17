@@ -1,6 +1,7 @@
 package kotlinx.uuid
 
 import kotlin.random.Random
+import kotlin.uuid.Uuid
 
 private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
 
@@ -10,11 +11,11 @@ private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
  *
  * [timeStamp] must be an 48 bit unix timestamp.
  */
-public fun UUIDv7(timeStamp: Long, random: Random): kotlin.uuid.Uuid {
+public fun UUIDv7(timeStamp: Long, random: Random): Uuid {
     require(timeStamp <= UNIX_48_TIMESTAMP) {
         "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
     }
-    val (helperTimeStampAndVersionRaw, helperClockSequenceVariantAndNodeRaw) = random.nextUUID().toLongs { mostSignificantBits, leastSignificantBits -> mostSignificantBits to leastSignificantBits }
+    val (helperTimeStampAndVersionRaw, helperClockSequenceVariantAndNodeRaw) = random.nextUuid().toLongs { mostSignificantBits, leastSignificantBits -> mostSignificantBits to leastSignificantBits }
     val leftTimeStamp = timeStamp shl 16
     // set version to 0b0111
     val leftTimeStampAndVersion = leftTimeStamp or 28672
@@ -27,10 +28,10 @@ public fun UUIDv7(timeStamp: Long, random: Random): kotlin.uuid.Uuid {
     // set variant to 0b10
     val clockSequenceVariantAndNodeRaw = (2L shl 62) or (helperClockSequenceVariantAndNodeRaw ushr 2)
 
-    return kotlin.uuid.Uuid.fromLongs(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw)
+    return Uuid.fromLongs(timeStampAndVersionRaw, clockSequenceVariantAndNodeRaw)
 }
 
 /**
  * The UUIDv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
  */
-public val kotlin.uuid.Uuid.unixTimeStamp: Long get() = toLongs { mostSignificantBits, _ -> mostSignificantBits ushr 16 }
+public val Uuid.unixTimeStamp: Long get() = toLongs { mostSignificantBits, _ -> mostSignificantBits ushr 16 }
