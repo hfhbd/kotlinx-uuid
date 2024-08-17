@@ -8,10 +8,10 @@ dependencies {
 }
 ```
 
-UUIDv7 with the current timestamp using `Clock.System` and default SecureRandom can be created using:
+UUIDv7 with the current timestamp using `Clock.System` can be created using:
 
 ```kotlin
-val uuid = UUIDv7()
+val uuid = UUIDv7(random = Random)
 ```
 
 When processing existing UUIDv7s, the timestamp bits can be interpreted as an Instant with millisecond precision using:
