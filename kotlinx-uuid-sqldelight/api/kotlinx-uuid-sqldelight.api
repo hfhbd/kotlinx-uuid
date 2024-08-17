@@ -1,13 +1,13 @@
-public final class kotlinx/uuid/sqldelight/UuidByteArrayAdapter : app/cash/sqldelight/ColumnAdapter {
-	public static final field INSTANCE Lkotlinx/uuid/sqldelight/UuidByteArrayAdapter;
+public final class app/softwork/uuid/sqldelight/UuidByteArrayAdapter : app/cash/sqldelight/ColumnAdapter {
+	public static final field INSTANCE Lapp/softwork/uuid/sqldelight/UuidByteArrayAdapter;
 	public synthetic fun decode (Ljava/lang/Object;)Ljava/lang/Object;
 	public fun decode ([B)Lkotlin/uuid/Uuid;
 	public synthetic fun encode (Ljava/lang/Object;)Ljava/lang/Object;
 	public fun encode (Lkotlin/uuid/Uuid;)[B
 }
 
-public final class kotlinx/uuid/sqldelight/UuidStringAdapter : app/cash/sqldelight/ColumnAdapter {
-	public static final field INSTANCE Lkotlinx/uuid/sqldelight/UuidStringAdapter;
+public final class app/softwork/uuid/sqldelight/UuidStringAdapter : app/cash/sqldelight/ColumnAdapter {
+	public static final field INSTANCE Lapp/softwork/uuid/sqldelight/UuidStringAdapter;
 	public synthetic fun decode (Ljava/lang/Object;)Ljava/lang/Object;
 	public fun decode (Ljava/lang/String;)Lkotlin/uuid/Uuid;
 	public synthetic fun encode (Ljava/lang/Object;)Ljava/lang/Object;

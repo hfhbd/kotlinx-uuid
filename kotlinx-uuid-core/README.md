@@ -1,37 +1,21 @@
 # Module kotlinx-uuid-core
 
-This core module contains the serializable UUID class.
-
-## Creating from a UUID string
-
-```kotlin
-val uuid = UUID("1b3e4567-e99b-13d3-a476-446657420000")
-val guid = UUID("{1b3e4567-e99b-13d3-a476-446657420000}")
-```
-
-## Generating UUID4 using random
-
-```kotlin
-// using a default SecureRandom implementation
-val uuid = UUID()
-
-// use custom Kotlin Random instance
-val uuid = UUID.generateUUID(yourRandom)
-```
+This core module contains several helper methods for the [Uuid](kotlin.uuid.Uuid) class, like `timestamp`, `variant`,
+`version`.
 
 ## Generating UUID5 using hash
 
 `kotlinx-uuid` provides the ability to generate uuids by hashing names (Only SHA-1 is supported at the moment).
 
 ```kotlin
-val appNamespace = UUID("my-app-uuid")
-val agentId = UUID.generateUUID(appNamespace, "agentId")
+val appNamespace = Uuid.parse("my-app-uuid")
+val agentId = Uuid.generateUuid(appNamespace, "agentId")
 ```
 
-The other alternative is to generate UUID by hashing bytes (similar to `java.util.UUID.nameUUIDFromBytes`).
+The other alternative is to generate Uuid by hashing bytes (similar to `java.util.UUID.nameUUIDFromBytes`).
 
 ```kotlin
-val uuid = UUID.generateUUID(bytes)
+val uuid = Uuid.generateUUID(bytes)
 ```
 
 > Note that unlike `java.util.UUID`, kotlinx's generateUUID
@@ -51,15 +35,9 @@ uuid.unixTimeStamp // 42
 
 ## Serializing (kotlinx.serialization)
 
-There are two serializers for `UUID`: the default one and the binary.
-
-The default serializer does always serialize UUIDs as string primitives.
-
-```kotlin
-Json.encodeToString(uuid) == "\"1b3e4567-e99b-13d3-a476-446657420000\""
-```
-
-The additional serializer is useful for binary formats. Because they are not human-readable, and it's possible to reduce
+There is also a binary serializers for `Uuid`.
+This additional serializer is useful for binary formats. Because they are not human-readable, and it's possible to
+reduce
 size.
 
 ```kotlin
