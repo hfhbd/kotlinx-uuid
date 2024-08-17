@@ -11,21 +11,13 @@ import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
 import kotlinx.serialization.modules.*
 import kotlin.test.*
+import kotlin.uuid.Uuid
 
-@OptIn(ExperimentalSerializationApi::class)
+@ExperimentalSerializationApi
 class BinarySerializationTest {
     @Test
-    fun smokeTestWithDefaultSerializer() {
-        val value = UUID(SOME_UUID_STRING)
-        val encoded = Cbor.encodeToHexString(value)
-        val decoded = Cbor.decodeFromHexString<UUID>(encoded)
-
-        assertEquals(value, decoded)
-    }
-
-    @Test
     fun smokeTest() {
-        val value = UUID(SOME_UUID_STRING)
+        val value = Uuid.parse(SOME_UUID_STRING)
         val encoded = Cbor.encodeToHexString(BinarySerializer, value)
         val decoded = Cbor.decodeFromHexString(BinarySerializer, encoded)
 
@@ -50,7 +42,7 @@ class BinarySerializationTest {
 
     @Test
     fun testWithJson() {
-        val initial = UUID(SOME_UUID_STRING)
+        val initial = Uuid.parse(SOME_UUID_STRING)
         val encoded = Json.encodeToString(BinarySerializer, initial)
         val decoded = Json.decodeFromString(BinarySerializer, encoded)
         assertEquals(initial, decoded)

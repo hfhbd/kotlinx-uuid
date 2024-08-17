@@ -8,6 +8,7 @@ import kotlinx.serialization.*
 import kotlinx.serialization.builtins.*
 import kotlinx.serialization.descriptors.*
 import kotlinx.serialization.encoding.*
+import kotlin.uuid.Uuid
 
 /**
  * This serializer is useful with binary formats to reduce size. You may also use it with
@@ -21,21 +22,23 @@ import kotlinx.serialization.encoding.*
  * Cbor.encodeToByteArray(BinarySerializer, myUUID)
  * ```
  */
-public object BinarySerializer : KSerializer<UUID> {
+public object BinarySerializer : KSerializer<Uuid> {
     private val serializer = LongArraySerializer()
     override val descriptor: SerialDescriptor = serializer.descriptor
 
-    override fun serialize(encoder: Encoder, value: UUID) {
-        encoder.encodeSerializableValue(serializer, value.encodeToLongArray())
+    override fun serialize(encoder: Encoder, value: Uuid) {
+        value.toLongs { mostSignificantBits, leastSignificantBits ->
+            encoder.encodeSerializableValue(serializer, longArrayOf(mostSignificantBits, leastSignificantBits))
+        }
     }
 
-    override fun deserialize(decoder: Decoder): UUID {
+    override fun deserialize(decoder: Decoder): Uuid {
         return decoder.decodeSerializableValue(serializer).let { array ->
             if (array.size != 2) {
                 throw SerializationException("UUID array should consist of 2 elements")
             }
 
-            UUID(array)
+            Uuid.fromLongs(array[0], array[1])
         }
     }
 }

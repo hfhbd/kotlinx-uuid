@@ -1,127 +1,43 @@
 public final class kotlinx/uuid/BinarySerializer : kotlinx/serialization/KSerializer {
 	public static final field INSTANCE Lkotlinx/uuid/BinarySerializer;
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lkotlinx/uuid/UUID;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lkotlin/uuid/Uuid;
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlinx/uuid/UUID;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlin/uuid/Uuid;)V
 }
 
 public final class kotlinx/uuid/ConvertingKt {
-	public static final fun toJavaUUID (Lkotlinx/uuid/UUID;)Ljava/util/UUID;
-	public static final fun toKotlinUUID (Ljava/util/UUID;)Lkotlinx/uuid/UUID;
-}
-
-public final class kotlinx/uuid/EncodingKt {
-	public static final fun UUID ([B)Lkotlinx/uuid/UUID;
-	public static final fun UUID ([J)Lkotlinx/uuid/UUID;
-	public static final fun encodeToByteArray (Lkotlinx/uuid/UUID;)[B
-	public static final fun encodeToLongArray (Lkotlinx/uuid/UUID;)[J
-}
-
-public abstract interface annotation class kotlinx/uuid/InternalAPI : java/lang/annotation/Annotation {
-}
-
-public final class kotlinx/uuid/MigrationKt {
-	public static final fun clockSequence (Lkotlinx/uuid/UUID;)I
-	public static final fun fromString (Lkotlinx/uuid/UUID$Companion;Ljava/lang/String;)Lkotlinx/uuid/UUID;
-	public static final fun getLeastSignificantBits (Lkotlinx/uuid/UUID;)J
-	public static final fun getMostSignificantBits (Lkotlinx/uuid/UUID;)J
-	public static final fun nameUUIDFromBytes (Lkotlinx/uuid/UUID$Companion;[B)Lkotlinx/uuid/UUID;
-	public static final fun node (Lkotlinx/uuid/UUID;)J
-	public static final fun randomUUID (Lkotlinx/uuid/UUID$Companion;)Lkotlinx/uuid/UUID;
-	public static final fun timestamp (Lkotlinx/uuid/UUID;)J
-	public static final fun variant (Lkotlinx/uuid/UUID;)I
-	public static final fun version (Lkotlinx/uuid/UUID;)I
+	public static final fun toJavaUUID (Lkotlin/uuid/Uuid;)Ljava/util/UUID;
+	public static final fun toKotlinUuid (Ljava/util/UUID;)Lkotlin/uuid/Uuid;
 }
 
 public final class kotlinx/uuid/NameBasedGeneratorKt {
-	public static final fun generateUUID (Lkotlinx/uuid/UUID$Companion;Lkotlinx/uuid/UUID;Ljava/lang/String;)Lkotlinx/uuid/UUID;
-	public static final fun generateUUID (Lkotlinx/uuid/UUID$Companion;[B)Lkotlinx/uuid/UUID;
+	public static final fun generateUUID (Lkotlin/uuid/Uuid$Companion;Lkotlin/uuid/Uuid;Ljava/lang/String;)Lkotlin/uuid/Uuid;
+	public static final fun generateUUID (Lkotlin/uuid/Uuid$Companion;[B)Lkotlin/uuid/Uuid;
 }
 
 public final class kotlinx/uuid/RandomGeneratorKt {
-	public static final fun generateUUID (Lkotlinx/uuid/UUID$Companion;Lkotlin/random/Random;)Lkotlinx/uuid/UUID;
-	public static synthetic fun generateUUID$default (Lkotlinx/uuid/UUID$Companion;Lkotlin/random/Random;ILjava/lang/Object;)Lkotlinx/uuid/UUID;
-	public static final fun nextUUID (Lkotlin/random/Random;)Lkotlinx/uuid/UUID;
-}
-
-public final class kotlinx/uuid/SecureRandomKt {
-	public static final fun getSecureRandom ()Lkotlin/random/Random;
-}
-
-public abstract class kotlinx/uuid/Serializer : kotlinx/serialization/KSerializer {
-	public synthetic fun <init> (ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lkotlinx/uuid/UUID;
-	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlinx/uuid/UUID;)V
-}
-
-public final class kotlinx/uuid/Serializer$Default : kotlinx/uuid/Serializer {
-	public static final field INSTANCE Lkotlinx/uuid/Serializer$Default;
-}
-
-public final class kotlinx/uuid/Serializer$WrappedCurlyBrackets : kotlinx/uuid/Serializer {
-	public static final field INSTANCE Lkotlinx/uuid/Serializer$WrappedCurlyBrackets;
-}
-
-public final class kotlinx/uuid/UUID : java/lang/Comparable, kotlinx/uuid/internal/CommonParcelable {
-	public static final field Companion Lkotlinx/uuid/UUID$Companion;
-	public fun <init> ()V
-	public fun <init> (IJIJI)V
-	public synthetic fun <init> (IJIJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Ljava/lang/String;)V
-	public fun <init> (Lkotlinx/uuid/UUID$Version;JIJI)V
-	public synthetic fun <init> (Lkotlinx/uuid/UUID$Version;JIJIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun compareTo (Ljava/lang/Object;)I
-	public fun compareTo (Lkotlinx/uuid/UUID;)I
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getClockSequence ()I
-	public final fun getNode ()J
-	public final fun getTimeStamp ()J
-	public final fun getVariant ()I
-	public final fun getVersion ()Lkotlinx/uuid/UUID$Version;
-	public final fun getVersionNumber ()I
-	public fun hashCode ()I
-	public final fun isRfcVariant ()Z
-	public fun toString ()Ljava/lang/String;
-	public final fun toString (Z)Ljava/lang/String;
-}
-
-public final class kotlinx/uuid/UUID$Companion {
-	public final fun getNIL ()Lkotlinx/uuid/UUID;
-	public final fun isValidUUIDString (Ljava/lang/String;)Z
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public final class kotlinx/uuid/UUID$Version : java/lang/Enum {
-	public static final field DCE_SECURITY Lkotlinx/uuid/UUID$Version;
-	public static final field NAME_BASED_MD5 Lkotlinx/uuid/UUID$Version;
-	public static final field NAME_BASED_SHA1 Lkotlinx/uuid/UUID$Version;
-	public static final field RANDOM_BASED Lkotlinx/uuid/UUID$Version;
-	public static final field TIME_BASED Lkotlinx/uuid/UUID$Version;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public static fun valueOf (Ljava/lang/String;)Lkotlinx/uuid/UUID$Version;
-	public static fun values ()[Lkotlinx/uuid/UUID$Version;
+	public static final fun nextUuid (Lkotlin/random/Random;)Lkotlin/uuid/Uuid;
+	public static final fun random (Lkotlin/uuid/Uuid$Companion;Lkotlin/random/Random;)Lkotlin/uuid/Uuid;
 }
 
 public final class kotlinx/uuid/UUID7Kt {
-	public static final fun UUIDv7 (JLkotlin/random/Random;)Lkotlinx/uuid/UUID;
-	public static synthetic fun UUIDv7$default (JLkotlin/random/Random;ILjava/lang/Object;)Lkotlinx/uuid/UUID;
-	public static final fun getUnixTimeStamp (Lkotlinx/uuid/UUID;)J
-}
-
-public abstract interface annotation class kotlinx/uuid/UUIDExperimentalAPI : java/lang/annotation/Annotation {
-	public abstract fun plannedVersion ()Ljava/lang/String;
+	public static final fun UUIDv7 (JLkotlin/random/Random;)Lkotlin/uuid/Uuid;
+	public static final fun getUnixTimeStamp (Lkotlin/uuid/Uuid;)J
 }
 
 public final class kotlinx/uuid/UUIDKt {
-	public static final fun toUUID (Ljava/lang/String;)Lkotlinx/uuid/UUID;
-	public static final fun toUUIDOrNull (Ljava/lang/String;)Lkotlinx/uuid/UUID;
-}
-
-public abstract interface class kotlinx/uuid/internal/CommonParcelable {
+	public static final fun from (Lkotlin/uuid/Uuid$Companion;IJIJI)Lkotlin/uuid/Uuid;
+	public static synthetic fun from$default (Lkotlin/uuid/Uuid$Companion;IJIJIILjava/lang/Object;)Lkotlin/uuid/Uuid;
+	public static final fun getClockSequence (Lkotlin/uuid/Uuid;)I
+	public static final fun getNode (Lkotlin/uuid/Uuid;)J
+	public static final fun getTimeStamp (Lkotlin/uuid/Uuid;)J
+	public static final fun getVariant (Lkotlin/uuid/Uuid;)I
+	public static final fun getVersionNumber (Lkotlin/uuid/Uuid;)I
+	public static final fun isRfcVariant (Lkotlin/uuid/Uuid;)Z
+	public static final fun isValidUUIDString (Lkotlin/uuid/Uuid$Companion;Ljava/lang/String;)Z
+	public static final fun toUUIDOrNull (Ljava/lang/String;)Lkotlin/uuid/Uuid;
+	public static final fun toUuid (Ljava/lang/String;)Lkotlin/uuid/Uuid;
 }
 

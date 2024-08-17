@@ -7,14 +7,15 @@ package kotlinx.uuid
 import java.security.*
 import kotlin.random.*
 import kotlin.test.*
+import kotlin.uuid.Uuid
 
 class JavaSpecificTests {
     @Test
     fun secure() {
-        UUID.generateUUID(SecureRandom().asKotlinRandom()).assertRandomGenerated()
+        Uuid.random(SecureRandom().asKotlinRandom()).assertRandomGenerated()
     }
 
-    private fun UUID.assertRandomGenerated() {
+    private fun Uuid.assertRandomGenerated() {
         assertTrue(isRfcVariant)
         assertEquals(4, versionNumber)
     }

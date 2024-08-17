@@ -15,21 +15,13 @@ plugins {
 }
 
 kotlin {
-    applyDefaultHierarchyTemplate {
-        common {
-            group("linuxDerivat") {
-                group("androidNative")
-                group("linux")
-            }
-        }
-    }
-
     sourceSets {
         commonMain {
             dependencies {
                 implementation(libs.serialization.core)
             }
         }
+
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
@@ -80,8 +72,4 @@ kotlin {
             }
         }
     }
-    compilerOptions.freeCompilerArgs.addAll(
-        "-P",
-        "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=kotlinx.uuid.internal.CommonParcelize",
-    )
 }
