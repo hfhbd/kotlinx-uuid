@@ -22,12 +22,7 @@ public final class app/softwork/uuid/RandomGeneratorKt {
 	public static final fun random (Lkotlin/uuid/Uuid$Companion;Lkotlin/random/Random;)Lkotlin/uuid/Uuid;
 }
 
-public final class app/softwork/uuid/UUID7Kt {
-	public static final fun Uuidv7 (JLkotlin/random/Random;)Lkotlin/uuid/Uuid;
-	public static final fun getUnixTimeStamp (Lkotlin/uuid/Uuid;)J
-}
-
-public final class app/softwork/uuid/UUIDKt {
+public final class app/softwork/uuid/UuidKt {
 	public static final fun from (Lkotlin/uuid/Uuid$Companion;IJIJI)Lkotlin/uuid/Uuid;
 	public static synthetic fun from$default (Lkotlin/uuid/Uuid$Companion;IJIJIILjava/lang/Object;)Lkotlin/uuid/Uuid;
 	public static final fun getClockSequence (Lkotlin/uuid/Uuid;)I
@@ -39,5 +34,10 @@ public final class app/softwork/uuid/UUIDKt {
 	public static final fun isValidUuidString (Lkotlin/uuid/Uuid$Companion;Ljava/lang/String;)Z
 	public static final fun toUuid (Ljava/lang/String;)Lkotlin/uuid/Uuid;
 	public static final fun toUuidOrNull (Ljava/lang/String;)Lkotlin/uuid/Uuid;
+}
+
+public final class app/softwork/uuid/Uuidv7Kt {
+	public static final fun Uuidv7 (JLkotlin/random/Random;)Lkotlin/uuid/Uuid;
+	public static final fun getUnixTimeStamp (Lkotlin/uuid/Uuid;)J
 }
 

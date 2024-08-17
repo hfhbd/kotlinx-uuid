@@ -2,8 +2,8 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>FunctionNaming:Dsl.kt$public fun UUIDv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
-    <ID>FunctionNaming:UUID7.kt$public fun UUIDv7(timeStamp: Long, random: Random): Uuid</ID>
+    <ID>FunctionNaming:Dsl.kt$public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
+    <ID>FunctionNaming:Uuidv7.kt$public fun Uuidv7(timeStamp: Long, random: Random): Uuid</ID>
     <ID>MagicNumber:KotlinConfig.kt$8</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$0x3f</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$4</ID>
@@ -44,31 +44,31 @@
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$3</ID>
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$4</ID>
     <ID>MagicNumber:SHA1.kt$SHA1.IntArrayView$8</ID>
-    <ID>MagicNumber:UUID.kt$0x0fffL</ID>
-    <ID>MagicNumber:UUID.kt$0x1fff</ID>
-    <ID>MagicNumber:UUID.kt$0xf000L</ID>
-    <ID>MagicNumber:UUID.kt$0xffff00000000L</ID>
-    <ID>MagicNumber:UUID.kt$0xffff0000L</ID>
-    <ID>MagicNumber:UUID.kt$0xffffffffffffL</ID>
-    <ID>MagicNumber:UUID.kt$12</ID>
-    <ID>MagicNumber:UUID.kt$13</ID>
-    <ID>MagicNumber:UUID.kt$15</ID>
-    <ID>MagicNumber:UUID.kt$16</ID>
-    <ID>MagicNumber:UUID.kt$32</ID>
-    <ID>MagicNumber:UUID.kt$4</ID>
-    <ID>MagicNumber:UUID.kt$48</ID>
-    <ID>MagicNumber:UUID.kt$5</ID>
-    <ID>MagicNumber:UUID.kt$60</ID>
-    <ID>MagicNumber:UUID.kt$61</ID>
-    <ID>MagicNumber:UUID.kt$7</ID>
-    <ID>MagicNumber:UUID7.kt$0x0fffL</ID>
-    <ID>MagicNumber:UUID7.kt$0xffff0000L</ID>
-    <ID>MagicNumber:UUID7.kt$16</ID>
-    <ID>MagicNumber:UUID7.kt$28672</ID>
-    <ID>MagicNumber:UUID7.kt$32</ID>
-    <ID>MagicNumber:UUID7.kt$4095</ID>
-    <ID>MagicNumber:UUID7.kt$48</ID>
-    <ID>MagicNumber:UUID7.kt$62</ID>
+    <ID>MagicNumber:Uuid.kt$0x0fffL</ID>
+    <ID>MagicNumber:Uuid.kt$0x1fff</ID>
+    <ID>MagicNumber:Uuid.kt$0xf000L</ID>
+    <ID>MagicNumber:Uuid.kt$0xffff00000000L</ID>
+    <ID>MagicNumber:Uuid.kt$0xffff0000L</ID>
+    <ID>MagicNumber:Uuid.kt$0xffffffffffffL</ID>
+    <ID>MagicNumber:Uuid.kt$12</ID>
+    <ID>MagicNumber:Uuid.kt$13</ID>
+    <ID>MagicNumber:Uuid.kt$15</ID>
+    <ID>MagicNumber:Uuid.kt$16</ID>
+    <ID>MagicNumber:Uuid.kt$32</ID>
+    <ID>MagicNumber:Uuid.kt$4</ID>
+    <ID>MagicNumber:Uuid.kt$48</ID>
+    <ID>MagicNumber:Uuid.kt$5</ID>
+    <ID>MagicNumber:Uuid.kt$60</ID>
+    <ID>MagicNumber:Uuid.kt$61</ID>
+    <ID>MagicNumber:Uuid.kt$7</ID>
+    <ID>MagicNumber:Uuidv7.kt$0x0fffL</ID>
+    <ID>MagicNumber:Uuidv7.kt$0xffff0000L</ID>
+    <ID>MagicNumber:Uuidv7.kt$16</ID>
+    <ID>MagicNumber:Uuidv7.kt$28672</ID>
+    <ID>MagicNumber:Uuidv7.kt$32</ID>
+    <ID>MagicNumber:Uuidv7.kt$4095</ID>
+    <ID>MagicNumber:Uuidv7.kt$48</ID>
+    <ID>MagicNumber:Uuidv7.kt$62</ID>
     <ID>TooManyFunctions:SHA1.kt$SHA1</ID>
   </CurrentIssues>
 </SmellBaseline>

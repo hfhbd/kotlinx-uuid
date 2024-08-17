@@ -12,7 +12,7 @@ private const val UUID_STRING_ALL_FF: String = "ffffffff-ffff-ffff-ffff-ffffffff
 private const val UUID_STRING: String = "1b3e4567-e99b-13d3-a476-446657420000"
 internal const val SOME_UUID_STRING: String = "1b3e4567-e99b-13d3-a476-446657420000"
 
-class UUIDTest {
+class UuidTest {
     @Test
     fun testZero() {
         assertEquals(0, Uuid.NIL.variant)
