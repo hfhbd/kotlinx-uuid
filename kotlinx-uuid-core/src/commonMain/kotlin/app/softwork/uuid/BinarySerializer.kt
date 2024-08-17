@@ -13,9 +13,9 @@ import kotlin.uuid.Uuid
 /**
  * This serializer is useful with binary formats to reduce size. You may also use it with
  * text formats like json, but it is not that useful (because there will be no size gain)
- * and a serialized UUID is not human-readable.
+ * and a serialized Uuid is not human-readable.
  *
- * With this serializer, a UUID is represented as an array of long with two elements.
+ * With this serializer, a Uuid is represented as an array of long with two elements.
  *
  * Example:
  * ```kotlin
@@ -35,7 +35,7 @@ public object BinarySerializer : KSerializer<Uuid> {
     override fun deserialize(decoder: Decoder): Uuid {
         return decoder.decodeSerializableValue(serializer).let { array ->
             if (array.size != 2) {
-                throw SerializationException("UUID array should consist of 2 elements")
+                throw SerializationException("Uuid array should consist of 2 elements")
             }
 
             Uuid.fromLongs(array[0], array[1])

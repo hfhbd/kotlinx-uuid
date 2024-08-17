@@ -8,8 +8,8 @@ public final class app/softwork/uuid/BinarySerializer : kotlinx/serialization/KS
 }
 
 public final class app/softwork/uuid/NameBasedGeneratorKt {
-	public static final fun generateUUID (Lkotlin/uuid/Uuid$Companion;Lkotlin/uuid/Uuid;Ljava/lang/String;)Lkotlin/uuid/Uuid;
-	public static final fun generateUUID (Lkotlin/uuid/Uuid$Companion;[B)Lkotlin/uuid/Uuid;
+	public static final fun generateUuid (Lkotlin/uuid/Uuid$Companion;Lkotlin/uuid/Uuid;Ljava/lang/String;)Lkotlin/uuid/Uuid;
+	public static final fun generateUuid (Lkotlin/uuid/Uuid$Companion;[B)Lkotlin/uuid/Uuid;
 }
 
 public final class app/softwork/uuid/RandomGeneratorKt {
@@ -18,7 +18,7 @@ public final class app/softwork/uuid/RandomGeneratorKt {
 }
 
 public final class app/softwork/uuid/UUID7Kt {
-	public static final fun UUIDv7 (JLkotlin/random/Random;)Lkotlin/uuid/Uuid;
+	public static final fun Uuidv7 (JLkotlin/random/Random;)Lkotlin/uuid/Uuid;
 	public static final fun getUnixTimeStamp (Lkotlin/uuid/Uuid;)J
 }
 
@@ -31,9 +31,9 @@ public final class app/softwork/uuid/UUIDKt {
 	public static final fun getVariant (Lkotlin/uuid/Uuid;)I
 	public static final fun getVersionNumber (Lkotlin/uuid/Uuid;)I
 	public static final fun isRfcVariant (Lkotlin/uuid/Uuid;)Z
-	public static final fun isValidUUIDString (Lkotlin/uuid/Uuid$Companion;Ljava/lang/String;)Z
-	public static final fun toUUIDOrNull (Ljava/lang/String;)Lkotlin/uuid/Uuid;
+	public static final fun isValidUuidString (Lkotlin/uuid/Uuid$Companion;Ljava/lang/String;)Z
 	public static final fun toUuid (Ljava/lang/String;)Lkotlin/uuid/Uuid;
+	public static final fun toUuidOrNull (Ljava/lang/String;)Lkotlin/uuid/Uuid;
 }
 
 public final class app/softwork/uuid/internal/UuidParceler : kotlinx/parcelize/Parceler {

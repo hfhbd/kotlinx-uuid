@@ -15,13 +15,13 @@ import kotlin.uuid.Uuid
  *
  * See [RFC4122 sec 4.3](https://tools.ietf.org/html/rfc4122#section-4.3)
  */
-public fun Uuid.Companion.generateUUID(namespace: Uuid, name: String): Uuid {
+public fun Uuid.Companion.generateUuid(namespace: Uuid, name: String): Uuid {
     val hash = sha1 {
         update(namespace.toByteArray())
         update(name.encodeToByteArray())
     }
 
-    return generateUUIDByHash(hash, version = 5)
+    return generateUuidByHash(hash, version = 5)
 }
 
 /**
@@ -31,15 +31,15 @@ public fun Uuid.Companion.generateUUID(namespace: Uuid, name: String): Uuid {
  *
  * See [RFC4122 sec 4.3](https://tools.ietf.org/html/rfc4122#section-4.3)
  *
- * It is recommended to use generateUUID(namespace, name) instead while this function
+ * It is recommended to use generateUuid(namespace, name) instead while this function
  * is more for java.util.UUID parity.
  */
-public fun Uuid.Companion.generateUUID(bytes: ByteArray): Uuid {
+public fun Uuid.Companion.generateUuid(bytes: ByteArray): Uuid {
     val hash = sha1 {
         update(bytes)
     }
 
-    return generateUUIDByHash(hash, version = 5)
+    return generateUuidByHash(hash, version = 5)
 }
 
 private inline fun sha1(builder: SHA1.() -> Unit): ByteArray {
@@ -48,7 +48,7 @@ private inline fun sha1(builder: SHA1.() -> Unit): ByteArray {
     return sha1.final()
 }
 
-private fun generateUUIDByHash(hashBytes: ByteArray, version: Int): Uuid {
+private fun generateUuidByHash(hashBytes: ByteArray, version: Int): Uuid {
     hashBytes[6] = (hashBytes[6] and 0x0f or (version shl 4).toByte())
     hashBytes[8] = hashBytes[8] and 0x3f or 0x80.toByte()
 

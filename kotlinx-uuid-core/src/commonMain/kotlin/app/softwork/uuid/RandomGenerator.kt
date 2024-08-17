@@ -8,7 +8,7 @@ import kotlin.random.*
 import kotlin.uuid.Uuid
 
 /**
- * Generates a random UUID v4 using the specified [random] source.
+ * Generates a random Uuid v4 using the specified [random] source.
  */
 public fun Uuid.Companion.random(random: Random): Uuid {
     val randomBytes = random.nextBytes(16)
@@ -29,6 +29,6 @@ private fun uuidFromRandomBytes(randomBytes: ByteArray): Uuid {
 }
 
 /**
- * Generates a random UUID v4 using this [Random] instance.
+ * Generates a random Uuid v4 using this [Random] instance.
  */
 public fun Random.nextUuid(): Uuid = Uuid.random(this)

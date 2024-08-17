@@ -4,16 +4,17 @@
 
 package app.softwork.uuid
 
+import java.util.*
 import kotlin.uuid.Uuid
 
 /**
- * Converts this [java.util.UUID][java.util.UUID] value to a [kotlin.uuid.Uuid][Uuid] value
- * by using the default [toString] representation.
+ * Converts this [UUID] value to a [Uuid] value
+ * by using the default [java.util.UUID.toString] representation.
  */
-public fun java.util.UUID.toKotlinUuid(): Uuid = Uuid.parse(toString())
+public fun UUID.toKotlinUuid(): Uuid = Uuid.parse(toString())
 
 /**
- * Converts this [kotlin.uuid.Uuid][Uuid] value to a [java.util.UUID][java.util.UUID] value
- * by using the default [toString] representation.
+ * Converts this [Uuid] value to a [Uuid] value
+ * by using the default [kotlin.uuid.Uuid.toString] representation.
  */
-public fun Uuid.toJavaUUID(): java.util.UUID = java.util.UUID.fromString(toString())
+public fun Uuid.toJavaUUID(): UUID = UUID.fromString(toString())

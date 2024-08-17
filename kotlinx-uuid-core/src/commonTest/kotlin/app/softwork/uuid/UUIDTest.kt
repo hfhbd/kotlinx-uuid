@@ -34,7 +34,7 @@ class UUIDTest {
         assertEquals("446657420000", uuid.node.toString(16))
 
         assertEquals(uuid, UUID_STRING.toUuid())
-        assertEquals(uuid, UUID_STRING.toUUIDOrNull())
+        assertEquals(uuid, UUID_STRING.toUuidOrNull())
     }
 
     @Test
@@ -152,12 +152,12 @@ class UUIDTest {
 
     @Test
     fun testIsValidString() {
-        assertTrue(Uuid.isValidUUIDString(SOME_UUID_STRING))
+        assertTrue(Uuid.isValidUuidString(SOME_UUID_STRING))
 
-        assertFalse(Uuid.isValidUUIDString(SOME_UUID_STRING.drop(1)))
-        assertFalse(Uuid.isValidUUIDString(SOME_UUID_STRING.dropLast(1)))
-        assertFalse(Uuid.isValidUUIDString(SOME_UUID_STRING.replace('b', 'X')))
-        assertNull(SOME_UUID_STRING.drop(1).toUUIDOrNull())
+        assertFalse(Uuid.isValidUuidString(SOME_UUID_STRING.drop(1)))
+        assertFalse(Uuid.isValidUuidString(SOME_UUID_STRING.dropLast(1)))
+        assertFalse(Uuid.isValidUuidString(SOME_UUID_STRING.replace('b', 'X')))
+        assertNull(SOME_UUID_STRING.drop(1).toUuidOrNull())
     }
 
     @Test

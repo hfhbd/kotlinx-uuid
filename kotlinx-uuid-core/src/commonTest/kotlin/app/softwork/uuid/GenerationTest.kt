@@ -29,15 +29,15 @@ class GenerationTest {
 
     @Test
     fun testGenerateFromName() {
-        val baseUUID = Uuid.parse(SOME_UUID_STRING)
-        val generated = Uuid.generateUUID(baseUUID, "test")
+        val baseUuid = Uuid.parse(SOME_UUID_STRING)
+        val generated = Uuid.generateUuid(baseUuid, "test")
         assertEquals(5, generated.versionNumber)
         assertEquals("9dc3df60-4ed1-5ea9-9e66-5c2030d5827b", generated.toString())
     }
 
     @Test
     fun testGenerateFromBytes() {
-        val generated = Uuid.generateUUID(SOME_UUID_STRING.explodeToBytes().toByteArray())
+        val generated = Uuid.generateUuid(SOME_UUID_STRING.explodeToBytes().toByteArray())
         assertEquals(5, generated.versionNumber)
         assertEquals("29e5befd-ca93-58bf-9ef0-30f7da112935", generated.toString())
     }

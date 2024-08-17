@@ -31,7 +31,7 @@ public fun Uuid.Companion.from(
 }
 
 /**
- * A 60-bits non-negative number. Depending on the UUID version it could have different semantics:
+ * A 60-bits non-negative number. Depending on the Uuid version it could have different semantics:
  * - UTC time
  * - a number constructed from the namespace
  * - a random number
@@ -45,13 +45,13 @@ public val Uuid.timeStamp: Long
 
 /**
  * 13-bits non-negative number representing a sequence number
- * or a random number depending on UUID [version] and [variant].
+ * or a random number depending on Uuid [version] and [variant].
  */
 public val Uuid.clockSequence: Int
     get() = toLongs { _, clockSequenceVariantAndNodeRaw -> (clockSequenceVariantAndNodeRaw shr 48 and 0x1fff).toInt() }
 
 /**
- * UUID [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]
+ * Uuid [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]
  */
 public val Uuid.versionNumber: Int
     get() = toLongs { timeStampAndVersionRaw, _ ->
@@ -59,7 +59,7 @@ public val Uuid.versionNumber: Int
     }
 
 /**
- * UUID variant in range `[0..7]`, similar to version
+ * Uuid variant in range `[0..7]`, similar to version
  */
 public val Uuid.variant: Int
     get() = toLongs { _, clockSequenceVariantAndNodeRaw ->
@@ -67,12 +67,12 @@ public val Uuid.variant: Int
     }
 
 /**
- * UUID variant specified and documented by the RFC
+ * Uuid variant specified and documented by the RFC
  */
 public val Uuid.isRfcVariant: Boolean get() = variant == 4 || variant == 5
 
 /**
- * Node UUID part, a 48-bit non-negative number.
+ * Node Uuid part, a 48-bit non-negative number.
  * Depending on [version] and [variant] it could be one of the following:
  * - a MAC address
  * - a random number
@@ -82,10 +82,10 @@ public val Uuid.node: Long
     get() = toLongs { _, clockSequenceVariantAndNodeRaw -> clockSequenceVariantAndNodeRaw and 0xffffffffffffL }
 
 /**
- * Check the [spec] string to conform to UUID
- * @return `true` if the [spec] string is a UUID string
+ * Check the [spec] string to conform to Uuid
+ * @return `true` if the [spec] string is a Uuid string
  */
-public fun Uuid.Companion.isValidUUIDString(spec: String): Boolean = try {
+public fun Uuid.Companion.isValidUuidString(spec: String): Boolean = try {
     parse(spec)
     true
 } catch (_: IllegalArgumentException) {
@@ -93,14 +93,14 @@ public fun Uuid.Companion.isValidUUIDString(spec: String): Boolean = try {
 }
 
 /**
- * Convert this String to a [Uuid], or throws a [IllegalArgumentException] if [this] is a malformed UUID.
+ * Convert this String to a [Uuid], or throws a [IllegalArgumentException] if [this] is a malformed Uuid.
  */
 public fun String.toUuid(): Uuid = Uuid.parse(this)
 
 /**
- * Convert this String to a [Uuid], or returns null if [this] is a malformed UUID.
+ * Convert this String to a [Uuid], or returns null if [this] is a malformed Uuid.
  */
-public fun String.toUUIDOrNull(): Uuid? = try {
+public fun String.toUuidOrNull(): Uuid? = try {
     Uuid.parse(this)
 } catch (_: IllegalArgumentException) {
     null

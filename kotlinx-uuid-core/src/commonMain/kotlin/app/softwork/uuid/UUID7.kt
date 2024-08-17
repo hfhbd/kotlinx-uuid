@@ -6,12 +6,12 @@ import kotlin.uuid.Uuid
 private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
 
 /**
- * An UUIDv7 implementation according to the
+ * An Uuidv7 implementation according to the
  * [draft](https://datatracker.ietf.org/doc/html/draft-ietf-uuidrev-rfc4122bis#section-5.7).
  *
  * [timeStamp] must be an 48 bit unix timestamp.
  */
-public fun UUIDv7(timeStamp: Long, random: Random): Uuid {
+public fun Uuidv7(timeStamp: Long, random: Random): Uuid {
     require(timeStamp <= UNIX_48_TIMESTAMP) {
         "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
     }
@@ -37,6 +37,6 @@ public fun UUIDv7(timeStamp: Long, random: Random): Uuid {
 }
 
 /**
- * The UUIDv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
+ * The Uuidv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
  */
 public val Uuid.unixTimeStamp: Long get() = toLongs { mostSignificantBits, _ -> mostSignificantBits ushr 16 }
