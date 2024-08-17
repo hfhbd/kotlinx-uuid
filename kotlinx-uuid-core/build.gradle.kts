@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "kotlinx.uuid"
+    namespace = "app.softwork.uuid"
     compileSdk = 34
 
     defaultConfig {
