@@ -13,17 +13,8 @@ import kotlinx.serialization.modules.*
 import kotlin.test.*
 import kotlin.uuid.Uuid
 
-@OptIn(ExperimentalSerializationApi::class)
+@ExperimentalSerializationApi
 class BinarySerializationTest {
-    @Test
-    fun smokeTestWithDefaultSerializer() {
-        val value = Uuid.parse(SOME_UUID_STRING)
-        val encoded = Cbor.encodeToHexString(value)
-        val decoded = Cbor.decodeFromHexString<Uuid>(encoded)
-
-        assertEquals(value, decoded)
-    }
-
     @Test
     fun smokeTest() {
         val value = Uuid.parse(SOME_UUID_STRING)

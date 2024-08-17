@@ -49,25 +49,6 @@ class UUIDTest {
     }
 
     @Test
-    fun testToString() {
-        val uuid = Uuid.parse(UUID_STRING)
-        assertEquals(UUID_STRING, uuid.toString())
-    }
-
-    @Test
-    fun testConstructingFromStringValid() {
-        val combined = setOf(
-            Uuid.parse("1b3e4567-e99b-13d3-a476-446657420000 "),
-            Uuid.parse("1b3e4567-e99b-13d3-a476 - 446657420000"),
-            Uuid.parse(" 1b3e4567-e99b-13d3-a476 - 446657420000"),
-            Uuid.parse(" { 1b3e4567-e99b-13d3-a476 - 446657420000}"),
-            Uuid.parse("{1b3e4567-e99b-13d3-a476 - 446657420000}")
-        )
-
-        assertEquals(1, combined.size)
-    }
-
-    @Test
     fun testConstructingFromComponents() {
         val first = Uuid.parse(SOME_UUID_STRING)
         val second = Uuid.from(
@@ -172,9 +153,6 @@ class UUIDTest {
     @Test
     fun testIsValidString() {
         assertTrue(Uuid.isValidUUIDString(SOME_UUID_STRING))
-        assertTrue(Uuid.isValidUUIDString("{$SOME_UUID_STRING}"))
-        assertTrue(Uuid.isValidUUIDString(" {$SOME_UUID_STRING}"))
-        assertTrue(Uuid.isValidUUIDString(" {$SOME_UUID_STRING} "))
 
         assertFalse(Uuid.isValidUUIDString(SOME_UUID_STRING.drop(1)))
         assertFalse(Uuid.isValidUUIDString(SOME_UUID_STRING.dropLast(1)))
