@@ -9,7 +9,7 @@ public final class kotlinx/uuid/BinarySerializer : kotlinx/serialization/KSerial
 
 public final class kotlinx/uuid/ConvertingKt {
 	public static final fun toJavaUUID (Lkotlin/uuid/Uuid;)Ljava/util/UUID;
-	public static final fun toKotlinUUID (Ljava/util/UUID;)Lkotlin/uuid/Uuid;
+	public static final fun toKotlinUuid (Ljava/util/UUID;)Lkotlin/uuid/Uuid;
 }
 
 public final class kotlinx/uuid/NameBasedGeneratorKt {

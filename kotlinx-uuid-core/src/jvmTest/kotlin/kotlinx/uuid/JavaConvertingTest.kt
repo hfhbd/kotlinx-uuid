@@ -19,7 +19,7 @@ class JavaConvertingTest {
     @Test
     fun fromJavaUUID() {
         val javaUUID = java.util.UUID.fromString(SOME_UUID_STRING)
-        val kotlinUUID = javaUUID.toKotlinUUID()
+        val kotlinUUID = javaUUID.toKotlinUuid()
         assertEquals(SOME_UUID_STRING, kotlinUUID.toString())
     }
 }

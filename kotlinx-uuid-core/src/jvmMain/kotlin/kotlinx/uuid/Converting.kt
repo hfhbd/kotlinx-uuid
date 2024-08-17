@@ -9,7 +9,7 @@ import kotlin.uuid.Uuid
  * Converts this [java.util.UUID][java.util.UUID] value to a [kotlin.uuid.Uuid][Uuid] value
  * by using the default [toString] representation.
  */
-public fun java.util.UUID.toKotlinUUID(): Uuid = Uuid.parse(toString())
+public fun java.util.UUID.toKotlinUuid(): Uuid = Uuid.parse(toString())
 
 /**
  * Converts this [kotlin.uuid.Uuid][Uuid] value to a [java.util.UUID][java.util.UUID] value
