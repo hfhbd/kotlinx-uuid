@@ -26,6 +26,7 @@ public final class app/softwork/uuid/UuidKt {
 	public static final fun from (Lkotlin/uuid/Uuid$Companion;IJIJI)Lkotlin/uuid/Uuid;
 	public static synthetic fun from$default (Lkotlin/uuid/Uuid$Companion;IJIJIILjava/lang/Object;)Lkotlin/uuid/Uuid;
 	public static final fun getClockSequence (Lkotlin/uuid/Uuid;)I
+	public static final fun getMAX (Lkotlin/uuid/Uuid$Companion;)Lkotlin/uuid/Uuid;
 	public static final fun getNode (Lkotlin/uuid/Uuid;)J
 	public static final fun getTimeStamp (Lkotlin/uuid/Uuid;)J
 	public static final fun getVariant (Lkotlin/uuid/Uuid;)I
