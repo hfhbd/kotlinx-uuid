@@ -4,6 +4,9 @@ public final class app/softwork/uuid/sqldelight/UuidByteArrayAdapter : app/cash/
 	public fun decode ([B)Lkotlin/uuid/Uuid;
 	public synthetic fun encode (Ljava/lang/Object;)Ljava/lang/Object;
 	public fun encode (Lkotlin/uuid/Uuid;)[B
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/softwork/uuid/sqldelight/UuidStringAdapter : app/cash/sqldelight/ColumnAdapter {
@@ -12,5 +15,8 @@ public final class app/softwork/uuid/sqldelight/UuidStringAdapter : app/cash/sql
 	public fun decode (Ljava/lang/String;)Lkotlin/uuid/Uuid;
 	public synthetic fun encode (Ljava/lang/Object;)Ljava/lang/Object;
 	public fun encode (Lkotlin/uuid/Uuid;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 

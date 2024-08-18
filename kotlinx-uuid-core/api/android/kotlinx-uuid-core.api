@@ -2,9 +2,12 @@ public final class app/softwork/uuid/BinarySerializer : kotlinx/serialization/KS
 	public static final field INSTANCE Lapp/softwork/uuid/BinarySerializer;
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
 	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lkotlin/uuid/Uuid;
+	public fun equals (Ljava/lang/Object;)Z
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun hashCode ()I
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlin/uuid/Uuid;)V
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/softwork/uuid/NameBasedGeneratorKt {
@@ -43,6 +46,18 @@ public final class app/softwork/uuid/UuidParceler : kotlinx/parcelize/Parceler {
 	public fun toString ()Ljava/lang/String;
 	public synthetic fun write (Ljava/lang/Object;Landroid/os/Parcel;I)V
 	public fun write (Lkotlin/uuid/Uuid;Landroid/os/Parcel;I)V
+}
+
+public final class app/softwork/uuid/UuidSerializer : kotlinx/serialization/KSerializer {
+	public static final field INSTANCE Lapp/softwork/uuid/UuidSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lkotlin/uuid/Uuid;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun hashCode ()I
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlin/uuid/Uuid;)V
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class app/softwork/uuid/Uuidv7Kt {
