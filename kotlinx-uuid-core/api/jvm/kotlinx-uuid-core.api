@@ -7,11 +7,6 @@ public final class app/softwork/uuid/BinarySerializer : kotlinx/serialization/KS
 	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlin/uuid/Uuid;)V
 }
 
-public final class app/softwork/uuid/ConvertingKt {
-	public static final fun toJavaUUID (Lkotlin/uuid/Uuid;)Ljava/util/UUID;
-	public static final fun toKotlinUuid (Ljava/util/UUID;)Lkotlin/uuid/Uuid;
-}
-
 public final class app/softwork/uuid/NameBasedGeneratorKt {
 	public static final fun generateUuid (Lkotlin/uuid/Uuid$Companion;Lkotlin/uuid/Uuid;Ljava/lang/String;)Lkotlin/uuid/Uuid;
 	public static final fun generateUuid (Lkotlin/uuid/Uuid$Companion;[B)Lkotlin/uuid/Uuid;
