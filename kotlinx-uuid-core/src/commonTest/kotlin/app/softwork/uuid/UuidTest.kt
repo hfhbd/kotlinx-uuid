@@ -15,12 +15,24 @@ internal const val SOME_UUID_STRING: String = "1b3e4567-e99b-13d3-a476-446657420
 class UuidTest {
     @Test
     fun testZero() {
+        assertEquals("00000000-0000-0000-0000-000000000000", Uuid.NIL.toString())
         assertEquals(0, Uuid.NIL.variant)
         assertEquals(0, Uuid.NIL.versionNumber)
         assertEquals(0, Uuid.NIL.timeStamp)
         assertEquals(0, Uuid.NIL.clockSequence)
         assertEquals(0, Uuid.NIL.node)
         assertEquals(false, Uuid.NIL.isRfcVariant)
+    }
+
+    @Test
+    fun testMax() {
+        assertEquals("ffffffff-ffff-ffff-ffff-ffffffffffff", Uuid.MAX.toString())
+        assertEquals(7, Uuid.MAX.variant)
+        assertEquals(15, Uuid.MAX.versionNumber)
+        assertEquals(1152921504606846975, Uuid.MAX.timeStamp)
+        assertEquals(8191, Uuid.MAX.clockSequence)
+        assertEquals(281474976710655, Uuid.MAX.node)
+        assertEquals(false, Uuid.MAX.isRfcVariant)
     }
 
     @Test

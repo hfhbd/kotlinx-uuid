@@ -105,3 +105,5 @@ public fun String.toUuidOrNull(): Uuid? = try {
 } catch (_: IllegalArgumentException) {
     null
 }
+
+public val Uuid.Companion.MAX: Uuid get() = fromLongs(-1, -1)
