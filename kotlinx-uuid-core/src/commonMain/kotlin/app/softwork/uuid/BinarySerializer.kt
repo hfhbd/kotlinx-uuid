@@ -22,7 +22,7 @@ import kotlin.uuid.Uuid
  * Cbor.encodeToByteArray(BinarySerializer, myUUID)
  * ```
  */
-public object BinarySerializer : KSerializer<Uuid> {
+public data object BinarySerializer : KSerializer<Uuid> {
     private val serializer = LongArraySerializer()
     override val descriptor: SerialDescriptor = serializer.descriptor
 
@@ -33,12 +33,11 @@ public object BinarySerializer : KSerializer<Uuid> {
     }
 
     override fun deserialize(decoder: Decoder): Uuid {
-        return decoder.decodeSerializableValue(serializer).let { array ->
-            if (array.size != 2) {
-                throw SerializationException("Uuid array should consist of 2 elements")
-            }
-
-            Uuid.fromLongs(array[0], array[1])
+        val array = decoder.decodeSerializableValue(serializer)
+        if (array.size != 2) {
+            throw SerializationException("Uuid array should consist of 2 elements")
         }
+
+        return Uuid.fromLongs(array[0], array[1])
     }
 }
