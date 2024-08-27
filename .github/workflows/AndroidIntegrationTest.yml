@@ -11,7 +11,10 @@ env:
 
 jobs:
   androidIntegrationTest:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Enable KVM group perms
         run: |
@@ -24,6 +27,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 21
+      - run: df
       - uses: gradle/actions/setup-gradle@v4
+      - run: df
       - name: Run Android integration tests
         run: ./gradlew :kotlinx-uuid-core:allDevicesCheck -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect
