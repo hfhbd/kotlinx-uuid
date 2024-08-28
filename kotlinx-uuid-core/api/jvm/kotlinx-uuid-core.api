@@ -35,18 +35,6 @@ public final class app/softwork/uuid/UuidKt {
 	public static final fun toUuidOrNull (Ljava/lang/String;)Lkotlin/uuid/Uuid;
 }
 
-public final class app/softwork/uuid/UuidSerializer : kotlinx/serialization/KSerializer {
-	public static final field INSTANCE Lapp/softwork/uuid/UuidSerializer;
-	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
-	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lkotlin/uuid/Uuid;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
-	public fun hashCode ()I
-	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
-	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lkotlin/uuid/Uuid;)V
-	public fun toString ()Ljava/lang/String;
-}
-
 public final class app/softwork/uuid/Uuidv7Kt {
 	public static final fun Uuidv7 (JLkotlin/random/Random;)Lkotlin/uuid/Uuid;
 	public static final fun getUnixTimeStamp (Lkotlin/uuid/Uuid;)J
