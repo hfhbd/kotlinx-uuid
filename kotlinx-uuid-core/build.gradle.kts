@@ -7,8 +7,6 @@ import org.jetbrains.kotlin.gradle.plugin.*
 
 plugins {
     id("kotlinMPP")
-    id("publish")
-    id("dokkaLicensee")
     id("kover")
     id("com.android.library")
     kotlin("plugin.parcelize")
