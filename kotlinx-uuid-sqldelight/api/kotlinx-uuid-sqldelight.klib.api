@@ -1,0 +1,23 @@
+// Klib ABI Dump
+// Targets: [androidNativeArm32, androidNativeArm64, androidNativeX64, androidNativeX86, iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, mingwX64, tvosArm64, tvosSimulatorArm64, tvosX64, watchosArm32, watchosArm64, watchosDeviceArm64, watchosSimulatorArm64, watchosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <app.softwork:kotlinx-uuid-sqldelight>
+final object app.softwork.uuid.sqldelight/UuidByteArrayAdapter : app.cash.sqldelight/ColumnAdapter<kotlin.uuid/Uuid, kotlin/ByteArray> { // app.softwork.uuid.sqldelight/UuidByteArrayAdapter|null[0]
+    final fun decode(kotlin/ByteArray): kotlin.uuid/Uuid // app.softwork.uuid.sqldelight/UuidByteArrayAdapter.decode|decode(kotlin.ByteArray){}[0]
+    final fun encode(kotlin.uuid/Uuid): kotlin/ByteArray // app.softwork.uuid.sqldelight/UuidByteArrayAdapter.encode|encode(kotlin.uuid.Uuid){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // app.softwork.uuid.sqldelight/UuidByteArrayAdapter.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // app.softwork.uuid.sqldelight/UuidByteArrayAdapter.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // app.softwork.uuid.sqldelight/UuidByteArrayAdapter.toString|toString(){}[0]
+}
+
+final object app.softwork.uuid.sqldelight/UuidStringAdapter : app.cash.sqldelight/ColumnAdapter<kotlin.uuid/Uuid, kotlin/String> { // app.softwork.uuid.sqldelight/UuidStringAdapter|null[0]
+    final fun decode(kotlin/String): kotlin.uuid/Uuid // app.softwork.uuid.sqldelight/UuidStringAdapter.decode|decode(kotlin.String){}[0]
+    final fun encode(kotlin.uuid/Uuid): kotlin/String // app.softwork.uuid.sqldelight/UuidStringAdapter.encode|encode(kotlin.uuid.Uuid){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // app.softwork.uuid.sqldelight/UuidStringAdapter.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // app.softwork.uuid.sqldelight/UuidStringAdapter.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // app.softwork.uuid.sqldelight/UuidStringAdapter.toString|toString(){}[0]
+}
