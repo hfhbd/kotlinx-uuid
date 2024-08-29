@@ -3,8 +3,6 @@
  */
 plugins {
     id("kotlinMPP")
-    id("publish")
-    id("dokkaLicensee")
 }
 
 kotlin {

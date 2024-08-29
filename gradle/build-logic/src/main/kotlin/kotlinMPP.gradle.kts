@@ -1,8 +1,12 @@
 plugins {
     kotlin("multiplatform")
+    id("publish")
+    id("dokkaLicensee")
 }
 
 kotlin {
+    jvmToolchain(8)
+
     jvm()
     js(IR) {
         browser()
@@ -35,5 +39,9 @@ kotlin {
     mingwX64()
     watchosDeviceArm64()
 
-    kotlinConfig()
+    explicitApi()
+    compilerOptions {
+        progressiveMode.set(true)
+        optIn.add("kotlin.uuid.ExperimentalUuidApi")
+    }
 }
