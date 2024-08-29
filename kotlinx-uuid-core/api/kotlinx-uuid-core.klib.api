@@ -1,0 +1,52 @@
+// Klib ABI Dump
+// Targets: [androidNativeArm32, androidNativeArm64, androidNativeX64, androidNativeX86, iosArm64, iosSimulatorArm64, iosX64, js, linuxArm64, linuxX64, macosArm64, macosX64, mingwX64, tvosArm64, tvosSimulatorArm64, tvosX64, watchosArm32, watchosArm64, watchosDeviceArm64, watchosSimulatorArm64, watchosX64]
+// Alias: apple => [iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64, watchosArm32, watchosArm64, watchosDeviceArm64, watchosSimulatorArm64, watchosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <app.softwork:kotlinx-uuid-core>
+final object app.softwork.uuid/BinarySerializer : kotlinx.serialization/KSerializer<kotlin.uuid/Uuid> { // app.softwork.uuid/BinarySerializer|null[0]
+    final val descriptor // app.softwork.uuid/BinarySerializer.descriptor|{}descriptor[0]
+        final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // app.softwork.uuid/BinarySerializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+    final fun deserialize(kotlinx.serialization.encoding/Decoder): kotlin.uuid/Uuid // app.softwork.uuid/BinarySerializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // app.softwork.uuid/BinarySerializer.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // app.softwork.uuid/BinarySerializer.hashCode|hashCode(){}[0]
+    final fun serialize(kotlinx.serialization.encoding/Encoder, kotlin.uuid/Uuid) // app.softwork.uuid/BinarySerializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;kotlin.uuid.Uuid){}[0]
+    final fun toString(): kotlin/String // app.softwork.uuid/BinarySerializer.toString|toString(){}[0]
+}
+
+final val app.softwork.uuid/MAX // app.softwork.uuid/MAX|@kotlin.uuid.Uuid.Companion{}MAX[0]
+    final fun (kotlin.uuid/Uuid.Companion).<get-MAX>(): kotlin.uuid/Uuid // app.softwork.uuid/MAX.<get-MAX>|<get-MAX>@kotlin.uuid.Uuid.Companion(){}[0]
+final val app.softwork.uuid/clockSequence // app.softwork.uuid/clockSequence|@kotlin.uuid.Uuid{}clockSequence[0]
+    final fun (kotlin.uuid/Uuid).<get-clockSequence>(): kotlin/Int // app.softwork.uuid/clockSequence.<get-clockSequence>|<get-clockSequence>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/isRfcVariant // app.softwork.uuid/isRfcVariant|@kotlin.uuid.Uuid{}isRfcVariant[0]
+    final fun (kotlin.uuid/Uuid).<get-isRfcVariant>(): kotlin/Boolean // app.softwork.uuid/isRfcVariant.<get-isRfcVariant>|<get-isRfcVariant>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/node // app.softwork.uuid/node|@kotlin.uuid.Uuid{}node[0]
+    final fun (kotlin.uuid/Uuid).<get-node>(): kotlin/Long // app.softwork.uuid/node.<get-node>|<get-node>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/timeStamp // app.softwork.uuid/timeStamp|@kotlin.uuid.Uuid{}timeStamp[0]
+    final fun (kotlin.uuid/Uuid).<get-timeStamp>(): kotlin/Long // app.softwork.uuid/timeStamp.<get-timeStamp>|<get-timeStamp>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/unixTimeStamp // app.softwork.uuid/unixTimeStamp|@kotlin.uuid.Uuid{}unixTimeStamp[0]
+    final fun (kotlin.uuid/Uuid).<get-unixTimeStamp>(): kotlin/Long // app.softwork.uuid/unixTimeStamp.<get-unixTimeStamp>|<get-unixTimeStamp>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/variant // app.softwork.uuid/variant|@kotlin.uuid.Uuid{}variant[0]
+    final fun (kotlin.uuid/Uuid).<get-variant>(): kotlin/Int // app.softwork.uuid/variant.<get-variant>|<get-variant>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/versionNumber // app.softwork.uuid/versionNumber|@kotlin.uuid.Uuid{}versionNumber[0]
+    final fun (kotlin.uuid/Uuid).<get-versionNumber>(): kotlin/Int // app.softwork.uuid/versionNumber.<get-versionNumber>|<get-versionNumber>@kotlin.uuid.Uuid(){}[0]
+
+final fun (kotlin.random/Random).app.softwork.uuid/nextUuid(): kotlin.uuid/Uuid // app.softwork.uuid/nextUuid|nextUuid@kotlin.random.Random(){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/from(kotlin/Int, kotlin/Long, kotlin/Int, kotlin/Long, kotlin/Int = ...): kotlin.uuid/Uuid // app.softwork.uuid/from|from@kotlin.uuid.Uuid.Companion(kotlin.Int;kotlin.Long;kotlin.Int;kotlin.Long;kotlin.Int){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/generateUuid(kotlin.uuid/Uuid, kotlin/String): kotlin.uuid/Uuid // app.softwork.uuid/generateUuid|generateUuid@kotlin.uuid.Uuid.Companion(kotlin.uuid.Uuid;kotlin.String){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/generateUuid(kotlin/ByteArray): kotlin.uuid/Uuid // app.softwork.uuid/generateUuid|generateUuid@kotlin.uuid.Uuid.Companion(kotlin.ByteArray){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/isValidUuidString(kotlin/String): kotlin/Boolean // app.softwork.uuid/isValidUuidString|isValidUuidString@kotlin.uuid.Uuid.Companion(kotlin.String){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/random(kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/random|random@kotlin.uuid.Uuid.Companion(kotlin.random.Random){}[0]
+final fun (kotlin/String).app.softwork.uuid/toUuid(): kotlin.uuid/Uuid // app.softwork.uuid/toUuid|toUuid@kotlin.String(){}[0]
+final fun (kotlin/String).app.softwork.uuid/toUuidOrNull(): kotlin.uuid/Uuid? // app.softwork.uuid/toUuidOrNull|toUuidOrNull@kotlin.String(){}[0]
+final fun app.softwork.uuid/Uuidv7(kotlin/Long, kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/Uuidv7|Uuidv7(kotlin.Long;kotlin.random.Random){}[0]
+
+// Targets: [apple]
+final fun (kotlin.uuid/Uuid).app.softwork.uuid/toNsUUID(): platform.Foundation/NSUUID // app.softwork.uuid/toNsUUID|toNsUUID@kotlin.uuid.Uuid(){}[0]
+
+// Targets: [apple]
+final fun (platform.Foundation/NSUUID).app.softwork.uuid/toKotlinUuid(): kotlin.uuid/Uuid // app.softwork.uuid/toKotlinUuid|toKotlinUuid@platform.Foundation.NSUUID(){}[0]
