@@ -32,6 +32,8 @@ final val app.softwork.uuid/unixTimeStamp // app.softwork.uuid/unixTimeStamp|@ko
     final fun (kotlin.uuid/Uuid).<get-unixTimeStamp>(): kotlin/Long // app.softwork.uuid/unixTimeStamp.<get-unixTimeStamp>|<get-unixTimeStamp>@kotlin.uuid.Uuid(){}[0]
 final val app.softwork.uuid/variant // app.softwork.uuid/variant|@kotlin.uuid.Uuid{}variant[0]
     final fun (kotlin.uuid/Uuid).<get-variant>(): kotlin/Int // app.softwork.uuid/variant.<get-variant>|<get-variant>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/version // app.softwork.uuid/version|@kotlin.uuid.Uuid{}version[0]
+    final fun (kotlin.uuid/Uuid).<get-version>(): kotlin/Int // app.softwork.uuid/version.<get-version>|<get-version>@kotlin.uuid.Uuid(){}[0]
 final val app.softwork.uuid/versionNumber // app.softwork.uuid/versionNumber|@kotlin.uuid.Uuid{}versionNumber[0]
     final fun (kotlin.uuid/Uuid).<get-versionNumber>(): kotlin/Int // app.softwork.uuid/versionNumber.<get-versionNumber>|<get-versionNumber>@kotlin.uuid.Uuid(){}[0]
 

@@ -34,6 +34,7 @@ public fun Uuid.Companion.generateUuid(namespace: Uuid, name: String): Uuid {
  * It is recommended to use generateUuid(namespace, name) instead while this function
  * is more for java.util.UUID parity.
  */
+@Deprecated("This function will be removed.")
 public fun Uuid.Companion.generateUuid(bytes: ByteArray): Uuid {
     val hash = sha1 {
         update(bytes)

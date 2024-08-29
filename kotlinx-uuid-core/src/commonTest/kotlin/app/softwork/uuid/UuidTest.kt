@@ -4,6 +4,7 @@
 
 package app.softwork.uuid
 
+import app.softwork.uuid.version
 import kotlin.random.Random
 import kotlin.test.*
 import kotlin.uuid.Uuid
@@ -17,7 +18,7 @@ class UuidTest {
     fun testZero() {
         assertEquals("00000000-0000-0000-0000-000000000000", Uuid.NIL.toString())
         assertEquals(0, Uuid.NIL.variant)
-        assertEquals(0, Uuid.NIL.versionNumber)
+        assertEquals(0, Uuid.NIL.version)
         assertEquals(0, Uuid.NIL.timeStamp)
         assertEquals(0, Uuid.NIL.clockSequence)
         assertEquals(0, Uuid.NIL.node)
@@ -28,7 +29,7 @@ class UuidTest {
     fun testMax() {
         assertEquals("ffffffff-ffff-ffff-ffff-ffffffffffff", Uuid.MAX.toString())
         assertEquals(7, Uuid.MAX.variant)
-        assertEquals(15, Uuid.MAX.versionNumber)
+        assertEquals(15, Uuid.MAX.version)
         assertEquals(1152921504606846975, Uuid.MAX.timeStamp)
         assertEquals(8191, Uuid.MAX.clockSequence)
         assertEquals(281474976710655, Uuid.MAX.node)
@@ -39,7 +40,7 @@ class UuidTest {
     fun testConstructingFromString() {
         val uuid = Uuid.parse(UUID_STRING)
 
-        assertEquals(1, uuid.versionNumber)
+        assertEquals(1, uuid.version)
         assertEquals(5, uuid.variant)
         assertEquals("3d3e99b1b3e4567", uuid.timeStamp.toString(16))
         assertEquals("476", uuid.clockSequence.toString(16))
@@ -53,7 +54,7 @@ class UuidTest {
     fun testConstructingFromStringAllFf() {
         val uuid = Uuid.parse(UUID_STRING_ALL_FF)
 
-        assertEquals(0xf, uuid.versionNumber)
+        assertEquals(0xf, uuid.version)
         assertEquals(7, uuid.variant)
         assertEquals("fffffffffffffff", uuid.timeStamp.toString(16))
         assertEquals("1fff", uuid.clockSequence.toString(16))
@@ -65,7 +66,7 @@ class UuidTest {
         val first = Uuid.parse(SOME_UUID_STRING)
         val second = Uuid.from(
             timeStamp = first.timeStamp,
-            versionNumber = first.versionNumber,
+            versionNumber = first.version,
             clockSequence = first.clockSequence,
             node = first.node,
             variant = first.variant
@@ -79,7 +80,7 @@ class UuidTest {
         val first = Uuid.parse(SOME_UUID_STRING)
         val second = Uuid.from(
             timeStamp = first.timeStamp,
-            versionNumber = first.versionNumber,
+            versionNumber = first.version,
             clockSequence = first.clockSequence,
             node = first.node
         )
@@ -92,7 +93,7 @@ class UuidTest {
         val first = Uuid.parse(UUID_STRING_ALL_FF)
         val second = Uuid.from(
             timeStamp = first.timeStamp,
-            versionNumber = first.versionNumber,
+            versionNumber = first.version,
             clockSequence = first.clockSequence,
             node = first.node,
             variant = first.variant
@@ -113,11 +114,11 @@ class UuidTest {
         }
 
         assertFailsWith<IllegalArgumentException> {
-            Uuid.from(first.versionNumber, first.timeStamp, Int.MAX_VALUE, first.node, first.variant)
+            Uuid.from(first.version, first.timeStamp, Int.MAX_VALUE, first.node, first.variant)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            Uuid.from(first.versionNumber, first.timeStamp, first.clockSequence, Long.MAX_VALUE, first.variant)
+            Uuid.from(first.version, first.timeStamp, first.clockSequence, Long.MAX_VALUE, first.variant)
         }
 
         assertFailsWith<IllegalArgumentException> {
@@ -125,19 +126,19 @@ class UuidTest {
         }
 
         assertFailsWith<IllegalArgumentException> {
-            Uuid.from(first.versionNumber, -1, first.clockSequence, first.node, first.variant)
+            Uuid.from(first.version, -1, first.clockSequence, first.node, first.variant)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            Uuid.from(first.versionNumber, first.timeStamp, -1, first.node, first.variant)
+            Uuid.from(first.version, first.timeStamp, -1, first.node, first.variant)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            Uuid.from(first.versionNumber, first.timeStamp, first.clockSequence, -1, first.variant)
+            Uuid.from(first.version, first.timeStamp, first.clockSequence, -1, first.variant)
         }
 
         assertFailsWith<IllegalArgumentException> {
-            Uuid.from(first.versionNumber, first.timeStamp, first.clockSequence, first.node, -1)
+            Uuid.from(first.version, first.timeStamp, first.clockSequence, first.node, -1)
         }
     }
 
@@ -154,12 +155,12 @@ class UuidTest {
 
     @Test
     fun testVersionNumbers() {
-        assertEquals(1, Uuid.parse("1b3e4567-e99b-13d3-a476-446657420000").versionNumber)
-        assertEquals(2, Uuid.parse("1b3e4567-e99b-23d3-a476-446657420000").versionNumber)
-        assertEquals(3, Uuid.parse("1b3e4567-e99b-33d3-a476-446657420000").versionNumber)
-        assertEquals(4, Uuid.parse("1b3e4567-e99b-43d3-a476-446657420000").versionNumber)
-        assertEquals(5, Uuid.parse("1b3e4567-e99b-53d3-a476-446657420000").versionNumber)
-        assertEquals(0xf, Uuid.parse("1b3e4567-e99b-f3d3-a476-446657420000").versionNumber)
+        assertEquals(1, Uuid.parse("1b3e4567-e99b-13d3-a476-446657420000").version)
+        assertEquals(2, Uuid.parse("1b3e4567-e99b-23d3-a476-446657420000").version)
+        assertEquals(3, Uuid.parse("1b3e4567-e99b-33d3-a476-446657420000").version)
+        assertEquals(4, Uuid.parse("1b3e4567-e99b-43d3-a476-446657420000").version)
+        assertEquals(5, Uuid.parse("1b3e4567-e99b-53d3-a476-446657420000").version)
+        assertEquals(0xf, Uuid.parse("1b3e4567-e99b-f3d3-a476-446657420000").version)
     }
 
     @Test
@@ -174,7 +175,7 @@ class UuidTest {
 
     @Test
     fun testRandomCreation() {
-        assertEquals(4, Uuid.random().versionNumber)
-        assertEquals(4, Random.nextUuid().versionNumber)
+        assertEquals(4, Uuid.random().version)
+        assertEquals(4, Random.nextUuid().version)
     }
 }
