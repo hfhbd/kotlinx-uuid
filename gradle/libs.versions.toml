@@ -12,7 +12,7 @@ sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.0.2"
 
 datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.1" }
 
-androidx-test-runner = { module = "androidx.test:runner", version = "1.6.1" }
+androidx-test-runner = { module = "androidx.test:runner", version = "1.6.2" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
