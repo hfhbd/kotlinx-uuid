@@ -4,7 +4,6 @@
 
 package app.softwork.uuid
 
-import app.softwork.uuid.version
 import kotlin.random.Random
 import kotlin.test.*
 import kotlin.uuid.Uuid
