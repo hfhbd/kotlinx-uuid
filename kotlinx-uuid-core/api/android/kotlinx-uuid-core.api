@@ -28,6 +28,7 @@ public final class app/softwork/uuid/UuidKt {
 	public static final fun getNode (Lkotlin/uuid/Uuid;)J
 	public static final fun getTimeStamp (Lkotlin/uuid/Uuid;)J
 	public static final fun getVariant (Lkotlin/uuid/Uuid;)I
+	public static final fun getVersion (Lkotlin/uuid/Uuid;)I
 	public static final fun getVersionNumber (Lkotlin/uuid/Uuid;)I
 	public static final fun isRfcVariant (Lkotlin/uuid/Uuid;)Z
 	public static final fun isValidUuidString (Lkotlin/uuid/Uuid$Companion;Ljava/lang/String;)Z

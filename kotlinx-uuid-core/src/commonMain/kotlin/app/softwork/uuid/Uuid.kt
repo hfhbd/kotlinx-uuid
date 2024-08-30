@@ -31,7 +31,7 @@ public fun Uuid.Companion.from(
 }
 
 /**
- * A 60-bits non-negative number. Depending on the Uuid version it could have different semantics:
+ * A 60-bits non-negative number. Depending on the Uuid [version] it could have different semantics:
  * - UTC time
  * - a number constructed from the namespace
  * - a random number
@@ -51,15 +51,21 @@ public val Uuid.clockSequence: Int
     get() = toLongs { _, clockSequenceVariantAndNodeRaw -> (clockSequenceVariantAndNodeRaw shr 48 and 0x1fff).toInt() }
 
 /**
- * Uuid [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]
+ * Uuid [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]`
  */
-public val Uuid.versionNumber: Int
+@Deprecated("Use version instead", replaceWith = ReplaceWith("version"))
+public val Uuid.versionNumber: Int get() = version
+
+/**
+ * Uuid [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]`
+ */
+public val Uuid.version: Int
     get() = toLongs { timeStampAndVersionRaw, _ ->
         (timeStampAndVersionRaw and 0xf000L shr 12).toInt()
     }
 
 /**
- * Uuid variant in range `[0..7]`, similar to version
+ * Uuid variant in range `[0..7]`, similar to [version]
  */
 public val Uuid.variant: Int
     get() = toLongs { _, clockSequenceVariantAndNodeRaw ->
@@ -67,7 +73,7 @@ public val Uuid.variant: Int
     }
 
 /**
- * Uuid variant specified and documented by the RFC
+ * Uuid [variant] specified and documented by the RFC
  */
 public val Uuid.isRfcVariant: Boolean get() = variant == 4 || variant == 5
 

@@ -10,7 +10,7 @@ class Uuidv7Test {
 
         assertEquals(1645557742000, uuid.unixTimeStamp)
         assertEquals("017f22e2-79b0-7a1e-ad73-08cd2f61d78a", uuid.toString())
-        assertEquals(7, uuid.versionNumber)
+        assertEquals(7, uuid.version)
         assertEquals(5, uuid.variant)
     }
 }
