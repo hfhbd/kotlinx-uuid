@@ -44,6 +44,11 @@ android {
     }
 
     testOptions {
+        unitTests.all {
+            it.javaLauncher.set(javaToolchains.launcherFor {
+                languageVersion.set(JavaLanguageVersion.of(17))
+            })
+        }
         managedDevices {
             localDevices {
                 register("pixel2api34") {
