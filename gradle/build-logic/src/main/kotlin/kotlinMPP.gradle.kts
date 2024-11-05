@@ -8,7 +8,7 @@ kotlin {
     jvmToolchain(8)
 
     jvm()
-    js(IR) {
+    js {
         browser()
         nodejs()
     }
