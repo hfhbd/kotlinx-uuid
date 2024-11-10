@@ -11,8 +11,16 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-tasks.dokkaHtmlMultiModule {
-    includes.from("README.md")
+dependencies {
+    for (sub in subprojects) {
+        dokka(sub)
+    }
+}
+
+dokka {
+    dokkaPublications.configureEach {
+        includes.from("README.md")
+    }
 }
 
 detekt {
