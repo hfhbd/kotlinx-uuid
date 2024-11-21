@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.0-RC"
+kotlin = "2.1.0-RC2"
 serialization = "1.7.3"
 
 [libraries]
