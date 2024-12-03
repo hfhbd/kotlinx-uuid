@@ -18,7 +18,7 @@ androidx-test-runner = { module = "androidx.test:runner", version = "1.6.2" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-android = { id = "com.android.application", version = "8.7.2" }
+android = { id = "com.android.application", version = "8.7.3" }
 binary = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.16.3" }
 mavencentral = { id = "io.github.hfhbd.mavencentral", version = "0.0.14" }
 dokka = { id = "org.jetbrains.dokka", version = "2.0.0-Beta" }
