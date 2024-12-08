@@ -5,7 +5,12 @@
 package app.softwork.uuid
 
 import kotlin.random.Random
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 import kotlin.uuid.Uuid
 
 private const val UUID_STRING_ALL_FF: String = "ffffffff-ffff-ffff-ffff-ffffffffffff"

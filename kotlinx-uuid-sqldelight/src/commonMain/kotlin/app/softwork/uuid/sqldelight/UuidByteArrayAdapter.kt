@@ -1,6 +1,6 @@
 package app.softwork.uuid.sqldelight
 
-import app.cash.sqldelight.*
+import app.cash.sqldelight.ColumnAdapter
 import kotlin.uuid.Uuid
 
 public data object UuidByteArrayAdapter : ColumnAdapter<Uuid, ByteArray> {

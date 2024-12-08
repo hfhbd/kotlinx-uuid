@@ -4,10 +4,12 @@
 
 package app.softwork.uuid
 
-import kotlinx.serialization.*
-import kotlinx.serialization.builtins.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.builtins.LongArraySerializer
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
 import kotlin.uuid.Uuid
 
 /**

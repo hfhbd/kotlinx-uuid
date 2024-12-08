@@ -1,7 +1,8 @@
 package app.softwork.uuid
 
 import kotlin.random.Random
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class Uuidv7Test {
     @Test

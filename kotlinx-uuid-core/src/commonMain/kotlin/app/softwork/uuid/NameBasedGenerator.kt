@@ -4,8 +4,9 @@
 
 package app.softwork.uuid
 
-import app.softwork.uuid.internal.*
-import kotlin.experimental.*
+import app.softwork.uuid.internal.SHA1
+import kotlin.experimental.and
+import kotlin.experimental.or
 import kotlin.uuid.Uuid
 
 /**

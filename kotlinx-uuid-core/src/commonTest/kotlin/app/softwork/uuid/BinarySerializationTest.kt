@@ -4,13 +4,19 @@
 
 package app.softwork.uuid
 
-import kotlinx.serialization.*
-import kotlinx.serialization.cbor.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
-import kotlinx.serialization.json.*
-import kotlinx.serialization.modules.*
-import kotlin.test.*
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.cbor.Cbor
+import kotlinx.serialization.decodeFromHexString
+import kotlinx.serialization.descriptors.SerialDescriptor
+import kotlinx.serialization.descriptors.StructureKind
+import kotlinx.serialization.encodeToHexString
+import kotlinx.serialization.encoding.AbstractDecoder
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.modules.EmptySerializersModule
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.uuid.Uuid
 
 @ExperimentalSerializationApi
@@ -27,8 +33,7 @@ class BinarySerializationTest {
     @Test
     fun testDeadDecoder() {
         val decoder = object : AbstractDecoder() {
-            override val serializersModule: SerializersModule
-                get() = EmptySerializersModule()
+            override val serializersModule = EmptySerializersModule()
 
             override fun decodeElementIndex(descriptor: SerialDescriptor): Int {
                 return 777
