@@ -13,6 +13,13 @@ plugins {
 }
 
 kotlin {
+    wasmJs {
+        nodejs()
+    }
+    wasmWasi {
+        nodejs()
+    }
+
     sourceSets {
         commonMain {
             dependencies {
