@@ -16,6 +16,5 @@ updates:
       interval: "daily"
     assignees:
       - "hfhbd"
-    rebase-strategy: "disabled"
     registries:
       - google
