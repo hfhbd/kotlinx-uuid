@@ -2,11 +2,13 @@ package app.softwork.uuid.internal
 
 import android.os.Parcel
 import android.os.Parcelable
-import app.softwork.uuid.*
+import app.softwork.uuid.SOME_UUID_STRING
+import app.softwork.uuid.UuidParceler
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
 import kotlinx.parcelize.parcelableCreator
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.uuid.Uuid
 
 class ParcelableTest {

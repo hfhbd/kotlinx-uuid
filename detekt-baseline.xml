@@ -4,7 +4,6 @@
   <CurrentIssues>
     <ID>FunctionNaming:Dsl.kt$public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
     <ID>FunctionNaming:Uuidv7.kt$public fun Uuidv7(timeStamp: Long, random: Random): Uuid</ID>
-    <ID>MagicNumber:KotlinConfig.kt$8</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$0x3f</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$4</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$6</ID>

@@ -4,7 +4,7 @@
 
 package app.softwork.uuid
 
-import kotlin.random.*
+import kotlin.random.Random
 import kotlin.uuid.Uuid
 
 /**

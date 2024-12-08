@@ -8,7 +8,8 @@
 
 package app.softwork.uuid
 
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.uuid.Uuid
 
 class NsUUIDConvertingTest {

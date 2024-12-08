@@ -24,10 +24,15 @@ dokka {
 }
 
 detekt {
-    source.from(files(rootProject.rootDir))
+    source.from(fileTree(rootProject.rootDir) {
+        include("**/*.kt")
+        exclude("**/*.kts")
+        exclude("**/resources/**")
+        exclude("**/generated/**")
+        exclude("**/build/**")
+    })
     parallel = true
     autoCorrect = true
-    buildUponDefaultConfig = true
 }
 
 dependencies {
@@ -35,19 +40,7 @@ dependencies {
 }
 
 tasks {
-    fun SourceTask.config() {
-        include("**/*.kt")
-        exclude("**/*.kts")
-        exclude("**/resources/**")
-        exclude("**/generated/**")
-        exclude("**/build/**")
-    }
-    withType<DetektCreateBaselineTask>().configureEach {
-        config()
-    }
     withType<Detekt>().configureEach {
-        config()
-
         reports {
             sarif.required.set(true)
         }
@@ -55,7 +48,6 @@ tasks {
 }
 
 apiValidation {
-    @OptIn(kotlinx.validation.ExperimentalBCVApi::class)
     klib {
         enabled = true
     }

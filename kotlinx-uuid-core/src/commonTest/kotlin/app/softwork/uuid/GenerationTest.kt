@@ -4,8 +4,11 @@
 
 package app.softwork.uuid
 
-import kotlin.random.*
-import kotlin.test.*
+import kotlin.random.Random
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
+import kotlin.test.assertTrue
 import kotlin.uuid.Uuid
 
 class GenerationTest {

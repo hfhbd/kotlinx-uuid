@@ -4,8 +4,10 @@
 
 package app.softwork.uuid
 
-import app.softwork.uuid.internal.*
-import kotlin.test.*
+import app.softwork.uuid.internal.SHA1
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 
 class SHA1Test {
     private val sha1 = SHA1()
