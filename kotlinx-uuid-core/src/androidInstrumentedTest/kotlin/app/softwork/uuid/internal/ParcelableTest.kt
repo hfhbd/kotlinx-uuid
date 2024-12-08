@@ -2,8 +2,8 @@ package app.softwork.uuid.internal
 
 import android.os.Parcel
 import android.os.Parcelable
-import app.softwork.uuid.UuidParceler
 import app.softwork.uuid.SOME_UUID_STRING
+import app.softwork.uuid.UuidParceler
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
 import kotlinx.parcelize.parcelableCreator
