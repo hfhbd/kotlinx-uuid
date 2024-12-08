@@ -7,16 +7,22 @@ plugins {
     id("kotlinMPP")
 }
 
-kotlin.sourceSets {
-    commonMain {
-        dependencies {
-            api(projects.kotlinxUuidCore)
-            api(libs.datetime)
-        }
+kotlin{
+    wasmJs {
+        nodejs()
     }
-    commonTest {
-        dependencies {
-            implementation(kotlin("test"))
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(projects.kotlinxUuidCore)
+                api(libs.datetime)
+            }
+        }
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+            }
         }
     }
 }
