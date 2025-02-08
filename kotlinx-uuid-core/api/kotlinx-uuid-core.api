@@ -38,6 +38,9 @@ public final class app/softwork/uuid/UuidKt {
 
 public final class app/softwork/uuid/Uuidv7Kt {
 	public static final fun Uuidv7 (JLkotlin/random/Random;)Lkotlin/uuid/Uuid;
+	public static final fun Uuidv7 (Lkotlin/time/Instant;Lkotlin/random/Random;)Lkotlin/uuid/Uuid;
+	public static synthetic fun Uuidv7$default (Lkotlin/time/Instant;Lkotlin/random/Random;ILjava/lang/Object;)Lkotlin/uuid/Uuid;
+	public static final fun getInstant (Lkotlin/uuid/Uuid;)Lkotlin/time/Instant;
 	public static final fun getUnixTimeStamp (Lkotlin/uuid/Uuid;)J
 }
 

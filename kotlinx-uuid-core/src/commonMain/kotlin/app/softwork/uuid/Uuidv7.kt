@@ -2,6 +2,9 @@ package app.softwork.uuid
 
 import kotlin.random.Random
 import kotlin.uuid.Uuid
+import kotlin.time.Instant
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
 private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
 
@@ -34,3 +37,17 @@ public fun Uuidv7(timeStamp: Long, random: Random): Uuid {
  * The Uuidv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
  */
 public val Uuid.unixTimeStamp: Long get() = toLongs { mostSignificantBits, _ -> mostSignificantBits ushr 16 }
+
+/**
+ * An Uuidv7 implementation according to the
+ * [draft](https://datatracker.ietf.org/doc/html/draft-ietf-uuidrev-rfc4122bis#section-5.7).
+ */
+@ExperimentalTime
+public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid =
+    Uuidv7(timeStamp = timeStamp.toEpochMilliseconds(), random = random)
+
+/**
+ * The Uuidv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
+ */
+@ExperimentalTime
+public val Uuid.instant: Instant get() = Instant.fromEpochMilliseconds(unixTimeStamp)
