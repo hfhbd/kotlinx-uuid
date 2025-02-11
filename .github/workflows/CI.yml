@@ -27,4 +27,4 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: build/reports/detekt/detekt.sarif
-      - run: ./gradlew kotlinUpgradeYarnLock :kotlinx-uuid-core:jsBrowserTest
+      - run: ./gradlew :kotlinx-uuid-core:jsBrowserTest
