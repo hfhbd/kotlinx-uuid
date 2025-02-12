@@ -1,10 +1,10 @@
 package app.softwork.uuid
 
 import kotlin.random.Random
-import kotlin.uuid.Uuid
-import kotlin.time.Instant
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
+import kotlin.uuid.Uuid
 
 private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
 
