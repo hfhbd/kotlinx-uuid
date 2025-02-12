@@ -33,6 +33,18 @@ val uuid = UUIDv7(unixTimestamp)
 uuid.unixTimeStamp // 42
 ```
 
+UUIDv7 with the current timestamp using `Clock.System` can be created using:
+
+```kotlin
+val uuid = UUIDv7(random = Random)
+```
+
+When processing existing UUIDv7s, the timestamp bits can be interpreted as an Instant with millisecond precision using:
+
+```kotlin
+UUIDv7().instant
+```
+
 ## Serializing (kotlinx.serialization)
 
 There is also a binary serializers for `Uuid`.

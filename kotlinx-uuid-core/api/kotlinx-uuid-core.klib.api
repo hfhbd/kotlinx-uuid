@@ -22,6 +22,8 @@ final val app.softwork.uuid/MAX // app.softwork.uuid/MAX|@kotlin.uuid.Uuid.Compa
     final fun (kotlin.uuid/Uuid.Companion).<get-MAX>(): kotlin.uuid/Uuid // app.softwork.uuid/MAX.<get-MAX>|<get-MAX>@kotlin.uuid.Uuid.Companion(){}[0]
 final val app.softwork.uuid/clockSequence // app.softwork.uuid/clockSequence|@kotlin.uuid.Uuid{}clockSequence[0]
     final fun (kotlin.uuid/Uuid).<get-clockSequence>(): kotlin/Int // app.softwork.uuid/clockSequence.<get-clockSequence>|<get-clockSequence>@kotlin.uuid.Uuid(){}[0]
+final val app.softwork.uuid/instant // app.softwork.uuid/instant|@kotlin.uuid.Uuid{}instant[0]
+    final fun (kotlin.uuid/Uuid).<get-instant>(): kotlin.time/Instant // app.softwork.uuid/instant.<get-instant>|<get-instant>@kotlin.uuid.Uuid(){}[0]
 final val app.softwork.uuid/isRfcVariant // app.softwork.uuid/isRfcVariant|@kotlin.uuid.Uuid{}isRfcVariant[0]
     final fun (kotlin.uuid/Uuid).<get-isRfcVariant>(): kotlin/Boolean // app.softwork.uuid/isRfcVariant.<get-isRfcVariant>|<get-isRfcVariant>@kotlin.uuid.Uuid(){}[0]
 final val app.softwork.uuid/node // app.softwork.uuid/node|@kotlin.uuid.Uuid{}node[0]
@@ -45,6 +47,7 @@ final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/isValidUuidString(kotli
 final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/random(kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/random|random@kotlin.uuid.Uuid.Companion(kotlin.random.Random){}[0]
 final fun (kotlin/String).app.softwork.uuid/toUuid(): kotlin.uuid/Uuid // app.softwork.uuid/toUuid|toUuid@kotlin.String(){}[0]
 final fun (kotlin/String).app.softwork.uuid/toUuidOrNull(): kotlin.uuid/Uuid? // app.softwork.uuid/toUuidOrNull|toUuidOrNull@kotlin.String(){}[0]
+final fun app.softwork.uuid/Uuidv7(kotlin.time/Instant = ..., kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/Uuidv7|Uuidv7(kotlin.time.Instant;kotlin.random.Random){}[0]
 final fun app.softwork.uuid/Uuidv7(kotlin/Long, kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/Uuidv7|Uuidv7(kotlin.Long;kotlin.random.Random){}[0]
 
 // Targets: [apple]
