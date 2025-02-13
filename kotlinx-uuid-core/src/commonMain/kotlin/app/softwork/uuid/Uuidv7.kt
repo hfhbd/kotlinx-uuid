@@ -14,6 +14,34 @@ private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
  *
  * [timeStamp] must be an 48 bit unix timestamp.
  */
+public fun Uuidv7(timeStamp: Long): Uuid {
+    require(timeStamp <= UNIX_48_TIMESTAMP) {
+        "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
+    }
+
+    val base = Uuid.random()
+    return Uuidv7(timeStamp, base)
+}
+
+internal fun Uuidv7(timestamp: Long, base: Uuid): Uuid {
+    return base.toLongs { randomValue, leastSignificantBits ->
+        val shiftedRightBits = timestamp shl 16
+        val left = randomValue and 0x0000_0000_0000_0FFFL
+        val result = (left or 0x0000_0000_0000_7000L) or shiftedRightBits
+
+        Uuid.fromLongs(
+            mostSignificantBits = result,
+            leastSignificantBits = leastSignificantBits,
+        )
+    }
+}
+
+/**
+ * An Uuidv7 implementation according to the
+ * [draft](https://datatracker.ietf.org/doc/html/draft-ietf-uuidrev-rfc4122bis#section-5.7).
+ *
+ * [timeStamp] must be an 48 bit unix timestamp.
+ */
 public fun Uuidv7(timeStamp: Long, random: Random): Uuid {
     require(timeStamp <= UNIX_48_TIMESTAMP) {
         "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
@@ -37,6 +65,14 @@ public fun Uuidv7(timeStamp: Long, random: Random): Uuid {
  * The Uuidv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
  */
 public val Uuid.unixTimeStamp: Long get() = toLongs { mostSignificantBits, _ -> mostSignificantBits ushr 16 }
+
+/**
+ * An Uuidv7 implementation according to the
+ * [draft](https://datatracker.ietf.org/doc/html/draft-ietf-uuidrev-rfc4122bis#section-5.7).
+ */
+@ExperimentalTime
+public fun Uuidv7(timeStamp: Instant = Clock.System.now()): Uuid =
+    Uuidv7(timeStamp = timeStamp.toEpochMilliseconds())
 
 /**
  * An Uuidv7 implementation according to the
