@@ -11,7 +11,7 @@ import kotlin.uuid.Uuid
  * Generates a random Uuid v4 using the specified [random] source.
  */
 public fun Uuid.Companion.random(random: Random): Uuid {
-    val randomBytes = random.nextBytes(16)
+    val randomBytes = random.nextBytes(Uuid.SIZE_BYTES)
     return uuidFromRandomBytes(randomBytes)
 }
 

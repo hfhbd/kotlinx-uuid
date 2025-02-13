@@ -18,6 +18,17 @@ class Uuidv7Test {
     }
 
     @Test
+    fun testWithBase() {
+        val base = Random(4242).nextUuid()
+        val uuid = Uuidv7(1645557742000, base)
+
+        assertEquals(1645557742000, uuid.unixTimeStamp)
+        assertEquals(7, uuid.version)
+        assertEquals(5, uuid.variant)
+        assertEquals("017f22e2-79b0-7a1e-ad73-08cd2f61d78a", uuid.toString())
+    }
+
+    @Test
     @ExperimentalTime
     fun testConversionInstant() {
         val timestamp = Instant.parse("2020-02-20T10:21:42Z")
