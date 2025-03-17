@@ -45,3 +45,18 @@ kotlin {
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
     }
 }
+
+val java9 by java.sourceSets.registering
+
+tasks.named("jvmJar", Jar::class) {
+    into("META-INF/versions/9") {
+        from(java9.map { it.output })
+    }
+
+    manifest.attributes("Multi-Release" to true)
+}
+
+tasks.named<JavaCompile>("compileJava9Java") {
+    javaCompiler.set(javaToolchains.compilerFor {})
+    options.release.set(9)
+}

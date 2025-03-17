@@ -9,4 +9,5 @@
 final val app.softwork.uuid.datetime/instant // app.softwork.uuid.datetime/instant|@kotlin.uuid.Uuid{}instant[0]
     final fun (kotlin.uuid/Uuid).<get-instant>(): kotlinx.datetime/Instant // app.softwork.uuid.datetime/instant.<get-instant>|<get-instant>@kotlin.uuid.Uuid(){}[0]
 
+final fun app.softwork.uuid.datetime/Uuidv7(kotlinx.datetime/Instant = ...): kotlin.uuid/Uuid // app.softwork.uuid.datetime/Uuidv7|Uuidv7(kotlinx.datetime.Instant){}[0]
 final fun app.softwork.uuid.datetime/Uuidv7(kotlinx.datetime/Instant = ..., kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid.datetime/Uuidv7|Uuidv7(kotlinx.datetime.Instant;kotlin.random.Random){}[0]

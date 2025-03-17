@@ -2,6 +2,7 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
+    <ID>FunctionNaming:Dsl.kt$public fun Uuidv7(timeStamp: Instant = Clock.System.now()): Uuid</ID>
     <ID>FunctionNaming:Dsl.kt$public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
     <ID>FunctionNaming:Uuidv7.kt$@ExperimentalTime public fun Uuidv7(timeStamp: Instant = Clock.System.now()): Uuid</ID>
     <ID>FunctionNaming:Uuidv7.kt$@ExperimentalTime public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
