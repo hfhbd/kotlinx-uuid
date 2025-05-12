@@ -44,6 +44,14 @@ kotlin {
         progressiveMode.set(true)
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
     }
+
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+    }
 }
 
 val java9 by java.sourceSets.registering

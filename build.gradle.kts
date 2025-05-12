@@ -9,15 +9,15 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
 }
 
-dependencies {
-    for (sub in subprojects) {
-        dokka(sub)
-    }
-}
-
 dokka {
     dokkaPublications.configureEach {
         includes.from("README.md")
+    }
+
+    dependencies {
+        for (sub in subprojects) {
+            dokka(sub)
+        }
     }
 }
 
@@ -34,10 +34,10 @@ detekt {
     reports {
         sarif.required.set(true)
     }
-}
 
-dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${detekt.toolVersion}")
+    dependencies {
+        detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${toolVersion}")
+    }
 }
 
 apiValidation {
