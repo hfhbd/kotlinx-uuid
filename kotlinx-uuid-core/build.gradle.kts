@@ -29,17 +29,3 @@ kotlin {
         }
     }
 }
-
-tasks.compileJava9Java {
-    options.compilerArgumentProviders += object : CommandLineArgumentProvider {
-
-        @InputFiles
-        @PathSensitive(PathSensitivity.RELATIVE)
-        val kotlinClasses = tasks.compileKotlinJvm.flatMap { it.destinationDirectory }
-
-        override fun asArguments(): List<String> = listOf(
-            "--patch-module",
-            "app.softwork.uuid.core=${kotlinClasses.get().asFile.absolutePath}"
-        )
-    }
-}
