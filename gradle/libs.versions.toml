@@ -8,7 +8,7 @@ serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-jso
 serialization-cbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "serialization" }
 serialization-protobuf = { module = "org.jetbrains.kotlinx:kotlinx-serialization-protobuf", version.ref = "serialization" }
 
-sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.0.2" }
+sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.1.0" }
 
 datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.2" }
 
