@@ -8,9 +8,6 @@ plugins {
 }
 
 kotlin{
-    wasmJs {
-        nodejs()
-    }
     wasmWasi {
         nodejs()
     }
@@ -20,11 +17,6 @@ kotlin{
             dependencies {
                 api(projects.kotlinxUuidCore)
                 api(libs.datetime)
-            }
-        }
-        commonTest {
-            dependencies {
-                implementation(kotlin("test"))
             }
         }
     }

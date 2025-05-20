@@ -9,7 +9,10 @@ kotlin {
 
     jvm()
     js {
-        browser()
+        nodejs()
+    }
+
+    wasmJs {
         nodejs()
     }
 
@@ -43,6 +46,14 @@ kotlin {
     compilerOptions {
         progressiveMode.set(true)
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
+    }
+
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
     }
 }
 

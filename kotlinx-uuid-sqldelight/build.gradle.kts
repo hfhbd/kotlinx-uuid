@@ -13,11 +13,6 @@ kotlin {
                 api(libs.sqldelight.runtime)
             }
         }
-        commonTest {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
     }
 }
 
