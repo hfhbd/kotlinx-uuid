@@ -15,6 +15,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: gradle/actions/setup-gradle@v4
 
       - name: Build with Gradle
         run: ./gradlew build -x :kotlinx-uuid-core:jsBrowserTest
