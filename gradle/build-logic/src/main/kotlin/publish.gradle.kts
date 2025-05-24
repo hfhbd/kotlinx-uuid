@@ -6,34 +6,31 @@ plugins {
 
 val emptyJar by tasks.registering(Jar::class)
 
-publishing {
-    publications.configureEach {
-        this as MavenPublication
-        artifact(emptyJar) {
-            classifier = "javadoc"
+publishing.publications.withType<MavenPublication>().configureEach {
+    artifact(emptyJar) {
+        classifier = "javadoc"
+    }
+    pom {
+        name.set("app.softwork UUID Library")
+        description.set("A multiplatform Kotlin UUID library, forked from https://github.com/cy6erGn0m/kotlinx-uuid")
+        url.set("https://github.com/hfhbd/kotlinx-uuid")
+        licenses {
+            license {
+                name.set("Apache-2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+            }
         }
-        pom {
-            name.set("app.softwork UUID Library")
-            description.set("A multiplatform Kotlin UUID library, forked from https://github.com/cy6erGn0m/kotlinx-uuid")
+        developers {
+            developer {
+                id.set("hfhbd")
+                name.set("Philip Wedemann")
+                email.set("mybztg+mavencentral@icloud.com")
+            }
+        }
+        scm {
+            connection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
+            developerConnection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
             url.set("https://github.com/hfhbd/kotlinx-uuid")
-            licenses {
-                license {
-                    name.set("Apache-2.0")
-                    url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
-                }
-            }
-            developers {
-                developer {
-                    id.set("hfhbd")
-                    name.set("Philip Wedemann")
-                    email.set("mybztg+mavencentral@icloud.com")
-                }
-            }
-            scm {
-                connection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
-                developerConnection.set("scm:git://github.com/hfhbd/kotlinx-uuid.git")
-                url.set("https://github.com/hfhbd/kotlinx-uuid")
-            }
         }
     }
 }

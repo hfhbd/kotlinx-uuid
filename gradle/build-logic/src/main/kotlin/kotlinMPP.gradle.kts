@@ -46,6 +46,8 @@ kotlin {
     compilerOptions {
         progressiveMode.set(true)
         optIn.add("kotlin.uuid.ExperimentalUuidApi")
+        allWarningsAsErrors.set(true)
+        extraWarnings.set(true)
     }
 
     sourceSets {
@@ -70,4 +72,11 @@ tasks.named("jvmJar", Jar::class) {
 tasks.named<JavaCompile>("compileJava9Java") {
     javaCompiler.set(javaToolchains.compilerFor {})
     options.release.set(9)
+}
+
+plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin> {
+    the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().downloadBaseUrl = null
+}
+plugins.withType<org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsPlugin> {
+    the<org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsEnvSpec>().downloadBaseUrl = null
 }
