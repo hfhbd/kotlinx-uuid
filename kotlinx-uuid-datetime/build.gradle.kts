@@ -7,7 +7,7 @@ plugins {
     id("kotlinMPP")
 }
 
-kotlin{
+kotlin {
     wasmWasi {
         nodejs()
     }
@@ -16,6 +16,7 @@ kotlin{
         commonMain {
             dependencies {
                 api(projects.kotlinxUuidCore)
+                api(libs.serialization.core)
                 api(libs.datetime)
             }
         }

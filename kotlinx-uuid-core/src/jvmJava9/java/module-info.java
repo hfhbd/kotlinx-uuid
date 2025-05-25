@@ -1,5 +1,6 @@
 module app.softwork.uuid.core {
     exports app.softwork.uuid;
 
-    requires kotlin.stdlib;
+    requires transitive kotlin.stdlib;
+    requires transitive kotlinx.serialization.core;
 }

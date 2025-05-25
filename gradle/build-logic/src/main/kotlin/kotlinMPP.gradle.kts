@@ -1,3 +1,9 @@
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin
+import org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsEnvSpec
+import org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsPlugin
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
     kotlin("multiplatform")
     id("publish")
@@ -7,7 +13,9 @@ plugins {
 kotlin {
     jvmToolchain(8)
 
-    jvm()
+    jvm {
+        withJava()
+    }
     js {
         nodejs()
     }
@@ -69,14 +77,27 @@ tasks.named("jvmJar", Jar::class) {
     manifest.attributes("Multi-Release" to true)
 }
 
+val compileKotlinJvm by tasks.existing(KotlinJvmCompile::class)
+
 tasks.named<JavaCompile>("compileJava9Java") {
     javaCompiler.set(javaToolchains.compilerFor {})
     options.release.set(9)
+
+    options.compilerArgumentProviders += object: CommandLineArgumentProvider {
+
+        @InputFiles
+        @PathSensitive(PathSensitivity.RELATIVE)
+        val libraries: ConfigurableFileCollection = objects.fileCollection().from(compileKotlinJvm.map { it.libraries })
+
+        override fun asArguments() = listOf(
+            "--module-path", libraries.asPath,
+        )
+    }
 }
 
-plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin> {
-    the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().downloadBaseUrl = null
+plugins.withType<NodeJsPlugin> {
+    the<NodeJsEnvSpec>().downloadBaseUrl = null
 }
-plugins.withType<org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsPlugin> {
-    the<org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsEnvSpec>().downloadBaseUrl = null
+plugins.withType<WasmNodeJsPlugin> {
+    the<WasmNodeJsEnvSpec>().downloadBaseUrl = null
 }
