@@ -22,7 +22,7 @@ dokka {
 }
 
 detekt {
-    source.from(fileTree(rootProject.rootDir) {
+    source.from(fileTree(layout.settingsDirectory) {
         include("**/*.kt")
         exclude("**/*.kts")
         exclude("**/resources/**")
