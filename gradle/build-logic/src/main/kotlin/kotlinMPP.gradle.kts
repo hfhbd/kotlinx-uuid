@@ -14,8 +14,20 @@ kotlin {
     jvmToolchain(8)
 
     jvm {
-        withJava()
+        val main = compilations.getByName("main")
+        val jvm9 = compilations.create("9Main") {
+            associateWith(main)
+        }
+        tasks.named(artifactsTaskName, Jar::class) {
+            from(jvm9.output.allOutputs) {
+                into("META-INF/versions/9")
+            }
+            manifest {
+                manifest.attributes("Multi-Release" to true)
+            }
+        }
     }
+
     js {
         nodejs()
     }
@@ -67,32 +79,9 @@ kotlin {
     }
 }
 
-val java9 by java.sourceSets.registering
-
-tasks.named("jvmJar", Jar::class) {
-    into("META-INF/versions/9") {
-        from(java9.map { it.output })
-    }
-
-    manifest.attributes("Multi-Release" to true)
-}
-
-val compileKotlinJvm by tasks.existing(KotlinJvmCompile::class)
-
-tasks.named<JavaCompile>("compileJava9Java") {
+tasks.named<JavaCompile>("compileJvm9MainJava") {
     javaCompiler.set(javaToolchains.compilerFor {})
     options.release.set(9)
-
-    options.compilerArgumentProviders += object: CommandLineArgumentProvider {
-
-        @InputFiles
-        @PathSensitive(PathSensitivity.RELATIVE)
-        val libraries: ConfigurableFileCollection = objects.fileCollection().from(compileKotlinJvm.map { it.libraries })
-
-        override fun asArguments() = listOf(
-            "--module-path", libraries.asPath,
-        )
-    }
 }
 
 plugins.withType<NodeJsPlugin> {
