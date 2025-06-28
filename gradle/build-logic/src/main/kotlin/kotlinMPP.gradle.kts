@@ -1,3 +1,6 @@
+@file:OptIn(ExperimentalAbiValidation::class)
+
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin
 import org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsEnvSpec
@@ -12,6 +15,9 @@ plugins {
 
 kotlin {
     jvmToolchain(8)
+    abiValidation {
+        enabled.set(true)
+    }
 
     jvm {
         val main = compilations.getByName("main")
@@ -77,6 +83,10 @@ kotlin {
             }
         }
     }
+}
+
+tasks.check {
+    dependsOn(tasks.checkLegacyAbi)
 }
 
 tasks.named<JavaCompile>("compileJvm9MainJava") {
