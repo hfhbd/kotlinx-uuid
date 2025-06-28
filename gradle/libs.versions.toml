@@ -10,8 +10,6 @@ serialization-protobuf = { module = "org.jetbrains.kotlinx:kotlinx-serialization
 
 sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.1.0" }
 
-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.2" }
-
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 binary = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.17.0" }
