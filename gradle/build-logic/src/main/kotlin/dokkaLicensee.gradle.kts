@@ -20,10 +20,6 @@ dokka {
             register("kotlinx.serialization") {
                 url("https://kotlinlang.org/api/kotlinx.serialization/")
             }
-            register("kotlinx.datetime") {
-                url("https://kotlinlang.org/api/kotlinx-datetime/")
-                packageListUrl("https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/package-list")
-            }
             register("sqldelight") {
                 url("https://cashapp.github.io/sqldelight/2.0.2/2.x/")
             }
