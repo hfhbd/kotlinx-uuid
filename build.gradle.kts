@@ -4,7 +4,6 @@
  */
 
 plugins {
-    id("org.jetbrains.kotlinx.binary-compatibility-validator")
     id("org.jetbrains.dokka")
     id("io.gitlab.arturbosch.detekt")
 }
@@ -37,12 +36,6 @@ detekt {
 
     dependencies {
         detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${toolVersion}")
-    }
-}
-
-apiValidation {
-    klib {
-        enabled = true
     }
 }
 
