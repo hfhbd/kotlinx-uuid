@@ -5,8 +5,6 @@
 package app.softwork.uuid
 
 import app.softwork.uuid.internal.SHA1
-import kotlin.experimental.and
-import kotlin.experimental.or
 import kotlin.uuid.Uuid
 
 /**
@@ -22,7 +20,7 @@ public fun Uuid.Companion.generateUuid(namespace: Uuid, name: String): Uuid {
         update(name.encodeToByteArray())
     }
 
-    return generateUuidByHash(hash, version = 5)
+    return generateUuidByHash(hash)
 }
 
 /**
@@ -40,7 +38,7 @@ public fun Uuid.Companion.generateUuid(bytes: ByteArray): Uuid {
         update(bytes)
     }
 
-    return generateUuidByHash(hash, version = 5)
+    return generateUuidByHash(hash)
 }
 
 private inline fun sha1(builder: SHA1.() -> Unit): ByteArray {
@@ -49,9 +47,9 @@ private inline fun sha1(builder: SHA1.() -> Unit): ByteArray {
     return sha1.final()
 }
 
-private fun generateUuidByHash(hashBytes: ByteArray, version: Int): Uuid {
-    hashBytes[6] = (hashBytes[6] and 0x0f or (version shl 4).toByte())
-    hashBytes[8] = hashBytes[8] and 0x3f or 0x80.toByte()
+private fun generateUuidByHash(hashBytes: ByteArray): Uuid {
+    hashBytes[6] = (hashBytes[6].toInt() and 0x0f or 80).toByte()
+    hashBytes[8] = (hashBytes[8].toInt() and 0x3f or 0x80).toByte()
 
     return Uuid.fromByteArray(hashBytes.copyOf(Uuid.SIZE_BYTES))
 }

@@ -10,7 +10,6 @@ kotlin {
         commonMain {
             dependencies {
                 api(projects.kotlinxUuidCore)
-                api(libs.serialization.core)
                 api(libs.sqldelight.runtime)
             }
         }
