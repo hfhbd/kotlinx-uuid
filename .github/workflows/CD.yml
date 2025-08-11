@@ -19,7 +19,7 @@ jobs:
       - name: Set environment for version
         id: version
         run: long="${{ github.ref }}"; version=${long#"refs/tags/v"}; echo "version=${version}" >> $GITHUB_OUTPUT
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: gradle/actions/setup-gradle@v4
 
       - name: Publish
