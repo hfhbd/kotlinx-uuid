@@ -53,8 +53,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GROUP: com.github.sengokudaikon
 
+      - name: Check for Maven Central credentials
+        id: check-credentials
+        run: |
+          if [ "${{ secrets.CENTRAL_USERNAME }}" != "" ] && [ "${{ secrets.CENTRAL_PASSWORD }}" != "" ]; then
+            echo "HAS_MAVEN_CENTRAL_CREDENTIALS=true" >> $GITHUB_ENV
+          else
+            echo "HAS_MAVEN_CENTRAL_CREDENTIALS=false" >> $GITHUB_ENV
+          fi
+
       - name: Publish to Maven Central (optional)
-        if: ${{ secrets.CENTRAL_USERNAME != '' && secrets.CENTRAL_PASSWORD != '' }}
+        if: env.HAS_MAVEN_CENTRAL_CREDENTIALS == 'true'
         run: ./gradlew -Pversion=${{ steps.version.outputs.version }} publishToMavenCentral
         env:
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
