@@ -18,6 +18,11 @@ final object app.softwork.uuid/BinarySerializer : kotlinx.serialization/KSeriali
     final fun toString(): kotlin/String // app.softwork.uuid/BinarySerializer.toString|toString(){}[0]
 }
 
+final object app.softwork.uuid/Uuidv7Monotonic { // app.softwork.uuid/Uuidv7Monotonic|null[0]
+    final fun next(kotlin.time/Instant = ...): kotlin.uuid/Uuid // app.softwork.uuid/Uuidv7Monotonic.next|next(kotlin.time.Instant){}[0]
+    final fun next(kotlin/Long): kotlin.uuid/Uuid // app.softwork.uuid/Uuidv7Monotonic.next|next(kotlin.Long){}[0]
+}
+
 final val app.softwork.uuid/MAX // app.softwork.uuid/MAX|@kotlin.uuid.Uuid.Companion{}MAX[0]
     final fun (kotlin.uuid/Uuid.Companion).<get-MAX>(): kotlin.uuid/Uuid // app.softwork.uuid/MAX.<get-MAX>|<get-MAX>@kotlin.uuid.Uuid.Companion(){}[0]
 final val app.softwork.uuid/clockSequence // app.softwork.uuid/clockSequence|@kotlin.uuid.Uuid{}clockSequence[0]
@@ -45,6 +50,10 @@ final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/generateUuid(kotlin.uui
 final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/generateUuid(kotlin/ByteArray): kotlin.uuid/Uuid // app.softwork.uuid/generateUuid|generateUuid@kotlin.uuid.Uuid.Companion(kotlin.ByteArray){}[0]
 final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/isValidUuidString(kotlin/String): kotlin/Boolean // app.softwork.uuid/isValidUuidString|isValidUuidString@kotlin.uuid.Uuid.Companion(kotlin.String){}[0]
 final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/random(kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/random|random@kotlin.uuid.Uuid.Companion(kotlin.random.Random){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/v7(kotlin.time/Instant = ...): kotlin.uuid/Uuid // app.softwork.uuid/v7|v7@kotlin.uuid.Uuid.Companion(kotlin.time.Instant){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/v7(kotlin.time/Instant = ..., kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/v7|v7@kotlin.uuid.Uuid.Companion(kotlin.time.Instant;kotlin.random.Random){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/v7(kotlin/Long): kotlin.uuid/Uuid // app.softwork.uuid/v7|v7@kotlin.uuid.Uuid.Companion(kotlin.Long){}[0]
+final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/v7(kotlin/Long, kotlin.random/Random): kotlin.uuid/Uuid // app.softwork.uuid/v7|v7@kotlin.uuid.Uuid.Companion(kotlin.Long;kotlin.random.Random){}[0]
 final fun (kotlin/String).app.softwork.uuid/toUuid(): kotlin.uuid/Uuid // app.softwork.uuid/toUuid|toUuid@kotlin.String(){}[0]
 final fun (kotlin/String).app.softwork.uuid/toUuidOrNull(): kotlin.uuid/Uuid? // app.softwork.uuid/toUuidOrNull|toUuidOrNull@kotlin.String(){}[0]
 final fun app.softwork.uuid/Uuidv7(kotlin.time/Instant = ...): kotlin.uuid/Uuid // app.softwork.uuid/Uuidv7|Uuidv7(kotlin.time.Instant){}[0]

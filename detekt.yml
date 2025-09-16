@@ -1,0 +1,7 @@
+naming:
+  FunctionNaming:
+    active: false
+
+style:
+  MagicNumber:
+    active: false

@@ -30,6 +30,7 @@ detekt {
     })
     parallel = true
     autoCorrect = true
+    config.setFrom(rootProject.file("detekt.yml"))
     reports {
         sarif.required.set(true)
     }
