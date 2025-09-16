@@ -1,0 +1,63 @@
+name: Publish to GitHub Packages
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (without v prefix)'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Set environment for version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            long="${{ github.ref }}"; version=${long#"refs/tags/v"}; echo "version=${version}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          fi
+
+      - uses: actions/checkout@v5
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Configure Gradle for GitHub Packages
+        run: |
+          mkdir -p ~/.gradle
+          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> ~/.gradle/gradle.properties
+          echo "GROUP=com.github.sengokudaikon" >> ~/.gradle/gradle.properties
+          echo "VERSION=${{ steps.version.outputs.version }}" >> ~/.gradle/gradle.properties
+
+      - name: Publish to GitHub Packages
+        run: ./gradlew -Pversion=${{ steps.version.outputs.version }} publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GROUP: com.github.sengokudaikon
+
+      - name: Publish to Maven Central (optional)
+        if: ${{ secrets.CENTRAL_USERNAME != '' && secrets.CENTRAL_PASSWORD != '' }}
+        run: ./gradlew -Pversion=${{ steps.version.outputs.version }} publishToMavenCentral
+        env:
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.CENTRAL_PASSWORD }}

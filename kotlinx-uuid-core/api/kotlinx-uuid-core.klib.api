@@ -6,7 +6,7 @@
 // - Show manifest properties: true
 // - Show declarations: true
 
-// Library unique name: <app.softwork:kotlinx-uuid-core>
+// Library unique name: <com.github.sengokudaikon:kotlinx-uuid-core>
 final object app.softwork.uuid/BinarySerializer : kotlinx.serialization/KSerializer<kotlin.uuid/Uuid> { // app.softwork.uuid/BinarySerializer|null[0]
     final val descriptor // app.softwork.uuid/BinarySerializer.descriptor|{}descriptor[0]
         final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // app.softwork.uuid/BinarySerializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
