@@ -1,4 +1,6 @@
 name: CD
+permissions:
+  contents: read
 
 on:
   release:
