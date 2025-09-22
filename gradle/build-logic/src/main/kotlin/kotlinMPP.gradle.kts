@@ -5,7 +5,6 @@ import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin
 import org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsEnvSpec
 import org.jetbrains.kotlin.gradle.targets.wasm.nodejs.WasmNodeJsPlugin
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     kotlin("multiplatform")
@@ -92,6 +91,7 @@ tasks.check {
 tasks.named<JavaCompile>("compileJvm9MainJava") {
     javaCompiler.set(javaToolchains.compilerFor {})
     options.release.set(9)
+    options.javaModuleVersion.set(provider { project.version.toString() })
 }
 
 plugins.withType<NodeJsPlugin> {

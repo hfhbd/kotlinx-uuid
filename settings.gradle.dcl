@@ -12,22 +12,6 @@ pluginManagement {
 
 plugins {
     id("mySettings")
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-    id("com.gradle.develocity") version "4.2"
-}
-
-develocity {
-    buildScan {
-        termsOfUseUrl.set("https://gradle.com/terms-of-service")
-        termsOfUseAgree.set("yes")
-        publishing {
-            val isCI = providers.environmentVariable("CI").isPresent
-            onlyIf {
-                isCI
-            }
-        }
-        tag("CI")
-    }
 }
 
 rootProject.name = "kotlinx-uuid"
@@ -36,5 +20,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 
 include(":kotlinx-uuid-core")
-
 include(":kotlinx-uuid-sqldelight")
