@@ -1,3 +1,8 @@
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention")
+    id("com.gradle.develocity")
+}
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 
@@ -15,5 +20,19 @@ dependencyResolutionManagement {
             }
             filter { includeGroup("org.nodejs") }
         }
+    }
+}
+
+develocity {
+    buildScan {
+        termsOfUseUrl.set("https://gradle.com/terms-of-service")
+        termsOfUseAgree.set("yes")
+        publishing {
+            val isCI = providers.environmentVariable("CI").isPresent
+            onlyIf {
+                isCI
+            }
+        }
+        tag("CI")
     }
 }
