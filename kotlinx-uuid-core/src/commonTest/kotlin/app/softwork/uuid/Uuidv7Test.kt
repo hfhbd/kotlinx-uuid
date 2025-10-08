@@ -3,9 +3,9 @@ package app.softwork.uuid
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 
+@Suppress("DEPRECATION")
 class Uuidv7Test {
     @Test
     fun test() {
@@ -29,7 +29,6 @@ class Uuidv7Test {
     }
 
     @Test
-    @ExperimentalTime
     fun testConversionInstant() {
         val timestamp = Instant.parse("2020-02-20T10:21:42Z")
         val uuid = Uuidv7(timeStamp = timestamp, random = Random(4242))

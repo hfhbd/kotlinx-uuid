@@ -30,6 +30,7 @@ class GenerationTest {
         Random.nextUuid().assertRandomGenerated()
     }
 
+    @Suppress("DEPRECATION")
     @Test
     fun testGenerateFromName() {
         val baseUuid = Uuid.parse(SOME_UUID_STRING)
@@ -38,6 +39,7 @@ class GenerationTest {
         assertEquals("9dc3df60-4ed1-5ea9-9e66-5c2030d5827b", generated.toString())
     }
 
+    @Suppress("DEPRECATION")
     @Test
     fun testGenerateFromBytes() {
         val generated = Uuid.generateUuid(SOME_UUID_STRING.explodeToBytes().toByteArray())

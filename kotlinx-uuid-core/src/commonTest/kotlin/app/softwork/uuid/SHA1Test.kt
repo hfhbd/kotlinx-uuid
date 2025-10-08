@@ -2,6 +2,8 @@
  * Copyright 2020-2020 JetBrains s.r.o and contributors. Use of this source code is governed by the Apache 2.0 license.
  */
 
+@file:Suppress("DEPRECATION")
+
 package app.softwork.uuid
 
 import app.softwork.uuid.internal.SHA1
@@ -9,6 +11,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
+@Suppress("DEPRECATION")
 class SHA1Test {
     private val sha1 = SHA1()
 

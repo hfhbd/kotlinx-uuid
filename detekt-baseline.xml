@@ -2,11 +2,11 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>FunctionNaming:Uuidv7.kt$@ExperimentalTime public fun Uuidv7(timeStamp: Instant = Clock.System.now()): Uuid</ID>
-    <ID>FunctionNaming:Uuidv7.kt$@ExperimentalTime public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
+    <ID>FunctionNaming:Uuidv7.kt$@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7")) @Suppress("DEPRECATION") public fun Uuidv7(timeStamp: Instant = Clock.System.now()): Uuid</ID>
+    <ID>FunctionNaming:Uuidv7.kt$@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7")) @Suppress("DEPRECATION") public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid</ID>
+    <ID>FunctionNaming:Uuidv7.kt$@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7")) public fun Uuidv7(timeStamp: Long): Uuid</ID>
+    <ID>FunctionNaming:Uuidv7.kt$@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7")) public fun Uuidv7(timeStamp: Long, random: Random): Uuid</ID>
     <ID>FunctionNaming:Uuidv7.kt$internal fun Uuidv7(timestamp: Long, base: Uuid): Uuid</ID>
-    <ID>FunctionNaming:Uuidv7.kt$public fun Uuidv7(timeStamp: Long): Uuid</ID>
-    <ID>FunctionNaming:Uuidv7.kt$public fun Uuidv7(timeStamp: Long, random: Random): Uuid</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$0x3f</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$0x80</ID>
     <ID>MagicNumber:NameBasedGenerator.kt$6</ID>

@@ -36,8 +36,6 @@ final val app.softwork.uuid/variant // app.softwork.uuid/variant|@kotlin.uuid.Uu
     final fun (kotlin.uuid/Uuid).<get-variant>(): kotlin/Int // app.softwork.uuid/variant.<get-variant>|<get-variant>@kotlin.uuid.Uuid(){}[0]
 final val app.softwork.uuid/version // app.softwork.uuid/version|@kotlin.uuid.Uuid{}version[0]
     final fun (kotlin.uuid/Uuid).<get-version>(): kotlin/Int // app.softwork.uuid/version.<get-version>|<get-version>@kotlin.uuid.Uuid(){}[0]
-final val app.softwork.uuid/versionNumber // app.softwork.uuid/versionNumber|@kotlin.uuid.Uuid{}versionNumber[0]
-    final fun (kotlin.uuid/Uuid).<get-versionNumber>(): kotlin/Int // app.softwork.uuid/versionNumber.<get-versionNumber>|<get-versionNumber>@kotlin.uuid.Uuid(){}[0]
 
 final fun (kotlin.random/Random).app.softwork.uuid/nextUuid(): kotlin.uuid/Uuid // app.softwork.uuid/nextUuid|nextUuid@kotlin.random.Random(){}[0]
 final fun (kotlin.uuid/Uuid.Companion).app.softwork.uuid/from(kotlin/Int, kotlin/Long, kotlin/Int, kotlin/Long, kotlin/Int = ...): kotlin.uuid/Uuid // app.softwork.uuid/from|from@kotlin.uuid.Uuid.Companion(kotlin.Int;kotlin.Long;kotlin.Int;kotlin.Long;kotlin.Int){}[0]
