@@ -10,7 +10,6 @@ dependencies {
     implementation(libs.plugins.kover.toDep())
     implementation(libs.plugins.detekt.toDep())
     implementation(libs.plugins.foojay.toDep())
-    implementation(libs.plugins.develocity.toDep())
 }
 
 fun Provider<PluginDependency>.toDep() = map {
