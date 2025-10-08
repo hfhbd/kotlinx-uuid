@@ -21,6 +21,10 @@ jobs:
         run: long="${{ github.ref }}"; version=${long#"refs/tags/v"}; echo "version=${version}" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v5
       - uses: gradle/actions/setup-gradle@v5
+        with:
+          build-scan-publish: true
+          build-scan-terms-of-use-url: 'https://gradle.com/terms-of-service'
+          build-scan-terms-of-use-agree: 'yes'
 
       - name: Publish
         run: ./gradlew -Pversion=${{ steps.version.outputs.version }} publish
