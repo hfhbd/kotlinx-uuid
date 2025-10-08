@@ -17,6 +17,7 @@ private const val UUID_STRING_ALL_FF: String = "ffffffff-ffff-ffff-ffff-ffffffff
 private const val UUID_STRING: String = "1b3e4567-e99b-13d3-a476-446657420000"
 internal const val SOME_UUID_STRING: String = "1b3e4567-e99b-13d3-a476-446657420000"
 
+@Suppress("DEPRECATION")
 class UuidTest {
     @Test
     fun testZero() {
@@ -50,8 +51,8 @@ class UuidTest {
         assertEquals("476", uuid.clockSequence.toString(16))
         assertEquals("446657420000", uuid.node.toString(16))
 
-        assertEquals(uuid, UUID_STRING.toUuid())
-        assertEquals(uuid, UUID_STRING.toUuidOrNull())
+        assertEquals(uuid, Uuid.parse(UUID_STRING))
+        assertEquals(uuid, Uuid.parseOrNull(UUID_STRING))
     }
 
     @Test
@@ -174,7 +175,7 @@ class UuidTest {
         assertFalse(Uuid.isValidUuidString(SOME_UUID_STRING.drop(1)))
         assertFalse(Uuid.isValidUuidString(SOME_UUID_STRING.dropLast(1)))
         assertFalse(Uuid.isValidUuidString(SOME_UUID_STRING.replace('b', 'X')))
-        assertNull(SOME_UUID_STRING.drop(1).toUuidOrNull())
+        assertNull(Uuid.parseOrNull(SOME_UUID_STRING.drop(1)))
     }
 
     @Test

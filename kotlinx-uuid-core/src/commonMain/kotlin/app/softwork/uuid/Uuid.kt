@@ -53,12 +53,6 @@ public val Uuid.clockSequence: Int
 /**
  * Uuid [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]`
  */
-@Deprecated("Use version instead", replaceWith = ReplaceWith("version"))
-public val Uuid.versionNumber: Int get() = version
-
-/**
- * Uuid [numeric version](https://tools.ietf.org/html/rfc4122#section-4.1.3) in range `[0..15]`
- */
 public val Uuid.version: Int
     get() = toLongs { timeStampAndVersionRaw, _ ->
         (timeStampAndVersionRaw and 0xf000L shr 12).toInt()
@@ -91,25 +85,19 @@ public val Uuid.node: Long
  * Check the [spec] string to conform to Uuid
  * @return `true` if the [spec] string is a Uuid string
  */
-public fun Uuid.Companion.isValidUuidString(spec: String): Boolean = try {
-    parse(spec)
-    true
-} catch (_: IllegalArgumentException) {
-    false
-}
+@Deprecated("Use Uuid.parseOrNull(spec) != null instead", ReplaceWith("Uuid.parseOrNull(spec) != null"))
+public fun Uuid.Companion.isValidUuidString(spec: String): Boolean = Uuid.parseOrNull(spec) != null
 
 /**
  * Convert this String to a [Uuid], or throws a [IllegalArgumentException] if [this] is a malformed Uuid.
  */
+@Deprecated("Use Uuid.parse instead", ReplaceWith("Uuid.parse(this)"))
 public fun String.toUuid(): Uuid = Uuid.parse(this)
 
 /**
  * Convert this String to a [Uuid], or returns null if [this] is a malformed Uuid.
  */
-public fun String.toUuidOrNull(): Uuid? = try {
-    Uuid.parse(this)
-} catch (_: IllegalArgumentException) {
-    null
-}
+@Deprecated("Use Uuid.parseOrNull instead", ReplaceWith("Uuid.parseOrNull(this)"))
+public fun String.toUuidOrNull(): Uuid? = Uuid.parseOrNull(this)
 
 public val Uuid.Companion.MAX: Uuid get() = fromLongs(-1, -1)

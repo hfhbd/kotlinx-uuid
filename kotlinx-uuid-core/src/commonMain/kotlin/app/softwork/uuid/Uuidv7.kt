@@ -2,7 +2,6 @@ package app.softwork.uuid
 
 import kotlin.random.Random
 import kotlin.time.Clock
-import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
 import kotlin.uuid.Uuid
 
@@ -14,6 +13,7 @@ private const val UNIX_48_TIMESTAMP = 0x1FFF_FFFF_FFFF_FL
  *
  * [timeStamp] must be an 48 bit unix timestamp.
  */
+@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7"))
 public fun Uuidv7(timeStamp: Long): Uuid {
     require(timeStamp <= UNIX_48_TIMESTAMP) {
         "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
@@ -42,6 +42,7 @@ internal fun Uuidv7(timestamp: Long, base: Uuid): Uuid {
  *
  * [timeStamp] must be an 48 bit unix timestamp.
  */
+@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7"))
 public fun Uuidv7(timeStamp: Long, random: Random): Uuid {
     require(timeStamp <= UNIX_48_TIMESTAMP) {
         "timeStamp $timeStamp must be <= 48 bits, was $timeStamp."
@@ -64,13 +65,15 @@ public fun Uuidv7(timeStamp: Long, random: Random): Uuid {
 /**
  * The Uuidv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
  */
+@Deprecated("Use Uuid.instant instead", ReplaceWith("Uuid.instant"))
 public val Uuid.unixTimeStamp: Long get() = toLongs { mostSignificantBits, _ -> mostSignificantBits ushr 16 }
 
 /**
  * An Uuidv7 implementation according to the
  * [draft](https://datatracker.ietf.org/doc/html/draft-ietf-uuidrev-rfc4122bis#section-5.7).
  */
-@ExperimentalTime
+@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7"))
+@Suppress("DEPRECATION")
 public fun Uuidv7(timeStamp: Instant = Clock.System.now()): Uuid =
     Uuidv7(timeStamp = timeStamp.toEpochMilliseconds())
 
@@ -78,12 +81,13 @@ public fun Uuidv7(timeStamp: Instant = Clock.System.now()): Uuid =
  * An Uuidv7 implementation according to the
  * [draft](https://datatracker.ietf.org/doc/html/draft-ietf-uuidrev-rfc4122bis#section-5.7).
  */
-@ExperimentalTime
+@Deprecated("Use Uuid.generateV7 of Kotlin 2.3.0 instead", ReplaceWith("Uuid.generateV7"))
+@Suppress("DEPRECATION")
 public fun Uuidv7(timeStamp: Instant = Clock.System.now(), random: Random): Uuid =
     Uuidv7(timeStamp = timeStamp.toEpochMilliseconds(), random = random)
 
 /**
  * The Uuidv7 48 bit big-endian unsigned number of Unix epoch timestamp in milliseconds
  */
-@ExperimentalTime
+@Suppress("DEPRECATION")
 public val Uuid.instant: Instant get() = Instant.fromEpochMilliseconds(unixTimeStamp)
