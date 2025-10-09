@@ -14,7 +14,7 @@ sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version = "2.1.0"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 mavencentral = { id = "io.github.hfhbd.mavencentral", version = "0.0.23" }
 dokka = { id = "org.jetbrains.dokka", version = "2.0.0" }
-licensee = { id = "app.cash.licensee", version = "1.14.0" }
+licensee = { id = "app.cash.licensee", version = "1.14.1" }
 kover = { id = "org.jetbrains.kotlinx.kover", version = "0.9.2" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.8" }
 
