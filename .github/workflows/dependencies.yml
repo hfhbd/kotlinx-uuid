@@ -15,7 +15,7 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Generate and submit dependency graph
         uses: gradle/actions/dependency-submission@v5
 
