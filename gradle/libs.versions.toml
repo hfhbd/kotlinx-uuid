@@ -15,7 +15,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 mavencentral = { id = "io.github.hfhbd.mavencentral", version = "0.0.23" }
 dokka = { id = "org.jetbrains.dokka", version = "2.1.0" }
 licensee = { id = "app.cash.licensee", version = "1.14.1" }
-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.9.3" }
+kover = { id = "org.jetbrains.kotlinx.kover", version = "0.9.4" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.8" }
 
 foojay = { id = "org.gradle.toolchains.foojay-resolver-convention", version = "1.0.0" }
