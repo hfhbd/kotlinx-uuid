@@ -85,19 +85,22 @@ public val Uuid.node: Long
  * Check the [spec] string to conform to Uuid
  * @return `true` if the [spec] string is a Uuid string
  */
-@Deprecated("Use Uuid.parseOrNull(spec) != null instead", ReplaceWith("Uuid.parseOrNull(spec) != null"))
+@Deprecated(
+    "Use Uuid.parseOrNull(spec) != null instead",
+    ReplaceWith("this.parseOrNull(spec) != null", "kotlin.uuid.Uuid")
+)
 public fun Uuid.Companion.isValidUuidString(spec: String): Boolean = Uuid.parseOrNull(spec) != null
 
 /**
  * Convert this String to a [Uuid], or throws a [IllegalArgumentException] if [this] is a malformed Uuid.
  */
-@Deprecated("Use Uuid.parse instead", ReplaceWith("Uuid.parse(this)"))
+@Deprecated("Use Uuid.parse instead", ReplaceWith("Uuid.parse(this)", "kotlin.uuid.Uuid"))
 public fun String.toUuid(): Uuid = Uuid.parse(this)
 
 /**
  * Convert this String to a [Uuid], or returns null if [this] is a malformed Uuid.
  */
-@Deprecated("Use Uuid.parseOrNull instead", ReplaceWith("Uuid.parseOrNull(this)"))
+@Deprecated("Use Uuid.parseOrNull instead", ReplaceWith("Uuid.parseOrNull(this)", "kotlin.uuid.Uuid"))
 public fun String.toUuidOrNull(): Uuid? = Uuid.parseOrNull(this)
 
 public val Uuid.Companion.MAX: Uuid get() = fromLongs(-1, -1)
