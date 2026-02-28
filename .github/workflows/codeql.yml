@@ -27,6 +27,7 @@ jobs:
         with:
           languages: kotlin
           build-mode: manual
+          tools: linked
 
       - name: Build with Gradle
         run: ./gradlew --no-build-cache jvmMainClasses
@@ -49,6 +50,7 @@ jobs:
         with:
           languages: actions
           build-mode: none
+          tools: linked
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
