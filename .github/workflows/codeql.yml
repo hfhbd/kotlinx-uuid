@@ -23,7 +23,7 @@ jobs:
           build-scan-terms-of-use-agree: 'yes'
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4.37.6
+        uses: github/codeql-action/init@v4.37.7
         with:
           languages: kotlin
           build-mode: manual
@@ -33,7 +33,7 @@ jobs:
         run: ./gradlew --no-build-cache jvmMainClasses
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4.37.6
+        uses: github/codeql-action/analyze@v4.37.7
 
   analyzeActions:
     name: Analyze Actions
@@ -46,11 +46,11 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4.37.6
+        uses: github/codeql-action/init@v4.37.7
         with:
           languages: actions
           build-mode: none
           tools: linked
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v4.37.6
+        uses: github/codeql-action/analyze@v4.37.7
