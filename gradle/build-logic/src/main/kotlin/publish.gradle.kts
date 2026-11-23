@@ -4,7 +4,7 @@ plugins {
     id("io.github.hfhbd.mavencentral")
 }
 
-val emptyJar by tasks.registering(Jar::class)
+val emptyJar = tasks.register("emptyJar", Jar::class)
 
 publishing.publications.withType<MavenPublication>().configureEach {
     artifact(emptyJar) {

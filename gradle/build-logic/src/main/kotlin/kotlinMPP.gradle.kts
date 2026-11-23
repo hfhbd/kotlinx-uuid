@@ -14,9 +14,7 @@ plugins {
 
 kotlin {
     jvmToolchain(8)
-    abiValidation {
-        enabled.set(true)
-    }
+    abiValidation { }
 
     jvm {
         val main = compilations.getByName("main")
@@ -82,10 +80,6 @@ kotlin {
             }
         }
     }
-}
-
-tasks.check {
-    dependsOn(tasks.checkLegacyAbi)
 }
 
 tasks.named<JavaCompile>("compileJvm9MainJava") {
